@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="শুরু" />
+    <item
+        android:id="@+id/bookShelfFragment"
+        android:icon="@drawable/ic_home"
+        android:title="বুক শেল্ফ" />
+    <item
+        android:icon="@drawable/ic_home"
+        android:title="প্রোফাইল"
+        android:id="@+id/profileFragment"/>
+</menu>

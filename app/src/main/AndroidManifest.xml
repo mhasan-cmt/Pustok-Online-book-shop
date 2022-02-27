@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
+
+        <activity android:name=".homeactivity.HomeActivity"
+            android:exported="true"
+            >
+        </activity>
+        <activity
+            android:name=".bookdetails.BookDetailsActivity"
+            android:exported="true">
+
         <activity android:name=".userprofile.UserProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".bookdetails.BookDetailsActivity"
