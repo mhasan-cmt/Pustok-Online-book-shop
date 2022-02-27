@@ -11,25 +11,13 @@
         android:theme="@style/Theme.PustokOnlineBookShop">
 
         <activity android:name=".homeactivity.HomeActivity"
-            android:exported="true"
-            >
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".bookdetails.BookDetailsActivity"
-            android:exported="true">
+            android:exported="true"/>
 
         <activity android:name=".userprofile.UserProfileActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-
-        </activity>
-        <activity
-            android:name=".bookdetails.BookDetailsActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"/>
     </application>
 
 </manifest>
