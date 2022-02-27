@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/profile_first_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_giftcard"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp"
+            />
+        <TextView
+            android:layout_toRightOf="@id/profile_first_icon"
+            android:id="@+id/profile_first_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="প্রোমো"
+            android:textSize="18sp"
+            android:paddingVertical="12dp"
+            android:layout_marginHorizontal="8dp"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_arrow_forward"
+            android:textColor="@color/black"
+            />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
