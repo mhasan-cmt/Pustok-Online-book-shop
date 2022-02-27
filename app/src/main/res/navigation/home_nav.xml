@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/bookShelfFragment"
+        android:name="com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments.BookShelfFragment"
+        android:label="fragment_book_shelf"
+        tools:layout="@layout/fragment_book_shelf" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
