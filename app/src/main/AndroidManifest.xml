@@ -11,9 +11,9 @@
         android:theme="@style/Theme.PustokOnlineBookShop">
 <<<<<<< Updated upstream
 =======
-        <activity android:name=".activities.signupform"></activity>
+        <activity android:name=".loginandsignup.signupform"></activity>
         <activity
-            android:name=".activities.log_in_book"
+            android:name=".loginandsignup.log_in_book"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

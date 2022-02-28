@@ -1,4 +1,4 @@
-package com.teamphoenix.pustok_onlinebookshop.activities;
+package com.teamphoenix.pustok_onlinebookshop.loginandsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
