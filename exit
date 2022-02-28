@@ -1,0 +1,23 @@
+[33m63f1e17[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m no internet page only add
+[33m917d8bf[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mnoInternet[m[33m)[m manifest conflicts fix
+[33m7275feb[m file structure fix
+[33maaaad54[m Merge branch 'main' of https://github.com/mhasan-cmt/Pustok---Online-book-shop
+[33m5771cea[m log in section design
+[33mba0edf2[m bangla font check
+[33m33dff81[m bangla font added
+[33m7a74bed[m view binding enabled
+[33mbd884b3[m Merge pull request #4 from mhasan-cmt/home
+[33me715aa0[m profile section updated with fragment
+[33m8d96a1f[m removed some conflicts
+[33me0b01c3[m Merge pull request #3 from mhasan-cmt/homeActivity
+[33m54b2a19[m Merge branch 'main' into homeActivity
+[33m8a9ee1a[m removing conflicts
+[33mb54337c[m homeActvity, bottom nav, home-fragment, profile-fragment, book-shelf fragment
+[33m684d9c5[m Merge pull request #2 from mhasan-cmt/userProfileActivity
+[33ma68aee7[m button corner radius customized
+[33ma2a5472[m minimalistic design for profile activity done
+[33m04314b9[m beautiful launcher icon added
+[33me7f258b[m Merge pull request #1 from mhasan-cmt/bookDetails
+[33ma3e95c6[m Book details Page Add
+[33mac73f07[m first commit
+[33m633ba1b[m initial commit
