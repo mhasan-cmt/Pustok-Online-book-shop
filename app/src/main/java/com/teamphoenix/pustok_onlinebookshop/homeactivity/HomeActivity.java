@@ -2,6 +2,7 @@ package com.teamphoenix.pustok_onlinebookshop.homeactivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -21,8 +22,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
+        homeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
+        View view = homeBinding.getRoot();
+        setContentView(view);
 
         NavController navController = Navigation.findNavController(HomeActivity.this, R.id.fragmentContainerView);
         NavigationUI.setupWithNavController(homeBinding.bottomNavView, navController);
