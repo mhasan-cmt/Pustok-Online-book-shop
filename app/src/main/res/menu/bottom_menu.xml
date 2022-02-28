@@ -6,10 +6,10 @@
         android:title="শুরু" />
     <item
         android:id="@+id/bookShelfFragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_book_shelf"
         android:title="বুক শেল্ফ" />
     <item
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_user"
         android:title="প্রোফাইল"
         android:id="@+id/profileFragment"/>
 </menu>

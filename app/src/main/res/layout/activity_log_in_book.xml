@@ -9,158 +9,125 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="600dp"
-   android:layout_gravity="center"
-        >
+        android:layout_gravity="center">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_margin="9dp"
-
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_account_circle_24"
                 android:layout_gravity="center"
-                />
+                android:src="@drawable/ic_baseline_account_circle_24" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome!"
                 android:fontFamily="sans-serif"
+                android:gravity="center"
                 android:padding="5dp"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-android:gravity="center"
-
-                android:textStyle="bold"
+                android:text="Welcome!"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textDirection="locale"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-
-                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Sing in to continue "
-                android:textSize="20sp"
-                android:textColor="#6B705C"
-android:gravity="center"
-
-                android:textStyle="bold"
                 android:textAlignment="center"
+                android:textColor="#6B705C"
                 android:textDirection="locale"
-
-
-                />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                app:startIconDrawable="@drawable/ic_baseline_account"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:startIconDrawable="@drawable/ic_baseline_account">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/puser"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:hint="User-name"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:background="@drawable/f"
-
-                    android:maxLength="20"
-
-                    android:inputType="text"
                     android:layout_gravity="center"
-                    android:id="@+id/puser"
-
+                    android:background="@drawable/f"
                     android:backgroundTint="#EDEDE9"
-
-                    />
+                    android:hint="User-name"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-app:passwordToggleEnabled="true"
                 android:layout_marginTop="4dp"
-                app:startIconDrawable="@drawable/ic_baseline_lock"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                >
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="350dp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:textSize="16sp"
-                    android:maxLength="6"
-                    android:textStyle="bold"
-                    android:background="@drawable/f"
-
-                    android:inputType="textPassword"
                     android:id="@+id/Bpass"
-
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/f"
                     android:backgroundTint="#EDEDE9"
-                    />
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLength="6"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_margin="17dp"
-
-                android:orientation="vertical"
-                >
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <Button
                     android:layout_width="match_parent"
-
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-
                     android:background="@drawable/f"
-
+                    android:onClick="logn"
                     android:text="Log IN"
-android:onClick="logn"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-
-
                     app:backgroundTint="#4ABC96" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginTop="50dp"
+                    android:gravity="center"
                     android:text="........................OR LOG IN WITH........................"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    />
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:layout_margin="20dp"
 
                     >
 
@@ -170,73 +137,56 @@ android:onClick="logn"
                         android:background="@drawable/f"
                         android:backgroundTint="@color/white"
                         android:paddingHorizontal="10dp"
-                        android:src="@drawable/goglr"
-                       />
+                        android:src="@drawable/goglr" />
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:paddingHorizontal="10dp"
-                        android:src="@drawable/facebook"
-                        android:background="@drawable/f"
                         android:layout_marginLeft="40dp"
-                        android:backgroundTint="@color/white"/>
-
+                        android:background="@drawable/f"
+                        android:backgroundTint="@color/white"
+                        android:paddingHorizontal="10dp"
+                        android:src="@drawable/facebook" />
 
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:paddingHorizontal="10dp"
-                        android:src="@drawable/twitter"
-                        android:background="@drawable/f"
                         android:layout_marginLeft="40dp"
-                        android:backgroundTint="@color/white"/>
-
+                        android:background="@drawable/f"
+                        android:backgroundTint="@color/white"
+                        android:paddingHorizontal="10dp"
+                        android:src="@drawable/twitter" />
 
 
                 </LinearLayout>
 
 
-
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-android:orientation="horizontal"
                     android:layout_marginTop="25dp"
-                    >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Don't have an account?"
+                        android:textSize="16sp" />
 
-
-
-
-                    android:text="Don't have an account?"
-
-
-                    android:textSize="16sp"
-                 />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Create New Account"
-                    android:onClick="cna"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="#40916C"
-                    android:id="@+id/CNAC"
-                    />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/CNAC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:onClick="cna"
+                        android:text="Create New Account"
+                        android:textColor="#40916C"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
 
             </LinearLayout>

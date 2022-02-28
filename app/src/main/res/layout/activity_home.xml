@@ -11,10 +11,15 @@
         android:layout_alignParentTop="true"
         android:id="@+id/appbar"
         >
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/home_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
+            app:title="Pustok"
+            app:titleTextColor="@color/white"
+            app:subtitle="Online Book Shop"
+            app:subtitleTextColor="@color/white"
+            app:menu="@menu/topbar_menu"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -28,10 +28,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = findViewById(R.id.toolbar);
         ;
         setContentView(R.layout.activity_home);
-        setSupportActionBar(toolbar);
 
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
         NavController navController = Navigation.findNavController(HomeActivity.this, R.id.fragmentContainerView);
