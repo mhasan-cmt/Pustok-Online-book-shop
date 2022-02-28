@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".noInternetPage.noInternetPage"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/demo_no_internet"
+            android:background="@color/primary_log_opacity"/>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginVertical="30dp"
+        android:text="নেটওয়ার্ক সমস্যা..."
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="নেটওযার্ক সমস্যা হয়েছে। আপনার ইন্টারনেট সংযোগ চেক করুন এবং পুনরায় চেষ্টা করুন"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:layout_marginHorizontal="30dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="আবার চেষ্টা করুন "
+        android:drawableRight="@drawable/arrow_right"
+        android:background="@drawable/primary_button"
+        android:textColor="@color/white"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>
