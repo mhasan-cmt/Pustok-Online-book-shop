@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
+<<<<<<< Updated upstream
+=======
+        <activity android:name=".activities.signupform"></activity>
+        <activity
+            android:name=".activities.log_in_book"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+>>>>>>> Stashed changes
 
         <activity android:name=".homeactivity.HomeActivity"
             android:exported="true">
@@ -17,9 +26,13 @@
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
+<<<<<<< Updated upstream
         <activity
             android:name=".bookdetails.BookDetailsActivity"
             android:exported="true"/>
+=======
+        <activity android:name=".MainActivity"></activity>
+>>>>>>> Stashed changes
     </application>
 
 </manifest>
