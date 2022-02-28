@@ -16,7 +16,6 @@ import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityHomeBinding;
 public class HomeActivity extends AppCompatActivity {
 
     private NavHostController navHostController;
-    private BottomNavigationView bottomNavigationView;
     ActivityHomeBinding homeBinding;
 
     @Override
@@ -25,10 +24,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        bottomNavigationView = findViewById(R.id.bottom_nav_view);
         NavController navController = Navigation.findNavController(HomeActivity.this, R.id.fragmentContainerView);
-
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+        NavigationUI.setupWithNavController(homeBinding.bottomNavView, navController);
 
     }
 }

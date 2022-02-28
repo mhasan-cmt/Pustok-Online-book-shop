@@ -5,44 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeactivity.HomeActivity">
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:id="@+id/appbar"
-        >
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/home_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            app:title="Pustok"
-            app:titleTextColor="@color/white"
-            app:subtitle="Online Book Shop"
-            app:subtitleTextColor="@color/white"
-            app:menu="@menu/topbar_menu"
-            />
 
-    </com.google.android.material.appbar.AppBarLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_menu"
         android:background="@color/white"
-        app:elevation="8dp"
         android:theme="@style/BottomNavigationTheme"
-        />
+        app:elevation="8dp"
+        app:menu="@menu/bottom_menu" />
 
     <fragment
         android:id="@+id/fragmentContainerView"
-        android:layout_below="@+id/appbar"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/home_nav"
-        />
+        app:navGraph="@navigation/home_nav" />
 
 
 </RelativeLayout>

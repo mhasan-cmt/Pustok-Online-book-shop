@@ -9,7 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
+<<<<<<< Updated upstream
         <activity android:name=".loginandsignup.signupform"></activity>
+||||||| constructed merge base
+        <activity
+            android:name=".noInternetPage.noInternetPage"
+            android:exported="true" />
+        <activity android:name=".loginandsignup.signupform" />
+=======
+        <activity
+            android:name=".noInternetPage.noInternetPage"
+            android:parentActivityName=".homeactivity.HomeActivity"
+            android:exported="true" />
+        <activity android:name=".loginandsignup.signupform" />
+>>>>>>> Stashed changes
         <activity
             android:name=".loginandsignup.log_in_book"
             android:exported="true"/>
