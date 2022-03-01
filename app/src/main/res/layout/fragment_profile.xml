@@ -8,40 +8,41 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        >
+        android:layout_height="?android:attr/actionBarSize">
+
         <LinearLayout
+            android:id="@+id/profile_top_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_alignParentEnd="true"
-            android:id="@+id/profile_top_bar"
-            android:weightSum="6"
-            >
+            android:orientation="horizontal"
+            android:weightSum="6">
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="3"
                 android:layout_height="match_parent"
-                android:text="প্রোফাইল"
-                android:textSize="28sp"
-                android:paddingHorizontal="8dp"
                 android:layout_marginVertical="8dp"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:text="প্রোফাইল"
+                android:textSize="22sp"
 
                 />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:gravity="end"
-                >
+                android:gravity="end">
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
                     android:background="@drawable/yellow_button"
                     android:text="ক্রেডিট"
-                    android:textColor="@color/black"
-                    android:layout_marginVertical="8dp"
-                    />
+                    android:textColor="@color/black" />
 
                 <ImageButton
                     android:layout_width="50dp"
@@ -50,171 +51,173 @@
                     android:src="@drawable/ic_shopping_cart" />
             </LinearLayout>
         </LinearLayout>
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/profile_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="0dp"
-            app:cardCornerRadius="8dp"
             android:layout_below="@id/profile_top_bar"
-            android:id="@+id/profile_info"
-            >
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="6"
                 android:layout_marginTop="8dp"
                 android:paddingVertical="8dp"
-                >
+                android:weightSum="6">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    app:cardElevation="8dp"
-                    app:cardCornerRadius="25dp"
                     android:layout_margin="8dp"
+                    android:layout_weight="2"
                     android:background="@color/gray"
-                    >
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"
                         android:paddingVertical="18dp"
-                        />
+                        android:src="@mipmap/ic_launcher" />
                 </androidx.cardview.widget.CardView>
+
                 <LinearLayout
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
                     android:layout_weight="4"
                     android:gravity="center"
-                    android:layout_gravity="end"
-                    android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:weightSum="6"
-                    >
+                    android:weightSum="6">
+
                     <TextView
                         android:id="@+id/profile_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="2"
                         android:text="Mahmudul Hasan Shafin"
-                        android:textStyle="bold"
+                        android:textAlignment="center"
                         android:textSize="18sp"
 
-                        android:textAlignment="center"
-                        />
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/profile_user_mobile"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="2"
                         android:text="+880 1875965178"
-                        android:textSize="23sp"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="2"
-                        android:text="সেটিংস"
-                        android:background="@drawable/primary_button"
-                        android:textColor="@color/white"
-                        android:textSize="22sp"
                         android:layout_marginHorizontal="12dp"
-                        />
+                        android:layout_weight="2"
+                        android:background="@drawable/primary_button"
+                        android:text="সেটিংস"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/profile_follower_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/profile_info"
             android:layout_marginHorizontal="32dp"
-            app:cardElevation="6dp"
             android:layout_marginTop="8dp"
-            android:id="@+id/profile_follower_section"
-            >
+            app:cardElevation="6dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="4"
                 android:paddingVertical="8dp"
-                >
+                android:weightSum="4">
+
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="অনুসরুণ"
-                        android:textSize="18sp"
                         android:textAlignment="center"
-                        />
+                        android:textSize="18sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="১"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textAlignment="center"
-                        />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="আমার শেল্ফ"
-                        android:textSize="18sp"
                         android:textAlignment="center"
-                        />
+                        android:textSize="18sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="১"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textAlignment="center"
-                        />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/first_recyclerview_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/profile_follower_section"
             android:layout_marginHorizontal="20dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="10dp"
-            >
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/profile_first_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/first_recyclerview_container"
             android:layout_marginHorizontal="20dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            >
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/profile_second_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </androidx.cardview.widget.CardView>
 
 
