@@ -11,13 +11,6 @@
         android:theme="@style/Theme.PustokOnlineBookShop">
         <activity android:name=".Writer_Profile.writer_prof"
             android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-
-            </intent-filter>
-
         </activity>
         <activity android:name=".loginandsignup.signupform" />
         <activity
