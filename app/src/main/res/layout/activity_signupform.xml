@@ -66,7 +66,7 @@
                 android:layout_marginTop="20dp"
                 app:startIconDrawable="@drawable/ic_baseline_account"
 
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Theme.PustokOnlineBookShop"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -94,8 +94,7 @@
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_baseline_email"
 
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                style="@style/Theme.PustokOnlineBookShop"                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="350dp"
@@ -125,7 +124,6 @@ android:id="@+id/Bmail"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_baseline_lock"
 app:passwordToggleEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -157,7 +155,6 @@ android:id="@+id/pass"
                 app:passwordToggleEnabled="true"
                 android:layout_marginTop="0dp"
                 app:startIconDrawable="@drawable/ic_baseline_lock"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
                 >
 
