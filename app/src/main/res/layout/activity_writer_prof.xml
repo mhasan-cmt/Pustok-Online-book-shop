@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Writer_Profile.writer_prof">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+
+            android:orientation="vertical"
+            android:background="@drawable/clrcode"
+            android:padding="30dp"
+        />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="-90dp"
+
+                >
+
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:src="@drawable/writer"
+                app:civ_border_color="@color/teal_700"
+                app:civ_border_width="3dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Writer name"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="75 Followers"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 12 books"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
+<ToggleButton
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/f"
+    android:backgroundTint="@color/black"
+    android:textOn="Following"
+    android:textOff="অনুসরণ করুন"
+    android:textColor="@color/white"
+    android:textSize="16sp"
+    android:onClick="btprof"
+    android:layout_gravity="center"
+    android:layout_marginTop="16dp"
+    android:textStyle="bold"
+    android:fontFamily="@font/nikosh"
+/>
+
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Writer Detaills"
+
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To implement Circular ImageView in Android, we will use an open-source library known as 'CircularImageView'. This will be done in 2 simple steps using Kotlin and XML layout. And remember, by default Android does not support circular ImageView, so we use the library. Watch Circular imageView without using Library: https://youtu.be/jihLJ0oVmGo
+Add dependency: 'de.hdodenhof:circleimageview:3.1.0'
+Github Library link: https://github.com/hdodenhof/CircleIm...
+Download source code: https://bit.ly/gist-cimv
+.Please donate and support my work "
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

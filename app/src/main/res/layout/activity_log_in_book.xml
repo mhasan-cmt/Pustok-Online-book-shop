@@ -49,11 +49,21 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Theme.PustokOnlineBookShop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:startIconDrawable="@drawable/ic_baseline_account"
+
+                >
+
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:startIconDrawable="@drawable/ic_baseline_account">
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/puser"
@@ -75,8 +85,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+
+                app:startIconDrawable="@drawable/ic_baseline_lock"
+                style="@style/Theme.PustokOnlineBookShop"
+
+                >
+
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock">
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Bpass"

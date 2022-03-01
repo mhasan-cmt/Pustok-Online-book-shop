@@ -20,7 +20,6 @@ TextView textView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_book);
-        getSupportActionBar().hide();
         txusr=findViewById(R.id.puser);
         txps=findViewById(R.id.Bpass);
         textView=findViewById(R.id.CNAC);
