@@ -8,23 +8,28 @@
     tools:context=".splash.SplashActivity">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginTop="150dp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerInParent="true"
-        android:id="@+id/imgid"
+        android:id="@+id/animated_logo"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/book_loading"
+        app:lottie_loop="true"
+        android:translationY="-1400dp"
         />
+
     <TextView
+        android:id="@+id/app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/animated_logo"
+        android:fontFamily="@font/mayukh"
         android:text="পুস্তক"
-        android:layout_below="@+id/imgid"
         android:textAlignment="center"
+        android:textColor="@color/primary"
         android:textSize="50sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/nikosh"
+        android:translationY="1400dp"
         />
 
 </RelativeLayout>
