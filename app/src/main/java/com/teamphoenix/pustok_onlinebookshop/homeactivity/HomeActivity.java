@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         homeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = homeBinding.getRoot();
         setContentView(view);
-
+//        getSupportActionBar().hide();
         NavController navController = Navigation.findNavController(HomeActivity.this, R.id.fragmentContainerView);
         NavigationUI.setupWithNavController(homeBinding.bottomNavView, navController);
 
