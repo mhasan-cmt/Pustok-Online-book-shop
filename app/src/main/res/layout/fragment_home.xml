@@ -20,7 +20,7 @@
             app:menu="@menu/topbar_menu"
             app:subtitle="Online Book Shop"
             app:subtitleTextColor="@color/white"
-            app:title="Pustok"
+            app:title="পুস্তক"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
