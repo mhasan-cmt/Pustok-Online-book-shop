@@ -10,9 +10,9 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/top_bar_cart_item"
-        android:icon="@drawable/ic_shopping_cart_white"
-        android:title="Cart"
         app:showAsAction="always"
-        app:actionLayout="@layout/cart_action_item"
+        android:title="Cart"
+        android:icon="@drawable/ic_shopping_cart_white"
+        android:orderInCategory="100"
         />
 </menu>
