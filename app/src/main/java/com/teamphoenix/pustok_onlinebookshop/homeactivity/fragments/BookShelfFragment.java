@@ -16,11 +16,11 @@ import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.bookSelfBookViewAdapter;
 
 public class BookShelfFragment extends Fragment {
-<<<<<<< HEAD
+
     RecyclerView singleBookViewBookSelf;
     String[] bookName = {"৯ নম্বর ননসেন্স", "ইমি", "শয়তানি", "শয়তানি", "মধ্যবিত্ত", "মেঘপিয়ন"};
     int[] bookImage={R.drawable.book,R.drawable.book1,R.drawable.book2,R.drawable.book3,R.drawable.book4,R.drawable.book5};
-=======
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,7 +61,6 @@ public class BookShelfFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
->>>>>>> aef1f89757a4072d64eebc60ede03129fdd3c149
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
