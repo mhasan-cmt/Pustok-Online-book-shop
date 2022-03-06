@@ -4,16 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/border_radius.xml" value="0.2203125" />
-        <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/ic_baseline_account.xml" value="0.2169230769230769" />
-        <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1125" />
-        <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/low_opacity_bg.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/primary_button.xml" value="0.20092592592592592" />
         <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/transparent_btn.xml" value="0.20092592592592592" />
-        <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/drawable/yellow_button.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/layout/activity_book_details.xml" value="0.25" />
-        <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/layout/activity_log_in_book.xml" value="0.25" />
         <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/layout/activity_no_internet.xml" value="0.22" />
         <entry key="..\:/Users/MY/AndroidStudioProjects/Pustok-Online-book-shop/app/src/main/res/layout/related_book_recycler.xml" value="0.22" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/drawable-v24/primary_button.xml" value="0.1" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/drawable/custom_exit_dialog_bg.xml" value="0.1" />
@@ -24,6 +18,9 @@
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/cart_action_item.xml" value="0.5" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/custom_exit_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/fragment_book_shelf.xml" value="0.13240740740740742" />
+        <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/fragment_contentfragment1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/fragment_contentfragment2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/fragment_contentfragment3.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/fragment_profile.xml" value="0.13240740740740742" />
         <entry key="..\:/Users/Mahmudul Hasan/AndroidStudioProjects/PustokOnlinebookshop/app/src/main/res/layout/item_cart.xml" value="0.20416666666666666" />
