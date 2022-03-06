@@ -6,10 +6,9 @@
     tools:context=".homeactivity.fragments.BookShelfFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="32sp"
-        android:text="This is Book Shelf Fragment"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/singleBookViewBookSelf"/>
 
 </FrameLayout>
