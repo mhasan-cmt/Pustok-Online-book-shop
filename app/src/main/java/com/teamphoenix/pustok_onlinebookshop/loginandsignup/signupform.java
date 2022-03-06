@@ -2,6 +2,7 @@ package com.teamphoenix.pustok_onlinebookshop.loginandsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -16,7 +17,6 @@ EditText tName,tpas,teml,tconps;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signupform);
-        getSupportActionBar().hide();
 tName=findViewById(R.id.puser);
 tpas=findViewById(R.id.pass);
 tconps=findViewById(R.id.conpass);
@@ -74,6 +74,7 @@ teml=findViewById(R.id.Bmail);
 
     public void sing(View view) {
         if(at2()==1){
+
             Toast.makeText(this, "sign up success", Toast.LENGTH_SHORT).show();
 
         }

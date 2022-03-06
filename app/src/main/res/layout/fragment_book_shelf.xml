@@ -3,12 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".homeactivity.fragments.BookShelfFragment">
+<<<<<<< HEAD
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/singleBookViewBookSelf"/>
+=======
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/book_shelf_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:menu="@menu/topbar_menu"
+                app:subtitleTextColor="@color/white"
+                app:title="শেল্ফ"
+                app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:titleTextColor="@color/white"
+                />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    </RelativeLayout>
+>>>>>>> aef1f89757a4072d64eebc60ede03129fdd3c149
 
 </FrameLayout>

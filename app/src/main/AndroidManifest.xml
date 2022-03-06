@@ -20,8 +20,35 @@
             android:exported="true" />
         <activity
             android:name=".homeactivity.HomeActivity"
+        <activity
+            android:name=".cart.CartActivity"
+            android:exported="true"
+            android:parentActivityName=".homeactivity.HomeActivity"
+            />
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".Writer_Profile.writer_prof"
+            android:exported="true" />
+        <activity
+            android:name=".noInternetPage.noInternetPage"
+            android:exported="true" />
+        <activity android:name=".loginandsignup.signupform" />
+        <activity
+            android:name=".loginandsignup.log_in_book"
+
+            android:exported="true"/>
+
+        <activity android:name=".homeactivity.HomeActivity"
+            android:exported="true">
+        </activity>
+
+
+         
+
+
         <activity
             android:name=".bookdetails.BookDetailsActivity"
             android:exported="true" />
