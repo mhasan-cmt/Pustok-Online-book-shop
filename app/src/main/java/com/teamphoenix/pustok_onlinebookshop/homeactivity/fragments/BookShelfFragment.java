@@ -2,21 +2,25 @@ package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.bookSelfBookViewAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BookShelfFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BookShelfFragment extends Fragment {
+<<<<<<< HEAD
+    RecyclerView singleBookViewBookSelf;
+    String[] bookName = {"৯ নম্বর ননসেন্স", "ইমি", "শয়তানি", "শয়তানি", "মধ্যবিত্ত", "মেঘপিয়ন"};
+    int[] bookImage={R.drawable.book,R.drawable.book1,R.drawable.book2,R.drawable.book3,R.drawable.book4,R.drawable.book5};
+=======
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,11 +61,21 @@ public class BookShelfFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+>>>>>>> aef1f89757a4072d64eebc60ede03129fdd3c149
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_book_shelf, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        bookSelfBookViewAdapter adapter = new bookSelfBookViewAdapter(getContext(),bookName,bookImage);
+        singleBookViewBookSelf=getView().findViewById(R.id.singleBookViewBookSelf);
+        singleBookViewBookSelf.setAdapter(adapter);
+        singleBookViewBookSelf.setLayoutManager(new GridLayoutManager(getContext(),3) ) ;
     }
 }

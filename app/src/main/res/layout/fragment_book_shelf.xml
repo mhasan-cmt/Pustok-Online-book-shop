@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".homeactivity.fragments.BookShelfFragment">
+<<<<<<< HEAD
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/singleBookViewBookSelf"/>
+=======
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,5 +38,6 @@
 
 
     </RelativeLayout>
+>>>>>>> aef1f89757a4072d64eebc60ede03129fdd3c149
 
 </FrameLayout>
