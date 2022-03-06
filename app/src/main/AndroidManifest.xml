@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
         <activity
+            android:name=".noInternet.noInternet"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".loginandsignup.signupform" />
+        <activity
+            android:name=".loginandsignup.log_in_book"
+            android:exported="true" />
+        <activity
+            android:name=".homeactivity.HomeActivity"
+        <activity
             android:name=".cart.CartActivity"
             android:exported="true"
             android:parentActivityName=".homeactivity.HomeActivity"
@@ -17,11 +28,6 @@
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Writer_Profile.writer_prof"
@@ -34,8 +40,6 @@
             android:name=".loginandsignup.log_in_book"
 
             android:exported="true"/>
-
-
 
         <activity android:name=".homeactivity.HomeActivity"
             android:exported="true">
