@@ -6,6 +6,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import androidx.annotation.Nullable;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 133447840e7e27f2c7a57da1caa8fee2cc898f05
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
@@ -48,16 +52,9 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
 ||||||| 6b4405a
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
 
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
   private   TabLayout tabLayout;
    private ViewPager viewPager;
 =======
@@ -72,6 +69,8 @@ public class HomeFragment extends Fragment {
     private MaterialToolbar topActionBar;
 
 
+<<<<<<< HEAD
+=======
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -94,6 +93,7 @@ public class HomeFragment extends Fragment {
 >>>>>>> main
         return fragment;
     }
+>>>>>>> 133447840e7e27f2c7a57da1caa8fee2cc898f05
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -45,8 +45,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+<<<<<<< HEAD
+    implementation 'com.airbnb.android:lottie:5.0.2'
+//    Lottie dependency
+
+=======
 //    Lottie dependency
     implementation 'com.airbnb.android:lottie:5.0.2'
 //    Mp Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+>>>>>>> 133447840e7e27f2c7a57da1caa8fee2cc898f05
 }
