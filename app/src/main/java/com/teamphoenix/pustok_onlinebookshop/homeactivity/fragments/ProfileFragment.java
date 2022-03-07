@@ -1,5 +1,6 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,9 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.ProfileRecyclerViewAdapter;
 
@@ -115,15 +120,50 @@ public class ProfileFragment extends Fragment {
         ArrayList<BarEntry> dataValues = new ArrayList<>();
         dataValues.add(new BarEntry(0, 3));
         dataValues.add(new BarEntry(1, 4));
-        dataValues.add(new BarEntry(3, 6));
+        dataValues.add(new BarEntry(2, 6));
+        dataValues.add(new BarEntry(3, 10));
         dataValues.add(new BarEntry(4, 10));
+        dataValues.add(new BarEntry(5, 10));
+        dataValues.add(new BarEntry(6, 10));
         return dataValues;
     }
 
     void settingUpChart(){
-        BarDataSet barDataSet = new BarDataSet(barDataValues(), "Data-1");
+        final ArrayList<String> xAxisLabel = new ArrayList<>();
+        xAxisLabel.add("Tue");
+        xAxisLabel.add("Wed");
+        xAxisLabel.add("Thu");
+        xAxisLabel.add("Fri");
+        xAxisLabel.add("Sat");
+        xAxisLabel.add("Sun");
+        xAxisLabel.add("Mon");
+
+        XAxis xAxis = read_duration_chart.getXAxis();
+
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        ValueFormatter valueFormatter = new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return xAxisLabel.get((int) value);
+            }
+        };
+
+        xAxis.setGranularity(1f);
+        xAxis.setValueFormatter(valueFormatter);
+
+        BarDataSet barDataSet = new BarDataSet(barDataValues(), "সর্বশেষ ৭ দিন");
+        barDataSet.setColor(getView().getResources().getColor(R.color.primary));
+        barDataSet.setBarShadowColor(getView().getResources().getColor(R.color.bar_bg));
         BarData barData = new BarData();
         barData.addDataSet(barDataSet);
+        read_duration_chart.setPinchZoom(false);
+        read_duration_chart.setDrawBarShadow(true);
+        read_duration_chart.getXAxis().setEnabled(false);
+        read_duration_chart.getAxisRight().setEnabled(false);
+        read_duration_chart.getAxisLeft().setEnabled(false);
+        read_duration_chart.setTouchEnabled(false);
+        read_duration_chart.getDescription().setEnabled(false);
         read_duration_chart.setData(barData);
         read_duration_chart.invalidate();
     }

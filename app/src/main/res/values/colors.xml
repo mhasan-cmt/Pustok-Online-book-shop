@@ -13,5 +13,6 @@
     <color name="gray">#8A8A8A</color>
     <color name="active_tab_color">@color/primary</color>
     <color name="inactive_tab_color">@color/gray</color>
+    <color name="bar_bg">#DFDCDC</color>
 
 </resources>

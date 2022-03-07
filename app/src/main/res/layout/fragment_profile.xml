@@ -58,14 +58,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/profile_top_bar"
             app:cardCornerRadius="8dp"
-            app:cardElevation="0dp">
+            app:cardElevation="0dp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:paddingVertical="8dp"
-                android:weightSum="6">
+                android:paddingVertical="15dp"
+                android:weightSum="6"
+                >
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
@@ -133,13 +135,15 @@
             android:layout_below="@id/profile_info"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="8dp"
-            app:cardElevation="6dp">
-
+            app:cardElevation="6dp"
+            android:translationY="-15dp"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingVertical="8dp"
-                android:weightSum="4">
+                android:weightSum="4"
+                >
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -148,6 +152,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/mukti"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="অনুসরুণ"
@@ -155,6 +161,8 @@
                         android:textSize="18sp" />
 
                     <TextView
+                        android:fontFamily="@font/mukti"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="১"
@@ -173,10 +181,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="আমার শেল্ফ"
+                        android:fontFamily="@font/mukti"
+                        android:textColor="@color/black"
                         android:textAlignment="center"
                         android:textSize="18sp" />
 
                     <TextView
+                        android:fontFamily="@font/mukti"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="১"
@@ -223,7 +235,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:layout_below="@id/second_recyclerview_container"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
@@ -231,7 +243,20 @@
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="সাপ্তাহিক পড়ার চিত্র"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sagar_normal"
+                android:drawableStart="@drawable/ic_shopping_cart"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                />
             <com.github.mikephil.charting.charts.BarChart
+                android:layout_marginTop="22dp"
                 android:id="@+id/read_duration_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
