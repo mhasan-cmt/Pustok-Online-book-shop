@@ -2,33 +2,23 @@ package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-
-import androidx.annotation.Nullable;
-<<<<<<< HEAD
-
-=======
->>>>>>> 133447840e7e27f2c7a57da1caa8fee2cc898f05
-import androidx.appcompat.widget.Toolbar;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
-
-import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.cart.CartActivity;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.TAbadapter;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentFragment4;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentfragment1;
@@ -39,75 +29,32 @@ import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.c
 import org.jetbrains.annotations.NotNull;
 
 
-import com.google.android.material.appbar.MaterialToolbar;
-import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.cart.CartActivity;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
-
-
 public class HomeFragment extends Fragment {
 
-<<<<<<< HEAD
     private TabLayout tabLayout;
     private ViewPager viewPager;
-||||||| 6b4405a
 
-
-
-
-  private   TabLayout tabLayout;
-   private ViewPager viewPager;
-=======
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
->>>>>>> main
 
     private MaterialToolbar topActionBar;
 
-
-<<<<<<< HEAD
-=======
     public HomeFragment() {
         // Required empty public constructor
     }
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
-<<<<<<< HEAD
 
-
-||||||| 6b4405a
-
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-
-
-
-=======
->>>>>>> main
         return fragment;
     }
->>>>>>> 133447840e7e27f2c7a57da1caa8fee2cc898f05
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-
-
-||||||| 6b4405a
-
-
-
-=======
->>>>>>> main
     }
 
     @Override
@@ -141,28 +88,12 @@ public class HomeFragment extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
 
-<<<<<<< HEAD
-        TAbadapter tAbadapter = new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        tAbadapter.addfrg(new contentfragment1(), "HOME");
-        tAbadapter.addfrg(new contentfragment2(), "CATAGORY");
-        tAbadapter.addfrg(new contentfragment3(), "FREE BOOK");
-        tAbadapter.addfrg(new contentFragment4(), "WRITER");
-        tAbadapter.addfrg(new contentfragment5(), "PUBLICATION");
-||||||| 6b4405a
-        TAbadapter tAbadapter=new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        tAbadapter.addfrg(new contentfragment1() ,"HOME");
-        tAbadapter.addfrg(new contentfragment2() ,"CATAGORY");
-        tAbadapter.addfrg(new contentfragment3() ,"FREE BOOK");
-        tAbadapter.addfrg(new contentFragment4() ,"WRITER");
-        tAbadapter.addfrg(new contentfragment5() ,"PUBLICATION");
-=======
         TAbadapter tAbadapter = new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         tAbadapter.addfrg(new contentfragment1(), "হোম");
         tAbadapter.addfrg(new contentfragment2(), "ক্যাটাগরি");
         tAbadapter.addfrg(new contentfragment3(), "ফ্রী বই");
         tAbadapter.addfrg(new contentFragment4(), "লেখক");
         tAbadapter.addfrg(new contentfragment5(), "প্রকাশক");
->>>>>>> main
         viewPager.setAdapter(tAbadapter);
 
     }
