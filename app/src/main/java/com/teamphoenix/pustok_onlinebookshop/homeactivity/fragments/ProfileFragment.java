@@ -13,6 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.ProfileRecyclerViewAdapter;
 
@@ -27,18 +31,11 @@ import java.util.ArrayList;
  */
 public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private RecyclerView recyclerViewFirst, recyclerViewSecond;
     private ProfileRecyclerViewAdapter profileRecyclerViewAdapter, profileRecyclerViewAdapter2;
     private ArrayList<String> texts, texts2;
+    private BarChart read_duration_chart;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -48,28 +45,17 @@ public class ProfileFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment ProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
+    public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
     }
 
     @Override
@@ -82,8 +68,13 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+//        finding all views
         recyclerViewFirst = getView().findViewById(R.id.profile_first_recycler_view);
-        recyclerViewSecond =getView().findViewById(R.id.profile_second_recycler_view);
+        recyclerViewSecond = getView().findViewById(R.id.profile_second_recycler_view);
+        read_duration_chart = getView().findViewById(R.id.read_duration_chart);
+
+
         texts = new ArrayList<>();
         texts2 = new ArrayList<>();
 
@@ -110,12 +101,30 @@ public class ProfileFragment extends Fragment {
                 R.drawable.ic_giftcard
         };
 
-        profileRecyclerViewAdapter = new ProfileRecyclerViewAdapter(texts,icons);
+        profileRecyclerViewAdapter = new ProfileRecyclerViewAdapter(texts, icons);
         profileRecyclerViewAdapter2 = new ProfileRecyclerViewAdapter(texts2, icons2);
         recyclerViewFirst.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewFirst.setAdapter(profileRecyclerViewAdapter);
         recyclerViewSecond.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewSecond.setAdapter(profileRecyclerViewAdapter2);
 
+        settingUpChart();
+
+    }
+    private ArrayList<BarEntry> barDataValues(){
+        ArrayList<BarEntry> dataValues = new ArrayList<>();
+        dataValues.add(new BarEntry(0, 3));
+        dataValues.add(new BarEntry(1, 4));
+        dataValues.add(new BarEntry(3, 6));
+        dataValues.add(new BarEntry(4, 10));
+        return dataValues;
+    }
+
+    void settingUpChart(){
+        BarDataSet barDataSet = new BarDataSet(barDataValues(), "Data-1");
+        BarData barData = new BarData();
+        barData.addDataSet(barDataSet);
+        read_duration_chart.setData(barData);
+        read_duration_chart.invalidate();
     }
 }
