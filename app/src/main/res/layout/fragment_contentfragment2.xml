@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.contentfragment2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:background="@color/purple_500"
-        android:text="hello_blank_fragment2" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:orientation="vertical"
+        android:background="@drawable/clrcode"
+        android:gravity="center"
+        android:id="@+id/lin3"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  Books Catagory "
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:fontFamily="@font/nikosh"
+
+            />
+
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lin3"
+
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/l3"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_gravity="center_horizontal"
+
+            />
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
