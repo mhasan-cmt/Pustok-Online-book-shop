@@ -43,12 +43,31 @@ import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 
 public class HomeFragment extends Fragment {
 
+<<<<<<< HEAD
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+||||||| 6b4405a
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+  private   TabLayout tabLayout;
+   private ViewPager viewPager;
+=======
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+>>>>>>> main
 
     private MaterialToolbar topActionBar;
 
@@ -59,6 +78,20 @@ public class HomeFragment extends Fragment {
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
+<<<<<<< HEAD
+
+
+||||||| 6b4405a
+
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+
+
+
+=======
+>>>>>>> main
         return fragment;
     }
 
@@ -66,6 +99,15 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
+
+
+||||||| 6b4405a
+
+
+
+=======
+>>>>>>> main
     }
 
     @Override
@@ -99,12 +141,28 @@ public class HomeFragment extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
 
+<<<<<<< HEAD
+        TAbadapter tAbadapter = new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        tAbadapter.addfrg(new contentfragment1(), "HOME");
+        tAbadapter.addfrg(new contentfragment2(), "CATAGORY");
+        tAbadapter.addfrg(new contentfragment3(), "FREE BOOK");
+        tAbadapter.addfrg(new contentFragment4(), "WRITER");
+        tAbadapter.addfrg(new contentfragment5(), "PUBLICATION");
+||||||| 6b4405a
+        TAbadapter tAbadapter=new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        tAbadapter.addfrg(new contentfragment1() ,"HOME");
+        tAbadapter.addfrg(new contentfragment2() ,"CATAGORY");
+        tAbadapter.addfrg(new contentfragment3() ,"FREE BOOK");
+        tAbadapter.addfrg(new contentFragment4() ,"WRITER");
+        tAbadapter.addfrg(new contentfragment5() ,"PUBLICATION");
+=======
         TAbadapter tAbadapter = new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         tAbadapter.addfrg(new contentfragment1(), "হোম");
         tAbadapter.addfrg(new contentfragment2(), "ক্যাটাগরি");
         tAbadapter.addfrg(new contentfragment3(), "ফ্রী বই");
         tAbadapter.addfrg(new contentFragment4(), "লেখক");
         tAbadapter.addfrg(new contentfragment5(), "প্রকাশক");
+>>>>>>> main
         viewPager.setAdapter(tAbadapter);
 
     }
