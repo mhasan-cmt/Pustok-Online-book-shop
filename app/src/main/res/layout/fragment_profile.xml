@@ -223,17 +223,18 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
             android:layout_below="@id/second_recyclerview_container"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="60dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            >
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/read_duration_chart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
