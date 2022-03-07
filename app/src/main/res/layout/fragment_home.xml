@@ -27,50 +27,48 @@
 
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tblay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tblay"
         android:layout_alignParentTop="true"
         android:layout_marginTop="57dp"
         android:scrollbars="horizontal"
-        app:tabMode="scrollable"
-        >
+        app:tabMode="scrollable">
 
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="home" />
+            android:text="হোম" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="catagory" />
+            android:text="ক্যাটাগরি" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="publication" />
+            android:text="প্রকাশক" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="writer" />
+            android:text="লেখক" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="free books" />
+            android:text="ফ্রী বই" />
 
 
     </com.google.android.material.tabs.TabLayout>
 
 
-<androidx.viewpager.widget.ViewPager
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@id/tblay"
-    android:id="@+id/vp"
-    />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tblay" />
 
 </RelativeLayout>

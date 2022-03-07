@@ -1,5 +1,6 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.ProfileRecyclerViewAdapter;
 
@@ -27,18 +36,11 @@ import java.util.ArrayList;
  */
 public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private RecyclerView recyclerViewFirst, recyclerViewSecond;
     private ProfileRecyclerViewAdapter profileRecyclerViewAdapter, profileRecyclerViewAdapter2;
     private ArrayList<String> texts, texts2;
+    private BarChart read_duration_chart;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -48,28 +50,17 @@ public class ProfileFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment ProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
+    public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
     }
 
     @Override
@@ -82,8 +73,13 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+//        finding all views
         recyclerViewFirst = getView().findViewById(R.id.profile_first_recycler_view);
-        recyclerViewSecond =getView().findViewById(R.id.profile_second_recycler_view);
+        recyclerViewSecond = getView().findViewById(R.id.profile_second_recycler_view);
+        read_duration_chart = getView().findViewById(R.id.read_duration_chart);
+
+
         texts = new ArrayList<>();
         texts2 = new ArrayList<>();
 
@@ -110,12 +106,65 @@ public class ProfileFragment extends Fragment {
                 R.drawable.ic_giftcard
         };
 
-        profileRecyclerViewAdapter = new ProfileRecyclerViewAdapter(texts,icons);
+        profileRecyclerViewAdapter = new ProfileRecyclerViewAdapter(texts, icons);
         profileRecyclerViewAdapter2 = new ProfileRecyclerViewAdapter(texts2, icons2);
         recyclerViewFirst.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewFirst.setAdapter(profileRecyclerViewAdapter);
         recyclerViewSecond.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewSecond.setAdapter(profileRecyclerViewAdapter2);
 
+        settingUpChart();
+
+    }
+    private ArrayList<BarEntry> barDataValues(){
+        ArrayList<BarEntry> dataValues = new ArrayList<>();
+        dataValues.add(new BarEntry(0, 3));
+        dataValues.add(new BarEntry(1, 4));
+        dataValues.add(new BarEntry(2, 6));
+        dataValues.add(new BarEntry(3, 10));
+        dataValues.add(new BarEntry(4, 10));
+        dataValues.add(new BarEntry(5, 10));
+        dataValues.add(new BarEntry(6, 10));
+        return dataValues;
+    }
+
+    void settingUpChart(){
+        final ArrayList<String> xAxisLabel = new ArrayList<>();
+        xAxisLabel.add("Tue");
+        xAxisLabel.add("Wed");
+        xAxisLabel.add("Thu");
+        xAxisLabel.add("Fri");
+        xAxisLabel.add("Sat");
+        xAxisLabel.add("Sun");
+        xAxisLabel.add("Mon");
+
+        XAxis xAxis = read_duration_chart.getXAxis();
+
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        ValueFormatter valueFormatter = new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return xAxisLabel.get((int) value);
+            }
+        };
+
+        xAxis.setGranularity(1f);
+        xAxis.setValueFormatter(valueFormatter);
+
+        BarDataSet barDataSet = new BarDataSet(barDataValues(), "সর্বশেষ ৭ দিন");
+        barDataSet.setColor(getView().getResources().getColor(R.color.primary));
+        barDataSet.setBarShadowColor(getView().getResources().getColor(R.color.bar_bg));
+        BarData barData = new BarData();
+        barData.addDataSet(barDataSet);
+        read_duration_chart.setPinchZoom(false);
+        read_duration_chart.setDrawBarShadow(true);
+        read_duration_chart.getXAxis().setEnabled(false);
+        read_duration_chart.getAxisRight().setEnabled(false);
+        read_duration_chart.getAxisLeft().setEnabled(false);
+        read_duration_chart.setTouchEnabled(false);
+        read_duration_chart.getDescription().setEnabled(false);
+        read_duration_chart.setData(barData);
+        read_duration_chart.invalidate();
     }
 }
