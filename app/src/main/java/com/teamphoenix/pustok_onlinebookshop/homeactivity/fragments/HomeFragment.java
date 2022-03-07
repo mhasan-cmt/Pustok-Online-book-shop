@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import androidx.annotation.Nullable;
-=======
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
@@ -45,18 +44,11 @@ import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 public class HomeFragment extends Fragment {
 
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-  private   TabLayout tabLayout;
-   private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     private MaterialToolbar topActionBar;
 
@@ -67,14 +59,6 @@ public class HomeFragment extends Fragment {
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
-
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-
-
-
         return fragment;
     }
 
@@ -82,9 +66,6 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
-
-
-
     }
 
     @Override
@@ -93,11 +74,11 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        topActionBar =view.findViewById(R.id.home_toolbar);
+        topActionBar = view.findViewById(R.id.home_toolbar);
         topActionBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId()==R.id.top_bar_cart_item){
+                if (item.getItemId() == R.id.top_bar_cart_item) {
                     startActivity(new Intent(getActivity(), CartActivity.class));
                 } else if (item.getItemId() == R.id.top_bar_search_item) {
                     Toast.makeText(getActivity(), "Search Clicked", Toast.LENGTH_SHORT).show();
@@ -113,17 +94,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tabLayout=getView().findViewById(R.id.tblay);
-        viewPager=getView().findViewById(R.id.vp);
+        tabLayout = getView().findViewById(R.id.tblay);
+        viewPager = getView().findViewById(R.id.vp);
 
         tabLayout.setupWithViewPager(viewPager);
 
-        TAbadapter tAbadapter=new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        tAbadapter.addfrg(new contentfragment1() ,"HOME");
-        tAbadapter.addfrg(new contentfragment2() ,"CATAGORY");
-        tAbadapter.addfrg(new contentfragment3() ,"FREE BOOK");
-        tAbadapter.addfrg(new contentFragment4() ,"WRITER");
-        tAbadapter.addfrg(new contentfragment5() ,"PUBLICATION");
+        TAbadapter tAbadapter = new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        tAbadapter.addfrg(new contentfragment1(), "হোম");
+        tAbadapter.addfrg(new contentfragment2(), "ক্যাটাগরি");
+        tAbadapter.addfrg(new contentfragment3(), "ফ্রী বই");
+        tAbadapter.addfrg(new contentFragment4(), "লেখক");
+        tAbadapter.addfrg(new contentfragment5(), "প্রকাশক");
         viewPager.setAdapter(tAbadapter);
 
     }
