@@ -140,7 +140,7 @@ public class ProfileFragment extends Fragment {
 
         XAxis xAxis = read_duration_chart.getXAxis();
 
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
 
         ValueFormatter valueFormatter = new ValueFormatter() {
             @Override
@@ -159,7 +159,6 @@ public class ProfileFragment extends Fragment {
         barData.addDataSet(barDataSet);
         read_duration_chart.setPinchZoom(false);
         read_duration_chart.setDrawBarShadow(true);
-        read_duration_chart.getXAxis().setEnabled(false);
         read_duration_chart.getAxisRight().setEnabled(false);
         read_duration_chart.getAxisLeft().setEnabled(false);
         read_duration_chart.setTouchEnabled(false);
