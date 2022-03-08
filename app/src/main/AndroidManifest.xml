@@ -17,7 +17,7 @@
             android:exported="true"></activity>
         <activity
             android:name=".loginandsignup.signupform"
-            android:exported="true" />
+            android:exported="true"/>
         <activity
             android:name=".loginandsignup.log_in_book"
             android:exported="true" />
