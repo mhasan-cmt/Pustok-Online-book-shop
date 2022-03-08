@@ -1,5 +1,6 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
@@ -24,6 +26,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.ProfileRecyclerViewAdapter;
+import com.teamphoenix.pustok_onlinebookshop.settings.SettingsActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,6 +43,7 @@ public class ProfileFragment extends Fragment {
     private ProfileRecyclerViewAdapter profileRecyclerViewAdapter, profileRecyclerViewAdapter2;
     private ArrayList<String> texts, texts2;
     private BarChart read_duration_chart;
+    private Button settingBtn;
 
 
     public ProfileFragment() {
@@ -78,8 +82,25 @@ public class ProfileFragment extends Fragment {
         recyclerViewFirst = getView().findViewById(R.id.profile_first_recycler_view);
         recyclerViewSecond = getView().findViewById(R.id.profile_second_recycler_view);
         read_duration_chart = getView().findViewById(R.id.read_duration_chart);
+        settingBtn = getView().findViewById(R.id.settingBtn);
 
+        settingupListenerTosettingsButton();
 
+        settingUpRecyclerViews();
+        settingUpChart();
+
+    }
+
+    private void settingupListenerTosettingsButton() {
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SettingsActivity.class));
+            }
+        });
+    }
+
+    private void settingUpRecyclerViews() {
         texts = new ArrayList<>();
         texts2 = new ArrayList<>();
 
@@ -112,11 +133,9 @@ public class ProfileFragment extends Fragment {
         recyclerViewFirst.setAdapter(profileRecyclerViewAdapter);
         recyclerViewSecond.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewSecond.setAdapter(profileRecyclerViewAdapter2);
-
-        settingUpChart();
-
     }
-    private ArrayList<BarEntry> barDataValues(){
+
+    private ArrayList<BarEntry> barDataValues() {
         ArrayList<BarEntry> dataValues = new ArrayList<>();
         dataValues.add(new BarEntry(0, 3));
         dataValues.add(new BarEntry(1, 4));
@@ -128,7 +147,7 @@ public class ProfileFragment extends Fragment {
         return dataValues;
     }
 
-    void settingUpChart(){
+    void settingUpChart() {
         final ArrayList<String> xAxisLabel = new ArrayList<>();
         xAxisLabel.add("Tue");
         xAxisLabel.add("Wed");

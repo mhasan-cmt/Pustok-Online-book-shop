@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
         <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".noInternet.noInternet"
             android:exported="true" />
         <activity
