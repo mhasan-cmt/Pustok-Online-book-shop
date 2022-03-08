@@ -96,6 +96,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), SettingsActivity.class));
+                getActivity().finish();
             }
         });
     }
