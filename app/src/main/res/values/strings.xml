@@ -2,4 +2,8 @@
     <string name="app_name">Pustok - Online book shop</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shafin">Mahmudul Hasan Shafin</string>
+    <string name="logout_text">লগ আউট</string>
+    <string name="profile_update_text">প্রোফাইল আপডেট করুন</string>
+    <string name="profile_desc">user profile picture</string>
 </resources>
