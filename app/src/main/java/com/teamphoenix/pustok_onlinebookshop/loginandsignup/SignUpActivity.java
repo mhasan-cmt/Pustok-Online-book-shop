@@ -7,64 +7,74 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.teamphoenix.pustok_onlinebookshop.R;
 
-public class signupform extends AppCompatActivity {
-EditText tName,tpas,teml,tconps;
+public class SignUpActivity extends AppCompatActivity {
+    EditText tName, tpas, teml, tconps;
+    TextView login_now_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signupform);
-tName=findViewById(R.id.puser);
-tpas=findViewById(R.id.pass);
-tconps=findViewById(R.id.conpass);
-teml=findViewById(R.id.Bmail);
+        setContentView(R.layout.activity_signup);
+        tName = findViewById(R.id.puser);
+        tpas = findViewById(R.id.pass);
+        tconps = findViewById(R.id.conpass);
+        teml = findViewById(R.id.Bmail);
+        login_now_btn = findViewById(R.id.login_now_btn);
 
+        login_now_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
     }
 
-    public int at2(){
-        String  EMAIL=teml.getText().toString();
-        int a=0;
+    public int at2() {
+        String EMAIL = teml.getText().toString();
+        int a = 0;
         if (EMAIL.isEmpty()) {
             teml.requestFocus();
 
             Toast.makeText(this, "Enter an   e-mail", Toast.LENGTH_SHORT).show();
             return 0;
-        }
-        else if(!Patterns.EMAIL_ADDRESS.matcher(EMAIL).matches()){
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(EMAIL).matches()) {
             teml.requestFocus();
             Toast.makeText(this, "Entar valid email", Toast.LENGTH_SHORT).show();
 
             return 0;
 
-        }
-        else if (tpas.getText().toString().isEmpty()) {
+        } else if (tpas.getText().toString().isEmpty()) {
             tpas.requestFocus();
-            Toast.makeText(this, "Enter pass", Toast.LENGTH_SHORT).show(); return 0;
+            Toast.makeText(this, "Enter pass", Toast.LENGTH_SHORT).show();
+            return 0;
 
-        } else if (tpas.getText().length() <6) {
+        } else if (tpas.getText().length() < 6) {
             tpas.requestFocus();
-            Toast.makeText(this, "Enter valid Pass", Toast.LENGTH_SHORT).show(); return 0;
+            Toast.makeText(this, "Enter valid Pass", Toast.LENGTH_SHORT).show();
+            return 0;
 
 
         } else if (tconps.getText().toString().isEmpty()) {
             tconps.requestFocus();
-            Toast.makeText(this, "COnfirm pass", Toast.LENGTH_SHORT).show();return 0;
+            Toast.makeText(this, "COnfirm pass", Toast.LENGTH_SHORT).show();
+            return 0;
 
         } else if (!tpas.getText().toString().equals(tconps.getText().toString())) {
             tconps.requestFocus();
             Toast.makeText(this, "Password not match", Toast.LENGTH_SHORT).show();
             return 0;
 
-        }  else if (tName.getText().toString().isEmpty()) {
+        } else if (tName.getText().toString().isEmpty()) {
             tName.requestFocus();
             Toast.makeText(this, "Enter name", Toast.LENGTH_SHORT).show();
             return 0;
-        }
-
-        else {
+        } else {
 
             a++;
         }
@@ -73,7 +83,7 @@ teml=findViewById(R.id.Bmail);
     }
 
     public void sing(View view) {
-        if(at2()==1){
+        if (at2() == 1) {
 
             Toast.makeText(this, "sign up success", Toast.LENGTH_SHORT).show();
 

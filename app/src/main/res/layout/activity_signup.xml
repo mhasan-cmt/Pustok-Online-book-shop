@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginandsignup.log_in_book">
+    tools:context=".loginandsignup.SignUpActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center">
 
+
         <LinearLayout
+            android:id="@+id/social_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="9dp"
             android:orientation="vertical">
 
             <ImageView
@@ -40,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Sing in to continue "
+                android:text="Create New Account "
                 android:textAlignment="center"
                 android:textColor="#6B705C"
                 android:textDirection="locale"
@@ -49,19 +50,14 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-
                 style="@style/Theme.PustokOnlineBookShop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:startIconDrawable="@drawable/ic_baseline_account"
 
-                >
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+
+                app:startIconDrawable="@drawable/ic_baseline_account">
+
                 app:startIconDrawable="@drawable/ic_baseline_account">
 
 
@@ -81,27 +77,77 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Theme.PustokOnlineBookShop"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                app:startIconDrawable="@drawable/ic_baseline_email">
+
+                app:startIconDrawable="@drawable/ic_baseline_email">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Bmail"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/f"
+                    android:backgroundTint="#EDEDE9"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="20"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
 
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock">
+
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pass"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/f"
+                    android:backgroundTint="#EDEDE9"
+                    android:hint="password"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
                 app:startIconDrawable="@drawable/ic_baseline_lock"
-                style="@style/Theme.PustokOnlineBookShop"
 
                 >
 
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock">
 
-
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Bpass"
+                    android:id="@+id/conpass"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/f"
                     android:backgroundTint="#EDEDE9"
-                    android:hint="Password"
+                    android:hint="Confirm-Password"
                     android:inputType="textPassword"
                     android:maxLength="6"
                     android:textSize="16sp"
@@ -121,8 +167,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/f"
-                    android:onClick="logn"
-                    android:text="Log IN"
+                    android:onClick="sing"
+                    android:text="Sign-up"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     app:backgroundTint="#4ABC96" />
@@ -131,9 +177,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="........................OR LOG IN WITH........................"
+                    android:text="........................OR SIGN UP WITH........................"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -143,9 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:gravity="center"
-                    android:orientation="horizontal"
-
-                    >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="50dp"
@@ -173,38 +217,28 @@
                         android:backgroundTint="@color/white"
                         android:paddingHorizontal="10dp"
                         android:src="@drawable/twitter" />
-
-
                 </LinearLayout>
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:weightSum="6"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Don't have an account?"
-                        android:textSize="16sp" />
-
+                        android:text="Already Have an Account?"
+                        android:textSize="18sp"/>
                     <TextView
-                        android:id="@+id/CNAC"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/login_now_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:onClick="cna"
-                        android:text="Create New Account"
-                        android:textColor="#40916C"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="22sp"
+                        android:text="Log In now"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
-
-
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
