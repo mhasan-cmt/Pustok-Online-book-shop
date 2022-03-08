@@ -53,13 +53,8 @@
                 style="@style/Theme.PustokOnlineBookShop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="20dp"
-
                 app:startIconDrawable="@drawable/ic_baseline_account">
-
-                app:startIconDrawable="@drawable/ic_baseline_account">
-
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/puser"
@@ -79,13 +74,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Theme.PustokOnlineBookShop"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 app:startIconDrawable="@drawable/ic_baseline_email">
-
-                app:startIconDrawable="@drawable/ic_baseline_email">
-
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Bmail"
@@ -97,6 +87,28 @@
                     android:backgroundTint="#EDEDE9"
                     android:hint="E-mail"
                     android:inputType="textEmailAddress"
+                    android:maxLength="20"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Theme.PustokOnlineBookShop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_call_">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/BphoneNumber"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/f"
+                    android:backgroundTint="#EDEDE9"
+                    android:hint="Mobile"
+                    android:inputType="numberDecimal"
                     android:maxLength="20"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -167,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/f"
-                    android:onClick="sing"
+                    android:onClick="signUp"
                     android:text="Sign-up"
                     android:textColor="@color/white"
                     android:textSize="20sp"
@@ -218,26 +230,29 @@
                         android:paddingHorizontal="10dp"
                         android:src="@drawable/twitter" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:weightSum="6"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="10dp">
+                    android:paddingHorizontal="10dp"
+                    android:weightSum="6">
+
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="4"
                         android:layout_height="wrap_content"
+                        android:layout_weight="4"
                         android:text="Already Have an Account?"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
+
                     <TextView
                         android:id="@+id/login_now_btn"
                         android:layout_width="0dp"
-                        android:layout_weight="2"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
+                        android:layout_weight="2"
                         android:text="Log In now"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="22sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
