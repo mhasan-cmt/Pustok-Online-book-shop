@@ -122,9 +122,6 @@
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock">
 
-                app:passwordToggleEnabled="true"
-                app:startIconDrawable="@drawable/ic_baseline_lock">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pass"
                     android:layout_width="350dp"

@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
     }
 
     public int at2(){
-        int a=0;
             if (etUserName.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Enter name", Toast.LENGTH_SHORT).show();
                 etUserName.requestFocus();
@@ -68,11 +67,9 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
                 Toast.makeText(this, "Password does not match!", Toast.LENGTH_SHORT).show();
                 etConfirmPassword.requestFocus();
                 return 0;
-            } else {
-                return a++;
-            }
-            return a;
-        }
+            } else return 1;
+        return 0;
+    }
         public void signUp (View view){
             if (at2() == 1) {
                 progressDialog = new ProgressDialog(this);
@@ -85,6 +82,8 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
                         etConfirmPassword.getText().toString());
                 firebaseAuthService.createUserWithEmailAndPassword(user, this);
                 progressDialog.dismiss();
+            }else{
+                Toast.makeText(this, "broken", Toast.LENGTH_SHORT).show();
             }
         }
 
