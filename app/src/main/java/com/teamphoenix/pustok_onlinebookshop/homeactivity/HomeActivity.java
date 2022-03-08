@@ -51,7 +51,6 @@ public class HomeActivity extends AppCompatActivity {
         exit_btn_oky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
                 exitDialog.dismiss();
                 finish();
             }
