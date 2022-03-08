@@ -14,12 +14,9 @@
             android:exported="false" />
         <activity
             android:name=".noInternet.noInternet"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
-            android:name=".loginandsignup.signupform"
-            android:exported="true"/>
-        <activity
-            android:name=".loginandsignup.log_in_book"
+            android:name=".loginandsignup.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".homeactivity.HomeActivity"
@@ -33,7 +30,6 @@
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
-
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>

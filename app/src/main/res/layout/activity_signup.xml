@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginandsignup.signupform">
+    tools:context=".loginandsignup.SignUpActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,6 +13,7 @@
 
 
         <LinearLayout
+            android:id="@+id/social_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -75,7 +76,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_baseline_email">
-
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Bmail"
@@ -229,11 +229,31 @@
                         android:backgroundTint="@color/white"
                         android:paddingHorizontal="10dp"
                         android:src="@drawable/twitter" />
-
-
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:weightSum="6">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="Already Have an Account?"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/login_now_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Log In now"
+                        android:textColor="@color/black"
+                        android:textSize="22sp" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
