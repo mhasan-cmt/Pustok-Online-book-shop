@@ -56,6 +56,7 @@ public class FirebaseAuthService {
     }
 
     public boolean checkUserSignedIn() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() != null) {
             return true;
         } else {
