@@ -16,32 +16,35 @@ import com.teamphoenix.pustok_onlinebookshop.listeners.onSignupListener;
 public class FirebaseAuthService {
     Context context;
     User user;
+
     public FirebaseAuthService(Context context) {
         this.context = context;
     }
+
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
-    public void createUserWithEmailAndPassword(User user, onSignupListener onSignupListener){
-        this.user=user;
+    public void createUserWithEmailAndPassword(User user, onSignupListener onSignupListener) {
+        this.user = user;
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Log.d("LoginDebug", "onComplete: account created.");
                             user.set_id(firebaseAuth.getUid());
                             onSignupListener.onSuccess(user);
-                        }else{
+                        } else {
                             Log.d("LoginDebug", "onComplete: account creation failed due to some error!");
                             onSignupListener.onError(task.getException().getMessage());
                         }
                     }
                 });
     }
-    public boolean checkUserSignedIn(){
-        if(firebaseAuth.getCurrentUser()!=null){
+
+    public boolean checkUserSignedIn() {
+        if (firebaseAuth.getCurrentUser() != null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
