@@ -102,6 +102,8 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
         Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
         fireBaseDbService.saveUserData(user);
         progressDialog.dismiss();
+        startActivity(new Intent(SignUpActivity.this,HomeActivity.class));
+        finish();
     }
 
     @Override
