@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onSignInListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onSignupListener;
 
 public class FirebaseAuthService {
@@ -36,6 +37,19 @@ public class FirebaseAuthService {
                         } else {
                             Log.d("LoginDebug", "onComplete: account creation failed due to some error!");
                             onSignupListener.onError(task.getException().getMessage());
+                        }
+                    }
+                });
+    }
+    public void login(String email, String password, onSignInListener onSignInListener){
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isComplete()){
+                            onSignInListener.onSignInSuccess("Login Success");
+                        }else{
+                            onSignInListener.onSignInFailed("Login Failed"+ task.getException().getMessage());
                         }
                     }
                 });
