@@ -106,21 +106,7 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
     @Override
     public void onSuccess(User user) {
         Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
-        fireBaseDbService.saveUserData(user, new onUserDataSaveListener() {
-            @Override
-            public void onSuccess(String msg) {
-                progressDialog.dismiss();
-                Toast.makeText(SignUpActivity.this, msg, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
-                finish();
-            }
-
-            @Override
-            public void onFailure(String errorMsg) {
-                progressDialog.dismiss();
-                Toast.makeText(SignUpActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
-            }
-        });
+        progressDialog.dismiss();
 
     }
 

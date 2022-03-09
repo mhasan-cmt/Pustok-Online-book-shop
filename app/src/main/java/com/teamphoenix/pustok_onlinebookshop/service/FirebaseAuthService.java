@@ -11,7 +11,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
-import com.teamphoenix.pustok_onlinebookshop.firebase.FireBaseAuthSingleton;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onSignupListener;
 
 public class FirebaseAuthService {
@@ -20,11 +19,10 @@ public class FirebaseAuthService {
     public FirebaseAuthService(Context context) {
         this.context = context;
     }
-    FireBaseAuthSingleton fireBaseAuthSingleton = FireBaseAuthSingleton.getInstance(context);
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     public void createUserWithEmailAndPassword(User user, onSignupListener onSignupListener){
         this.user=user;
-        FirebaseAuth firebaseAuth = fireBaseAuthSingleton.getFirebaseAuth();
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -41,7 +39,7 @@ public class FirebaseAuthService {
                 });
     }
     public boolean checkUserSignedIn(){
-        if(fireBaseAuthSingleton.getFirebaseAuth().getCurrentUser()!=null){
+        if(firebaseAuth.getCurrentUser()!=null){
             return true;
         }else{
             return false;
