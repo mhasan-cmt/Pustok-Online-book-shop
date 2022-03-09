@@ -83,7 +83,6 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
             progressDialog.setCancelable(false);
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
-
             firebaseAuthService.createUserWithEmailAndPassword(getDataFromUser(), this);
         } else {
             Toast.makeText(this, "broken", Toast.LENGTH_SHORT).show();
@@ -101,8 +100,8 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
     @Override
     public void onSuccess(User user) {
         Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
+        fireBaseDbService.saveUserData(user);
         progressDialog.dismiss();
-
     }
 
     @Override
