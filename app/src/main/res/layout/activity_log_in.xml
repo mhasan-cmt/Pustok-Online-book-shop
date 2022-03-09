@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Sing in to continue "
+                android:text="Sign in to continue "
                 android:textAlignment="center"
                 android:textColor="#6B705C"
                 android:textDirection="locale"
