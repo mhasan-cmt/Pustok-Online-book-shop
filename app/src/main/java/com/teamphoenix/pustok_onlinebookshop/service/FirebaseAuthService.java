@@ -22,9 +22,8 @@ public class FirebaseAuthService {
         this.context = context;
     }
 
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
     public void createUserWithEmailAndPassword(User user, onSignupListener onSignupListener) {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         this.user = user;
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
@@ -42,6 +41,7 @@ public class FirebaseAuthService {
                 });
     }
     public void login(String email, String password, onSignInListener onSignInListener){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

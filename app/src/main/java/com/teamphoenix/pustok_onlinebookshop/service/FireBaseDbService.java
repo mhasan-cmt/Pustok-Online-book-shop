@@ -15,9 +15,8 @@ public class FireBaseDbService {
         this.context = context;
     }
 
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-
     public void saveUserData(User user) {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference("users");
         reference.child(user.get_id()).setValue(user);
     }
