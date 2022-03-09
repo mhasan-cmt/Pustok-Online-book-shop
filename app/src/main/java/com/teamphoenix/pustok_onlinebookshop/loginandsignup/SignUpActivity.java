@@ -67,7 +67,12 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
             etPassword.requestFocus();
             return 0;
 
-        } else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
+        }else if(etPassword.getText().toString().length()<6){
+            Toast.makeText(this, "Your password should be more than 6 characters!!", Toast.LENGTH_SHORT).show();
+            etPassword.requestFocus();
+            return 0;
+        }
+        else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
             Toast.makeText(this, "Password does not match!", Toast.LENGTH_SHORT).show();
             etConfirmPassword.requestFocus();
             return 0;
