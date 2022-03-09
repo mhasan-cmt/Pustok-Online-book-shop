@@ -11,11 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
+import com.teamphoenix.pustok_onlinebookshop.service.FirebaseAuthService;
 
 public class LoginActivity extends AppCompatActivity {
     EditText txusr, txps;
     Button button1;
     TextView textView;
+    FirebaseAuthService authService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,13 @@ public class LoginActivity extends AppCompatActivity {
         txusr = findViewById(R.id.puser);
         txps = findViewById(R.id.Bpass);
         textView = findViewById(R.id.CNAC);
+        authService = new FirebaseAuthService(this);
+
+        //        Checking user already signed in or not
+        if (authService.checkUserSignedIn()) {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        }
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +48,6 @@ public class LoginActivity extends AppCompatActivity {
     public void cna(View view) {
 
     }
-
-
     public int validateUserInput() {
 
         int a = 0;

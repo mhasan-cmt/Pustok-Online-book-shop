@@ -43,11 +43,7 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
         firebaseAuthService = new FirebaseAuthService(this);
         fireBaseDbService = new FireBaseDbService(this);
 
-//        Checking user already signed in or not
-        if (firebaseAuthService.checkUserSignedIn()) {
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
-        }
+
     }
 
     //    Validating User data

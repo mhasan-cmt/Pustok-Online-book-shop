@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
-import com.teamphoenix.pustok_onlinebookshop.loginandsignup.SignUpActivity;
+import com.teamphoenix.pustok_onlinebookshop.loginandsignup.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
     private LottieAnimationView animationView;
@@ -27,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, SignUpActivity.class));
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 finish();
             }
         }, 3000);
