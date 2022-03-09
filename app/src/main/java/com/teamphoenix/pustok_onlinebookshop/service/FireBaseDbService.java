@@ -20,7 +20,7 @@ public class FireBaseDbService {
 
     FireBaseDbSingleton fireBaseDbSingleton = FireBaseDbSingleton.getInstance(context);
 
-    void saveUserData(User user, onUserDataSaveListener onUserDataSaveListener) {
+    public void saveUserData(User user, onUserDataSaveListener onUserDataSaveListener) {
         DatabaseReference reference = fireBaseDbSingleton.getFirebaseDatabase().getReference("users");
         reference.child(user.get_id()).setValue(user, new DatabaseReference.CompletionListener() {
             @Override

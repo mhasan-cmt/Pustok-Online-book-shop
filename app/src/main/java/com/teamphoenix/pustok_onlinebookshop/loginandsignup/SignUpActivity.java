@@ -14,6 +14,7 @@ import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onSignupListener;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onUserDataSaveListener;
 import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
 import com.teamphoenix.pustok_onlinebookshop.service.FirebaseAuthService;
 
@@ -49,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
         }
     }
 
-//    Validating User data
+    //    Validating User data
     public int validateUserInput() {
         if (etUserName.getText().toString().isEmpty()) {
             Toast.makeText(this, "Enter name", Toast.LENGTH_SHORT).show();
@@ -87,6 +88,7 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
             progressDialog.setCancelable(false);
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
+
             firebaseAuthService.createUserWithEmailAndPassword(getDataFromUser(), this);
         } else {
             Toast.makeText(this, "broken", Toast.LENGTH_SHORT).show();
@@ -102,11 +104,23 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
     }
 
     @Override
-    public void onSuccess() {
-//        progressDialog.dismiss();
-//        Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
-//        startActivity(new Intent(this, HomeActivity.class));
-//        finish();
+    public void onSuccess(User user) {
+        Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
+        fireBaseDbService.saveUserData(user, new onUserDataSaveListener() {
+            @Override
+            public void onSuccess(String msg) {
+                progressDialog.dismiss();
+                Toast.makeText(SignUpActivity.this, msg, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onFailure(String errorMsg) {
+                Toast.makeText(SignUpActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

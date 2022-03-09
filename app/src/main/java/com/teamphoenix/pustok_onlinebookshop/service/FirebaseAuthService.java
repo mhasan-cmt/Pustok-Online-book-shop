@@ -31,7 +31,8 @@ public class FirebaseAuthService {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.d("LoginDebug", "onComplete: account created.");
-                            onSignupListener.onSuccess();
+                            user.set_id(firebaseAuth.getUid());
+                            onSignupListener.onSuccess(user);
                         }else{
                             Log.d("LoginDebug", "onComplete: account creation failed due to some error!");
                             onSignupListener.onError(task.getException().getMessage());
