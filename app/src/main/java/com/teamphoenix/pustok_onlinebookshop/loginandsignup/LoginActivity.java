@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public int at() {
+    public int validateUserInput() {
 
         int a = 0;
         if (txusr.getText().toString().isEmpty()) {
@@ -60,15 +60,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
         } else {
-
             a++;
         }
         return a;
 
     }
 
-    public void logn(View view) {
-        if (at() == 1) {
+    public void logIn(View view) {
+        if (validateUserInput() == 1) {
 
             Toast.makeText(this, "log in success", Toast.LENGTH_SHORT).show();
         }

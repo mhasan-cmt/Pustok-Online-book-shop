@@ -56,16 +56,7 @@
                 android:layout_marginTop="20dp"
                 app:startIconDrawable="@drawable/ic_baseline_account"
 
-                >
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:startIconDrawable="@drawable/ic_baseline_account">
-
-
-                <com.google.android.material.textfield.TextInputEditText
+                ><com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/puser"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
@@ -121,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/f"
-                    android:onClick="logn"
+                    android:onClick="logIn"
                     android:text="Log IN"
                     android:textColor="@color/white"
                     android:textSize="20sp"
