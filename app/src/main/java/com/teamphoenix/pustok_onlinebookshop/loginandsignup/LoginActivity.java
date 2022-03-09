@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onSignInListener;
 import com.teamphoenix.pustok_onlinebookshop.service.FirebaseAuthService;
 
 public class LoginActivity extends AppCompatActivity {
@@ -53,8 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         int a = 0;
         if (txusr.getText().toString().isEmpty()) {
             txusr.requestFocus();
-
-            Toast.makeText(this, "Enter an  user name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter your email", Toast.LENGTH_SHORT).show();
             return 0;
         } else if (txps.getText().toString().isEmpty()) {
             txps.requestFocus();
@@ -76,7 +76,19 @@ public class LoginActivity extends AppCompatActivity {
 
     public void logIn(View view) {
         if (validateUserInput() == 1) {
-            Toast.makeText(this, "log in success", Toast.LENGTH_SHORT).show();
+            authService.login(txusr.getText().toString(), txps.getText().toString(), new onSignInListener() {
+                @Override
+                public void onSignInSuccess(String msg) {
+                    Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    finish();
+                }
+
+                @Override
+                public void onSignInFailed(String error) {
+                    Toast.makeText(LoginActivity.this, error, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
