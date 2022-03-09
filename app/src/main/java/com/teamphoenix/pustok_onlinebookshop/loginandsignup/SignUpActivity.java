@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
         firebaseAuthService = new FirebaseAuthService(this);
         fireBaseDbService = new FireBaseDbService(this);
 
-
     }
 
     //    Validating User data

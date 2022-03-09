@@ -76,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void logIn(View view) {
         if (validateUserInput() == 1) {
-
             Toast.makeText(this, "log in success", Toast.LENGTH_SHORT).show();
         }
     }
