@@ -14,6 +14,7 @@ import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onSignupListener;
+import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
 import com.teamphoenix.pustok_onlinebookshop.service.FirebaseAuthService;
 
 public class SignUpActivity extends AppCompatActivity implements onSignupListener {
@@ -23,24 +24,32 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
     User user;
     //    Firebase Authentication Service Object
     FirebaseAuthService firebaseAuthService;
+    FireBaseDbService fireBaseDbService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        Finding all Views
         setContentView(R.layout.activity_signup);
         etUserName = findViewById(R.id.puser);
         etPassword = findViewById(R.id.pass);
         etConfirmPassword = findViewById(R.id.conpass);
         etEmail = findViewById(R.id.Bmail);
         etPhone = findViewById(R.id.BphoneNumber);
-//        Creating a new Object for firebase auth service
+
+//        Creating a new Object for firebase services
         firebaseAuthService = new FirebaseAuthService(this);
+        fireBaseDbService = new FireBaseDbService(this);
+
+//        Checking user already signed in or not
         if (firebaseAuthService.checkUserSignedIn()) {
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         }
     }
 
+//    Validating User data
     public int validateUserInput() {
         if (etUserName.getText().toString().isEmpty()) {
             Toast.makeText(this, "Enter name", Toast.LENGTH_SHORT).show();
@@ -94,10 +103,10 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
 
     @Override
     public void onSuccess() {
-        progressDialog.dismiss();
-        Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, HomeActivity.class));
-        finish();
+//        progressDialog.dismiss();
+//        Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
+//        startActivity(new Intent(this, HomeActivity.class));
+//        finish();
     }
 
     @Override
