@@ -117,6 +117,7 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
 
             @Override
             public void onFailure(String errorMsg) {
+                progressDialog.dismiss();
                 Toast.makeText(SignUpActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
             }
         });
