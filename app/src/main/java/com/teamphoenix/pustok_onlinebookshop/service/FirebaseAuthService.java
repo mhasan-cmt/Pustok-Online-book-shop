@@ -7,6 +7,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,17 +42,20 @@ public class FirebaseAuthService {
                     }
                 });
     }
-    public void login(String email, String password, onSignInListener onSignInListener){
+
+    public void login(String email, String password, onSignInListener onSignInListener) {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isComplete()){
-                            onSignInListener.onSignInSuccess("Login Success");
-                        }else{
-                            onSignInListener.onSignInFailed("Login Failed"+ task.getException().getMessage());
-                        }
+                    public void onSuccess(AuthResult authResult) {
+                        onSignInListener.onSignInSuccess("Login Success");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        onSignInListener.onSignInFailed(e.getMessage());
                     }
                 });
     }

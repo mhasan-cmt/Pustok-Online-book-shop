@@ -17,7 +17,7 @@ import com.teamphoenix.pustok_onlinebookshop.service.FirebaseAuthService;
 
 public class LoginActivity extends AppCompatActivity {
     EditText txusr, txps;
-    Button button1;
+    Button loginBtn;
     TextView textView;
     FirebaseAuthService authService;
 
@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         txusr = findViewById(R.id.puser);
         txps = findViewById(R.id.Bpass);
         textView = findViewById(R.id.CNAC);
+        loginBtn = findViewById(R.id.btn_login);
         authService = new FirebaseAuthService(this);
 
         //        Checking user already signed in or not
@@ -36,6 +37,12 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logIn();
+            }
+        });
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void logIn(View view) {
+    public void logIn() {
         if (validateUserInput() == 1) {
             authService.login(txusr.getText().toString(), txps.getText().toString(), new onSignInListener() {
                 @Override
