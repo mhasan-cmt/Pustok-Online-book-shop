@@ -1,6 +1,8 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -15,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
@@ -24,7 +28,9 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.google.gson.Gson;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.ProfileRecyclerViewAdapter;
 import com.teamphoenix.pustok_onlinebookshop.settings.SettingsActivity;
 
@@ -44,7 +50,9 @@ public class ProfileFragment extends Fragment {
     private ArrayList<String> texts, texts2;
     private BarChart read_duration_chart;
     private Button settingBtn;
-
+    private User user;
+    private SharedPreferences profileSharedPreferences;
+    private TextView profile_user_name,profile_user_mobile;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -83,12 +91,28 @@ public class ProfileFragment extends Fragment {
         recyclerViewSecond = getView().findViewById(R.id.profile_second_recycler_view);
         read_duration_chart = getView().findViewById(R.id.read_duration_chart);
         settingBtn = getView().findViewById(R.id.settingBtn);
+        profile_user_name = getView().findViewById(R.id.profile_user_name);
+        profile_user_mobile = getView().findViewById(R.id.profile_user_mobile);
 
+        profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+        settingProfileData();
         settingupListenerTosettingsButton();
-
         settingUpRecyclerViews();
         settingUpChart();
 
+    }
+
+    private void settingProfileData() {
+        profile_user_name.setText(getUserData().getUserName());
+        profile_user_mobile.setText(getUserData().getPhoneNumber());
+    }
+
+    private User getUserData() {
+        Gson gson = new Gson();
+        String userData =profileSharedPreferences.getString("UserData", "");
+        this.user = gson.fromJson(userData, User.class);
+        return this.user;
     }
 
     private void settingupListenerTosettingsButton() {

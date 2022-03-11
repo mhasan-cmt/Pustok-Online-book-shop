@@ -18,6 +18,9 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+    }
+
     public String get_id() {
         return _id;
     }
@@ -40,5 +43,16 @@ public class User {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "_id='" + _id + '\'' +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
