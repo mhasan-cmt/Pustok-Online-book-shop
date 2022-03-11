@@ -95,8 +95,6 @@ public class ProfileFragment extends Fragment {
         profile_user_mobile = getView().findViewById(R.id.profile_user_mobile);
 
         profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-
-        settingProfileData();
         settingupListenerTosettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
