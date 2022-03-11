@@ -1,15 +1,14 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHostController;
@@ -17,8 +16,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.gson.Gson;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityHomeBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
@@ -35,13 +34,14 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
     FireBaseDbService fireBaseDbService;
     ProfileFragment profileFragment;
     User user;
+    public SharedPreferences homeSharePreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         homeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = homeBinding.getRoot();
         setContentView(view);
-
+       homeSharePreferences = getPreferences(MODE_PRIVATE);
         fireBaseDbService = new FireBaseDbService(HomeActivity.this);
         settingUpRefreshLayout();
         setNavController();
@@ -104,7 +104,11 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
     @Override
     public void onSuccess(User user) {
         this.user = user;
-        Toast.makeText(this, user.toString(), Toast.LENGTH_SHORT).show();
+        Gson gson = new Gson();
+        Editor editor = homeSharePreferences.edit();
+        String userJson = gson.toJson(user);
+        editor.putString("UserData",userJson );
+        editor.commit();
     }
 
     @Override

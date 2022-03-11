@@ -1,6 +1,8 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
@@ -24,7 +27,9 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.google.gson.Gson;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.ProfileRecyclerViewAdapter;
 import com.teamphoenix.pustok_onlinebookshop.settings.SettingsActivity;
 
@@ -44,7 +49,8 @@ public class ProfileFragment extends Fragment {
     private ArrayList<String> texts, texts2;
     private BarChart read_duration_chart;
     private Button settingBtn;
-
+    private User user;
+    private SharedPreferences profileSharedPreferences;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -84,11 +90,19 @@ public class ProfileFragment extends Fragment {
         read_duration_chart = getView().findViewById(R.id.read_duration_chart);
         settingBtn = getView().findViewById(R.id.settingBtn);
 
-        settingupListenerTosettingsButton();
+        profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
 
+        settingupListenerTosettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
+        Toast.makeText(getActivity(), getUserData().toString(), Toast.LENGTH_SHORT).show();
+    }
 
+    private User getUserData() {
+        Gson gson = new Gson();
+        String userData =profileSharedPreferences.getString("UserData", "");
+        this.user = gson.fromJson(userData, User.class);
+        return this.user;
     }
 
     private void settingupListenerTosettingsButton() {
