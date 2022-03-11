@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
 
@@ -54,21 +55,15 @@ public class FireBaseDbService {
 
     public void getUserById(String uid, onGetUserDataListener onGetUserDataListener) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-        database.child(uid).get()
-        .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        database.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                if (task.isSuccessful()){
-                    User user = task.getResult().getValue(User.class);
-                    onGetUserDataListener.onSuccess(user);
-                }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                onGetUserDataListener.onSuccess(snapshot.getValue(User.class));
             }
-        })
-        .addOnFailureListener(new OnFailureListener() {
+
             @Override
-            public void onFailure(@NonNull Exception e) {
-                onGetUserDataListener.onError(e.getMessage());
+            public void onCancelled(@NonNull DatabaseError error) {
+                onGetUserDataListener.onError(error.getMessage());
             }
         });
     }

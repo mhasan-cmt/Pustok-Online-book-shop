@@ -95,15 +95,16 @@ public class ProfileFragment extends Fragment {
         profile_user_mobile = getView().findViewById(R.id.profile_user_mobile);
 
         profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+
         settingupListenerTosettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
 
     }
 
-    private void settingProfileData() {
-        profile_user_name.setText(getUserData().getUserName());
-        profile_user_mobile.setText(getUserData().getPhoneNumber());
+    private void settingProfileData(User user) {
+        profile_user_name.setText(user.getUserName());
+        profile_user_mobile.setText(user.getPhoneNumber());
     }
 
     private User getUserData() {
