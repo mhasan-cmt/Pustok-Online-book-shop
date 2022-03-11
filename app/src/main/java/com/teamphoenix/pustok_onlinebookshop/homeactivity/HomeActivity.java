@@ -16,6 +16,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.teamphoenix.pustok_onlinebookshop.R;
@@ -24,6 +26,8 @@ import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments.ProfileFragment;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
 import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements onGetUserDataListener{
 
@@ -35,6 +39,8 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
     ProfileFragment profileFragment;
     User user;
     public SharedPreferences homeSharePreferences;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
