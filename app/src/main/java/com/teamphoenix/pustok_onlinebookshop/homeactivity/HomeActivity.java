@@ -15,6 +15,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavHostController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     private NavHostController navHostController;
     ActivityHomeBinding homeBinding;
     private Dialog exitDialog;
-    private Button exit_btn_oky,exit_btn_no;
+    private Button exit_btn_oky, exit_btn_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,15 @@ public class HomeActivity extends AppCompatActivity {
         homeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = homeBinding.getRoot();
         setContentView(view);
+
+//        Setting Refresh event
+        homeBinding.getRoot().setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(HomeActivity.this, "Refreshed..!", Toast.LENGTH_SHORT).show();
+                homeBinding.getRoot().setRefreshing(false);
+            }
+        });
 //        getSupportActionBar().hide();
         NavController navController = Navigation.findNavController(HomeActivity.this, R.id.fragmentContainerView);
         NavigationUI.setupWithNavController(homeBinding.bottomNavView, navController);
