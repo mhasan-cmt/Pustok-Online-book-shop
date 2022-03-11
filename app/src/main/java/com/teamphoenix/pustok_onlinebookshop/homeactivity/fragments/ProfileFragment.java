@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -51,6 +52,7 @@ public class ProfileFragment extends Fragment {
     private Button settingBtn;
     private User user;
     private SharedPreferences profileSharedPreferences;
+    private TextView profile_user_name,profile_user_mobile;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -89,13 +91,21 @@ public class ProfileFragment extends Fragment {
         recyclerViewSecond = getView().findViewById(R.id.profile_second_recycler_view);
         read_duration_chart = getView().findViewById(R.id.read_duration_chart);
         settingBtn = getView().findViewById(R.id.settingBtn);
+        profile_user_name = getView().findViewById(R.id.profile_user_name);
+        profile_user_mobile = getView().findViewById(R.id.profile_user_mobile);
 
         profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
 
+        settingProfileData();
         settingupListenerTosettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
-        Toast.makeText(getActivity(), getUserData().toString(), Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void settingProfileData() {
+        profile_user_name.setText(getUserData().getUserName());
+        profile_user_mobile.setText(getUserData().getPhoneNumber());
     }
 
     private User getUserData() {
