@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.teamphoenix.pustok_onlinebookshop.R;
 
 
-public class contentFragment4 extends Fragment {
+public class WriterTabFragment extends Fragment {
 
 
     @Override

@@ -19,7 +19,7 @@ import com.teamphoenix.pustok_onlinebookshop.databinding.FragmentContentfragment
 import java.util.ArrayList;
 
 
-public class contentfragment1 extends Fragment {
+public class HomeTabFragment extends Fragment {
 
     private ArrayList<SlideModel> imgList;
     private ImageSlider home_slider;

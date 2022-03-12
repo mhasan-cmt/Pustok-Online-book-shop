@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.bookSelfBookViewAdapter;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.BookSelfAdapter;
 
 public class BookShelfFragment extends Fragment {
 
@@ -72,7 +72,7 @@ public class BookShelfFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bookSelfBookViewAdapter adapter = new bookSelfBookViewAdapter(getContext(),bookName,bookImage);
+        BookSelfAdapter adapter = new BookSelfAdapter(getContext(),bookName,bookImage);
         singleBookViewBookSelf=getView().findViewById(R.id.singleBookViewBookSelf);
         singleBookViewBookSelf.setAdapter(adapter);
         singleBookViewBookSelf.setLayoutManager(new GridLayoutManager(getContext(),3) ) ;

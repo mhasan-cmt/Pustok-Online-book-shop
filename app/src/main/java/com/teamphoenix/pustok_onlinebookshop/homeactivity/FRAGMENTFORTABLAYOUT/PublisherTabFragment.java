@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.publisherProfileAdapter;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.PublisherProfileAdapter;
 
 import java.util.ArrayList;
 
 
-public class contentfragment5 extends Fragment {
+public class PublisherTabFragment extends Fragment {
 
     RecyclerView publisher_recyclerView;
     ArrayList<Publisher> publisherDataArray = new ArrayList<>();
@@ -31,7 +31,7 @@ public class contentfragment5 extends Fragment {
         publisherDataArray.add(new Publisher("12","আবির প্রকাশন","R.drawable.writer","12","১২ টি বই"));
 
         //adapter
-        publisherProfileAdapter adapter = new publisherProfileAdapter(getContext(),publisherDataArray);
+        PublisherProfileAdapter adapter = new PublisherProfileAdapter(getContext(),publisherDataArray);
         publisher_recyclerView.setAdapter(adapter);
         publisher_recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
     }

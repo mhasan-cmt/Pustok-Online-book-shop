@@ -15,13 +15,13 @@ import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 
 import java.util.ArrayList;
 
-public class publisherProfileAdapter extends RecyclerView.Adapter<publisherProfileAdapter.MyHolder> {
+public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfileAdapter.MyHolder> {
 
     Context context;
     ArrayList<Publisher> publisherDataArray;
     ArrayList<Integer> images = new ArrayList<>();
 
-    public publisherProfileAdapter(Context context, ArrayList<Publisher> userDataArray) {
+    public PublisherProfileAdapter(Context context, ArrayList<Publisher> userDataArray) {
         this.context = context;
         this.publisherDataArray = userDataArray;
         images.add(R.drawable.writer);
