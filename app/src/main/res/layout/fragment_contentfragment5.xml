@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.contentfragment5">
+    tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.PublisherTabFragment">
 
 
     <LinearLayout
@@ -36,11 +36,11 @@
         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/l5"
+            android:id="@+id/publisher_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:layout_gravity="center_horizontal"
-
+            tools:listitem="@layout/publisher_profile_demo"
             />
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

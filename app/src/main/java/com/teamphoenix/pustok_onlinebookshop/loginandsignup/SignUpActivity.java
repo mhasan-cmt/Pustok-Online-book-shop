@@ -43,11 +43,6 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
         firebaseAuthService = new FirebaseAuthService(this);
         fireBaseDbService = new FireBaseDbService(this);
 
-//        Checking user already signed in or not
-        if (firebaseAuthService.checkUserSignedIn()) {
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
-        }
     }
 
     //    Validating User data
@@ -72,7 +67,12 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
             etPassword.requestFocus();
             return 0;
 
-        } else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
+        }else if(etPassword.getText().toString().length()<6){
+            Toast.makeText(this, "Your password should be more than 6 characters!!", Toast.LENGTH_SHORT).show();
+            etPassword.requestFocus();
+            return 0;
+        }
+        else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
             Toast.makeText(this, "Password does not match!", Toast.LENGTH_SHORT).show();
             etConfirmPassword.requestFocus();
             return 0;
@@ -88,7 +88,6 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
             progressDialog.setCancelable(false);
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
-
             firebaseAuthService.createUserWithEmailAndPassword(getDataFromUser(), this);
         } else {
             Toast.makeText(this, "broken", Toast.LENGTH_SHORT).show();
@@ -106,21 +105,10 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
     @Override
     public void onSuccess(User user) {
         Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
-        fireBaseDbService.saveUserData(user, new onUserDataSaveListener() {
-            @Override
-            public void onSuccess(String msg) {
-                progressDialog.dismiss();
-                Toast.makeText(SignUpActivity.this, msg, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
-                finish();
-            }
-
-            @Override
-            public void onFailure(String errorMsg) {
-                Toast.makeText(SignUpActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        fireBaseDbService.saveUserData(user);
+        progressDialog.dismiss();
+        startActivity(new Intent(SignUpActivity.this,HomeActivity.class));
+        finish();
     }
 
     @Override

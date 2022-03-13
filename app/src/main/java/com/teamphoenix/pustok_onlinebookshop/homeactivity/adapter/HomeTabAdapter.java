@@ -1,4 +1,4 @@
-package com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT;
+package com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,12 +10,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class TAbadapter extends FragmentPagerAdapter {
+public class HomeTabAdapter extends FragmentPagerAdapter {
     public final ArrayList<Fragment>fragmentArrayList=new ArrayList<>();
     public final ArrayList<String>stringArrayList=new ArrayList<>();
 
 
-    public TAbadapter(@NonNull @NotNull FragmentManager fm, int behavior) {
+    public HomeTabAdapter(@NonNull @NotNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
 

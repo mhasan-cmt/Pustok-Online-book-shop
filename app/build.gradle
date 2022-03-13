@@ -53,11 +53,16 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'com.airbnb.android:lottie:5.0.2'
-//    Lottie dependency
 
 //    Lottie dependency
     implementation 'com.airbnb.android:lottie:5.0.2'
 //    Mp Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+//Swipe to refresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+//    gson
+    implementation 'com.google.code.gson:gson:2.8.8'
+//Image Slider
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 }

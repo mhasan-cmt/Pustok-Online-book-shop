@@ -27,15 +27,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
+public class CategoryTabFragment extends Fragment {
 
-public class contentfragment2 extends Fragment {
     RecyclerView recyclerView;
     Cateadapter cateadapter;
     ArrayList<CatagModal>arrayList;
-FirebaseDatabase database;
-DatabaseReference databaseReference;
-
-
+    FirebaseDatabase database;
+    DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

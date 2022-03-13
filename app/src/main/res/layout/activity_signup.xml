@@ -143,12 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 app:startIconDrawable="@drawable/ic_baseline_lock"
-
                 >
-
-                app:passwordToggleEnabled="true"
-                app:startIconDrawable="@drawable/ic_baseline_lock">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/conpass"
                     android:layout_width="350dp"

@@ -3,44 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 
-    tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.contentfragment1">
+    tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.HomeTabFragment">
 
     <LinearLayout
+        android:id="@+id/lin2"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:orientation="vertical"
-        android:background="@drawable/png"
         android:gravity="center"
-        android:id="@+id/lin2"
-
+        android:orientation="vertical"
         >
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/home_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:iss_auto_cycle="true"
+            app:iss_period="1000"
+            app:iss_delay="0"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" welcome home "
-            android:textSize="40sp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            />
-
-
-<Button
-    android:layout_width="150dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/f"
-    android:backgroundTint="@android:color/holo_blue_dark"
-    android:text="Explore more"
-    android:layout_marginTop="2dp"
-    android:textColor="@color/white"
-    android:layout_gravity="center"
-
-    android:textStyle="bold"/>
     </LinearLayout>
-
 
 
     <androidx.cardview.widget.CardView
@@ -48,8 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lin2"
 
-    >
-
+        >
 
 
         <androidx.recyclerview.widget.RecyclerView

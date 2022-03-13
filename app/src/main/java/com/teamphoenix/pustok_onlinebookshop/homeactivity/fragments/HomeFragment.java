@@ -19,12 +19,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.cart.CartActivity;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.TAbadapter;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentFragment4;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentfragment1;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentfragment2;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentfragment3;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentfragment5;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.HomeTabAdapter;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.WriterTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.HomeTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.CategoryTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.FreeBooksTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.PublisherTabFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -88,15 +88,16 @@ public class HomeFragment extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        TAbadapter tAbadapter = new TAbadapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        tAbadapter.addfrg(new contentfragment1(), "হোম");
-        tAbadapter.addfrg(new contentfragment2(), "ক্যাটাগরি");
-        tAbadapter.addfrg(new contentfragment3(), "ফ্রী বই");
-        tAbadapter.addfrg(new contentFragment4(), "লেখক");
-        tAbadapter.addfrg(new contentfragment5(), "প্রকাশক");
-        viewPager.setAdapter(tAbadapter);
+        HomeTabAdapter homeTabAdapter = new HomeTabAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        homeTabAdapter.addfrg(new HomeTabFragment(), "হোম");
+        homeTabAdapter.addfrg(new CategoryTabFragment(), "ক্যাটাগরি");
+        homeTabAdapter.addfrg(new FreeBooksTabFragment(), "ফ্রী বই");
+        homeTabAdapter.addfrg(new WriterTabFragment(), "লেখক");
+        homeTabAdapter.addfrg(new PublisherTabFragment(), "প্রকাশক");
+        viewPager.setAdapter(homeTabAdapter);
 
     }
+
 
 
 }
