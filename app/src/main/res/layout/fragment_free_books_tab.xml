@@ -3,39 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    tools:context=".homeactivity.tabs.FreeBooksTabFragment">
 
-    tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.HomeTabFragment">
 
     <LinearLayout
-        android:id="@+id/lin2"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:gravity="center"
         android:orientation="vertical"
+        android:background="@drawable/clrcode"
+android:backgroundTint="@color/teal_700"
+        android:gravity="center"
+        android:id="@+id/lin4"
         >
-        <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/home_slider"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:iss_auto_cycle="true"
-            app:iss_period="1000"
-            app:iss_delay="0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" free books "
+            android:textSize="40sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+
+            />
+
 
     </LinearLayout>
-
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lin2"
+        android:layout_below="@id/lin4"
 
         >
 
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/l2"
+            android:id="@+id/l4"
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:layout_gravity="center_horizontal"
