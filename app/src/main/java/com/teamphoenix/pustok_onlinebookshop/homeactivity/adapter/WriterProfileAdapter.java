@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 
@@ -20,13 +21,10 @@ public class WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAdap
     Context context;
     ArrayList<Writer> writerArrayList;
 
-    //    Testing purpose
-    ArrayList<Integer> images = new ArrayList<>();
 
     public WriterProfileAdapter(Context context, ArrayList<Writer> userDataArray) {
         this.context = context;
         this.writerArrayList = userDataArray;
-        images.add(R.drawable.writer);
     }
 
     @NonNull
@@ -38,9 +36,9 @@ public class WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.publisher_profile_pic.setImageResource(images.get(0));
         holder.publisher_name.setText(writerArrayList.get(position).getWriter_name());
         holder.publisher_total_book.setText(writerArrayList.get(position).getFollowers());
+        Picasso.get().load(writerArrayList.get(position).getProfile_pic()).into(holder.publisher_profile_pic);
     }
 
     @Override
