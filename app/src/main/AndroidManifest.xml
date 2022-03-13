@@ -23,16 +23,23 @@
             android:exported="true" />
         <activity
             android:name=".homeactivity.HomeActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+
+
+        </activity>
         <activity
             android:name=".cart.CartActivity"
             android:exported="true"
             android:parentActivityName=".homeactivity.HomeActivity" />
+
+
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>

@@ -3,42 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.contentfragment2">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:orientation="vertical"
-        android:background="@drawable/clrcode"
-        android:gravity="center"
-        android:id="@+id/lin3"
-        >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Books Catagory "
-            android:textSize="20sp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:fontFamily="@font/nikosh"
-
-            />
-
-
-    </LinearLayout>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lin3"
+        android:layout_height="match_parent"
+     app:cardCornerRadius="2dp"
+        android:elevation="8dp"
+        android:layout_marginTop="4dp"
 
         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/l3"
+            android:id="@+id/Catagorybooks"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="650dp"
             android:layout_gravity="center_horizontal"
 
             />
