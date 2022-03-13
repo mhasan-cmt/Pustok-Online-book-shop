@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_contentfragment2.xml
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.CategoryTabFragment">
+||||||| a2fb45a:app/src/main/res/layout/fragment_contentfragment2.xml
+    tools:context=".homeactivity.FRAGMENTFORTABLAYOUT.CategoryTabFragment">
+=======
+    tools:context=".homeactivity.tabs.CategoryTabFragment">
+>>>>>>> writer:app/src/main/res/layout/fragment_category_tab.xml
 
 
 

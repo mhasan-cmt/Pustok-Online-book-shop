@@ -20,11 +20,11 @@ import com.google.android.material.tabs.TabLayout;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.cart.CartActivity;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.HomeTabAdapter;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.WriterTabFragment;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.HomeTabFragment;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.CategoryTabFragment;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.FreeBooksTabFragment;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.PublisherTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs.WriterTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs.HomeTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs.CategoryTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs.FreeBooksTabFragment;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs.PublisherTabFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -85,9 +85,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         tabLayout = getView().findViewById(R.id.tblay);
         viewPager = getView().findViewById(R.id.vp);
-
         tabLayout.setupWithViewPager(viewPager);
-
         HomeTabAdapter homeTabAdapter = new HomeTabAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         homeTabAdapter.addfrg(new HomeTabFragment(), "হোম");
         homeTabAdapter.addfrg(new CategoryTabFragment(), "ক্যাটাগরি");
@@ -97,7 +95,6 @@ public class HomeFragment extends Fragment {
         viewPager.setAdapter(homeTabAdapter);
 
     }
-
 
 
 }

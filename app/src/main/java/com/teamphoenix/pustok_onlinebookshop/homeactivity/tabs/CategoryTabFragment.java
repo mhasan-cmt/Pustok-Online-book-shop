@@ -1,4 +1,4 @@
-package com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT;
+package com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs;
 
 import android.os.Bundle;
 
@@ -39,6 +39,7 @@ public class CategoryTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< HEAD:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/FRAGMENTFORTABLAYOUT/CategoryTabFragment.java
         View view= inflater.inflate(R.layout.fragment_contentfragment2, container, false);
      recyclerView =view.findViewById(R.id.Catagorybooks);
      recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -78,4 +79,9 @@ cateadapter.notifyDataSetChanged();
 
 
 
+||||||| a2fb45a:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/FRAGMENTFORTABLAYOUT/CategoryTabFragment.java
+        return inflater.inflate(R.layout.fragment_contentfragment2, container, false);
+=======
+        return inflater.inflate(R.layout.fragment_category_tab, container, false);
+>>>>>>> writer:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/tabs/CategoryTabFragment.java
     }
