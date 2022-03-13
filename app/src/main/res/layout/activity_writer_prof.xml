@@ -9,136 +9,123 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-
-            android:orientation="vertical"
-            android:background="@drawable/clrcode"
-            android:padding="30dp"
-        />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
+
+                android:background="@drawable/clrcode"
                 android:orientation="vertical"
-                android:layout_marginTop="-80dp"
+                android:padding="30dp" />
 
-                >
-
-
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_gravity="center"
-                android:src="@drawable/writer"
-                app:civ_border_color="@color/teal_700"
-                app:civ_border_width="3dp"
-
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Writer name"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_marginTop="-80dp"
+                android:orientation="vertical"
+
                 >
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="75 Followers"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/writer_img"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/writer"
+                    app:civ_border_color="@color/teal_700"
+                    app:civ_border_width="3dp"
                     />
 
                 <TextView
+                    android:id="@+id/writer_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 12 books"
+                    android:layout_gravity="center"
+                    android:text="Writer name"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/writer_followers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="75 Followers"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 12 books"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ToggleButton
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/f"
+                    android:backgroundTint="@color/black"
+                    android:fontFamily="@font/nikosh"
+                    android:onClick="btprof"
+                    android:textColor="@color/white"
+                    android:textOff="অনুসরণ করুন"
+                    android:textOn="Following"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
-<ToggleButton
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/f"
-    android:backgroundTint="@color/black"
-    android:textOn="Following"
-    android:textOff="অনুসরণ করুন"
-    android:textColor="@color/white"
-    android:textSize="16sp"
-    android:onClick="btprof"
-    android:layout_gravity="center"
-    android:layout_marginTop="16dp"
-    android:textStyle="bold"
-    android:fontFamily="@font/nikosh"
-/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Writer Detaills"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/writer_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/writer_demo_text"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
 
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Writer Detaills"
-
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="To implement Circular ImageView in Android, we will use an open-source library known as 'CircularImageView'. This will be done in 2 simple steps using Kotlin and XML layout. And remember, by default Android does not support circular ImageView, so we use the library. Watch Circular imageView without using Library: https://youtu.be/jihLJ0oVmGo
-Add dependency: 'de.hdodenhof:circleimageview:3.1.0'
-Github Library link: https://github.com/hdodenhof/CircleIm...
-Download source code: https://bit.ly/gist-cimv
-.Please donate and support my work "
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-
-
-    </LinearLayout>
-
-
-
-
-
-    </LinearLayout>
-
-
-
-
+        </LinearLayout>
 
 
     </RelativeLayout>

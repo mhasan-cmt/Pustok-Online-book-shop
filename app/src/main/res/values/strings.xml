@@ -15,4 +15,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="writer_demo_text">To implement Circular ImageView in Android, we will use an open-source library known as \'CircularImageView\'. This will be done in 2 simple steps using Kotlin and XML layout. And remember, by default Android does not support circular ImageView, so we use the library. Watch Circular imageView without using Library: https://youtu.be/jihLJ0oVmGo Add dependency: \'de.hdodenhof:circleimageview:3.1.0\' Github Library link: https://github.com/hdodenhof/CircleIm... Download source code: https://bit.ly/gist-cimv .Please donate and support my work</string>
 </resources>
