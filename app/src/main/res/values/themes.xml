@@ -14,15 +14,24 @@
         <!-- Customize your theme here. -->
         <item name="android:windowAnimationStyle">@style/exit_dialog_animation</item>
     </style>
-<!--    Theme for Rating bar-->
+    <!--    Theme for Rating bar-->
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlActivated">#fff000</item>
         <item name="colorControlNormal">#757573</item>
     </style>
 
-<!--    Theme for bottom nav-->
+    <!--    Theme for bottom nav-->
     <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/active_tab_color</item>
         <item name="android:textColorSecondary">@color/inactive_tab_color</item>
     </style>
+
+    <style name="Theme.PustokOnlineBookShop.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.PustokOnlineBookShop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PustokOnlineBookShop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
