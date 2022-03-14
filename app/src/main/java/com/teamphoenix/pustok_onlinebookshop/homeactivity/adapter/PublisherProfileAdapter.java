@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 
@@ -36,14 +37,16 @@ public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfi
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.publisher_profile_pic.setImageResource(images.get(0));
-        holder.publisher_name.setText(publisherDataArray.get(0).getPublisher_name());
-        holder.publisher_total_book.setText(publisherDataArray.get(0).getTotal_books());
+//        holder.publisher_profile_pic.setImageResource(images.get(position));
+        Glide.with(context).asBitmap().load(publisherDataArray.get(position).getPublisher_img())
+                .into(holder.publisher_profile_pic);
+        holder.publisher_name.setText(publisherDataArray.get(position).getPublisher_name());
+        holder.publisher_total_book.setText(publisherDataArray.get(position).getTotal_books());
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return publisherDataArray.size();
     }
 
     public class MyHolder extends RecyclerView.ViewHolder {

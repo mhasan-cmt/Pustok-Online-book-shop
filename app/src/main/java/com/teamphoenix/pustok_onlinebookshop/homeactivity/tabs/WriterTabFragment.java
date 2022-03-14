@@ -36,7 +36,6 @@ public class WriterTabFragment extends Fragment {
                 writer_recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
                 writerProfileAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onFailed(String errMsg) {
                 Toast.makeText(getActivity(), errMsg, Toast.LENGTH_SHORT).show();
