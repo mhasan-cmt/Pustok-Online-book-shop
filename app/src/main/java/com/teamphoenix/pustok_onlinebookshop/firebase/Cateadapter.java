@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.MODALs.CatagModal;
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT.contentfragment2;
 
 import org.jetbrains.annotations.NotNull;
 
