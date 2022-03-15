@@ -27,8 +27,8 @@ public class Publisher_Profile extends AppCompatActivity {
 
         Intent intent = getIntent();
         publisher_name.setText(intent.getStringExtra("publisher_name"));
-        publisher_follower.setText(intent.getStringExtra("publisher_name"));
-        publisher_total_book.setText(intent.getStringExtra("publisher_name"));
+        publisher_follower.setText(intent.getStringExtra("publisher_follower"));
+        publisher_total_book.setText(intent.getStringExtra("publisher_total_book"));
         Glide.with(getApplicationContext()).asBitmap().load(intent.getStringExtra("publisher_profile_pic"))
                 .into(publisher_profile_pic);
 //        Picasso.get().load(intent.getStringExtra("publisher_profile_pic")).into(publisher_profile_pic);
