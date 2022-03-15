@@ -59,10 +59,20 @@ public class FireBaseDbService {
 
     public void getUserById(String uid, onGetUserDataListener onGetUserDataListener) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-        database.child(uid).addValueEventListener(new ValueEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                onGetUserDataListener.onSuccess(snapshot.getValue(User.class));
+                if(snapshot.exists()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        User user = dataSnapshot.getValue(User.class);
+                        if(user.get_id()==uid){
+                            onGetUserDataListener.onSuccess(user);
+                            break;
+                        }
+                    }
+                }else{
+                    onGetUserDataListener.onError("Data Could not found!");
+                }
             }
 
             @Override

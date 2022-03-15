@@ -99,7 +99,7 @@ public class ProfileFragment extends Fragment {
         settingupListenerTosettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
-
+        settingProfileData(getUserData());
     }
 
     private void settingProfileData(User user) {
