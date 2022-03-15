@@ -33,6 +33,5 @@ public class CategoryActivity extends AppCompatActivity {
         categoryBinding.categoryTotalBooks.setText(intent.getStringExtra("category_count"));
         Picasso.get().load(intent.getStringExtra("category_img")).into(categoryBinding.categoryIcon);
         progressDialog.dismiss();
-
     }
 }
