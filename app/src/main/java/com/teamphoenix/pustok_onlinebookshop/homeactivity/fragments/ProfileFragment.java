@@ -95,11 +95,12 @@ public class ProfileFragment extends Fragment {
         profile_user_mobile = getView().findViewById(R.id.profile_user_mobile);
 
         profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        settingProfileData(getUserData());
 
         settingupListenerTosettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
-
+//        settingProfileData(getUserData());
     }
 
     private void settingProfileData(User user) {
