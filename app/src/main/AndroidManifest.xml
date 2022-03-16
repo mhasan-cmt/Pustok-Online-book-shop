@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
         <activity
+            android:name=".Publisher_Profile.Publisher_Profile"
+            android:exported="false" />
+        <activity
             android:name=".settings.SettingsActivity"
             android:exported="false" />
         <activity

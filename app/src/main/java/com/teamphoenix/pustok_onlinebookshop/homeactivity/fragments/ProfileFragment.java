@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
     private Button settingBtn;
     private User user;
     private SharedPreferences profileSharedPreferences;
-    private TextView profile_user_name,profile_user_mobile;
+    private TextView profile_user_name, profile_user_mobile;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -109,7 +109,7 @@ public class ProfileFragment extends Fragment {
 
     private User getUserData() {
         Gson gson = new Gson();
-        String userData =profileSharedPreferences.getString("UserData", "");
+        String userData = profileSharedPreferences.getString("UserData", "");
         this.user = gson.fromJson(userData, User.class);
         return this.user;
     }

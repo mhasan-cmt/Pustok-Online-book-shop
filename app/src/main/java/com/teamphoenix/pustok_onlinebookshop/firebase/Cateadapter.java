@@ -18,11 +18,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class Cateadapter extends RecyclerView.Adapter<Cateadapter.MyViewholder>  {
+public class Cateadapter extends RecyclerView.Adapter<Cateadapter.MyViewholder> {
 
 
     ArrayList<CatagModal> list;
-Context context;
+    Context context;
 
     public Cateadapter(ArrayList<CatagModal> list, Context context) {
         this.list = list;
@@ -31,7 +31,7 @@ Context context;
 
     @Override
     public MyViewholder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.catagorylist,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.catagorylist, parent, false);
         return new MyViewholder(view);
     }
 
@@ -48,15 +48,16 @@ Context context;
         return list.size();
     }
 
-    public static class MyViewholder extends RecyclerView.ViewHolder{
-TextView txt1,txt2;
+    public static class MyViewholder extends RecyclerView.ViewHolder {
+        TextView txt1, txt2;
 
-ImageView imageView;
+        ImageView imageView;
+
         public MyViewholder(@NonNull @NotNull View itemView) {
             super(itemView);
-            txt1=itemView.findViewById(R.id.catgename);
-            txt2=itemView.findViewById(R.id.ctaecnt);
-            imageView=itemView.findViewById(R.id.cateimge);
+            txt1 = itemView.findViewById(R.id.catgename);
+            txt2 = itemView.findViewById(R.id.ctaecnt);
+            imageView = itemView.findViewById(R.id.cateimge);
 
         }
     }

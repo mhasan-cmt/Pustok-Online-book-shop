@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Writer_Profile.writer_prof">
+    tools:context=".Publisher_Profile.Publisher_Profile">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/writer_img"
+                    android:id="@+id/publisher_profile_pic"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:layout_gravity="center"
@@ -43,7 +43,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/writer_name"
+                    android:id="@+id/publisher_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -60,7 +60,7 @@
 
 
                     <TextView
-                        android:id="@+id/writer_followers"
+                        android:id="@+id/publisher_follower"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="75 Followers"
@@ -70,6 +70,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/publisher_total_book"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" 12 books"
@@ -97,32 +98,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Writer Detaills"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/writer_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/writer_demo_text"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-
-            </LinearLayout>
 
 
         </LinearLayout>

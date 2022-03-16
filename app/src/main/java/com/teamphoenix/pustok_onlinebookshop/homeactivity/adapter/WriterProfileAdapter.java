@@ -7,53 +7,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.teamphoenix.pustok_onlinebookshop.Publisher_Profile.Publisher_Profile;
+import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.Writer_Profile.writer_prof;
-import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
+import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 
 import java.util.ArrayList;
 
-public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfileAdapter.MyHolder> {
+public class WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAdapter.MyHolder> {
 
     Context context;
-    ArrayList<Publisher> publisherDataArray;
-    ArrayList<Integer> images = new ArrayList<>();
+    ArrayList<Writer> writerArrayList;
 
-    public PublisherProfileAdapter(Context context, ArrayList<Publisher> userDataArray) {
+
+    public WriterProfileAdapter(Context context, ArrayList<Writer> userDataArray) {
         this.context = context;
-        this.publisherDataArray = userDataArray;
-        images.add(R.drawable.writer);
+        this.writerArrayList = userDataArray;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_publisher,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_publisher, parent, false);
         return new MyHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-//        holder.publisher_profile_pic.setImageResource(images.get(position));
-        Glide.with(context).asBitmap().load(publisherDataArray.get(position).getPublisher_img())
-                .into(holder.publisher_profile_pic);
-        holder.publisher_name.setText(publisherDataArray.get(position).getPublisher_name());
-        holder.publisher_total_book.setText(publisherDataArray.get(position).getTotal_books());
+        holder.publisher_name.setText(writerArrayList.get(position).getWriter_name());
+        holder.publisher_total_book.setText(writerArrayList.get(position).getFollowers());
+        Picasso.get().load(writerArrayList.get(position).getProfile_pic()).into(holder.publisher_profile_pic);
         holder.writer_profile_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, Publisher_Profile.class);
-                intent.putExtra("publisher_name", publisherDataArray.get(holder.getAdapterPosition()).getPublisher_name());
-                intent.putExtra("publisher_profile_pic", publisherDataArray.get(position).getPublisher_img());
-                intent.putExtra("publisher_total_book", publisherDataArray.get(holder.getAdapterPosition()).getTotal_books());
-                intent.putExtra("publisher_follower", publisherDataArray.get(holder.getAdapterPosition()).getTotal_followers());
+                Intent intent = new Intent(context, writer_prof.class);
+                intent.putExtra("writer_name", writerArrayList.get(holder.getAdapterPosition()).getWriter_name());
+                intent.putExtra("writer_description", writerArrayList.get(holder.getAdapterPosition()).getDescription());
+                intent.putExtra("writer_img", writerArrayList.get(holder.getAdapterPosition()).getProfile_pic());
+                intent.putExtra("writer_follower", writerArrayList.get(holder.getAdapterPosition()).getFollowers());
                 context.startActivity(intent);
             }
         });
@@ -61,13 +58,14 @@ public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfi
 
     @Override
     public int getItemCount() {
-        return publisherDataArray.size();
+        return writerArrayList.size();
     }
 
     public class MyHolder extends RecyclerView.ViewHolder {
         ImageView publisher_profile_pic;
         TextView publisher_name, publisher_total_book;
         CardView writer_profile_container;
+
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             publisher_profile_pic = itemView.findViewById(R.id.publisher_profile_pic);

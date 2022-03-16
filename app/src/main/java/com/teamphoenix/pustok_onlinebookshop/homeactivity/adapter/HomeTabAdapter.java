@@ -32,10 +32,8 @@ public class HomeTabAdapter extends FragmentPagerAdapter {
     }
 
     public void addfrg(Fragment fragment,String title){
-
         fragmentArrayList.add(fragment);
         stringArrayList.add(title);
-
     }
 
     @Nullable

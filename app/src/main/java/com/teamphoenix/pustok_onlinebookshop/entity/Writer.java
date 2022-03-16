@@ -42,6 +42,9 @@ public class Writer {
         return writer_id;
     }
 
+    public Writer() {
+    }
+
     public String getWriter_name() {
         return writer_name;
     }

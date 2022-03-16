@@ -1,6 +1,9 @@
-package com.teamphoenix.pustok_onlinebookshop.homeactivity.FRAGMENTFORTABLAYOUT;
+package com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,10 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -24,11 +23,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.teamphoenix.pustok_onlinebookshop.MODALs.Boookclass;
 import com.teamphoenix.pustok_onlinebookshop.MODALs.CatagModal;
 import com.teamphoenix.pustok_onlinebookshop.R;
+<<<<<<< HEAD:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/FRAGMENTFORTABLAYOUT/HomeTabFragment.java
 import com.teamphoenix.pustok_onlinebookshop.databinding.FragmentContentfragment1Binding;
 import com.teamphoenix.pustok_onlinebookshop.firebase.Booklistadapter;
 import com.teamphoenix.pustok_onlinebookshop.firebase.Cateadapter;
 
 import org.jetbrains.annotations.NotNull;
+=======
+>>>>>>> main:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/tabs/HomeTabFragment.java
 
 import java.util.ArrayList;
 
@@ -45,6 +47,7 @@ Booklistadapter booklistadapter;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< HEAD:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/FRAGMENTFORTABLAYOUT/HomeTabFragment.java
   View view= inflater.inflate(R.layout.fragment_contentfragment1, container, false);
 
         recyclerView1 =view.findViewById(R.id.l2);
@@ -78,6 +81,9 @@ recyclerView1.setHasFixedSize(true);
             }
         });
         super.onStart();
+=======
+        return inflater.inflate(R.layout.fragment_home_tab, container, false);
+>>>>>>> main:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/tabs/HomeTabFragment.java
     }
 
     @Override
