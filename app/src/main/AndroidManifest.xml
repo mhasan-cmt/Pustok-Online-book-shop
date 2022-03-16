@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
         <activity
+            android:name=".category.CategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Publisher_Profile.Publisher_Profile"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
             android:exported="true" />
         <activity
             android:name=".homeactivity.HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true"/>
         <activity
             android:name=".cart.CartActivity"
             android:exported="true"

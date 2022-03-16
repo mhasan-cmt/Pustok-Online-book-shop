@@ -44,8 +44,6 @@ public class CategoryTabFragment extends Fragment {
         arrayList = new ArrayList<>();
         cateadapter = new Cateadapter(arrayList, getContext());
         recyclerView.setAdapter(cateadapter);
-
-
         return view;
     }
 
