@@ -13,16 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.MODALs.Boookclass;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public class Booklistadapter extends  RecyclerView.Adapter<Booklistadapter.MyViewholder> {
-    ArrayList<Boookclass> blist;
+    ArrayList<Book> blist;
  Context context;
 
-    public Booklistadapter(ArrayList<Boookclass> blist, Context context) {
+    public Booklistadapter(ArrayList<Book> blist, Context context) {
         this.blist = blist;
         this.context = context;
     }
@@ -36,11 +37,11 @@ public class Booklistadapter extends  RecyclerView.Adapter<Booklistadapter.MyVie
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyViewholder holder, int position) {
-        Boookclass boookclass = blist.get(position);
-        holder.booknME.setText(boookclass.getBname());
-        holder.BOKWR.setText(boookclass.getWrname());
+        Book boookclass = blist.get(position);
+        holder.booknME.setText(boookclass.getBook_name());
+        holder.BOKWR.setText(boookclass.getWriter_name());
         holder.BOKPRICE.setText(boookclass.getPrice());
-        Picasso.get().load(boookclass.getImg()).into(holder.imageView1);
+        Picasso.get().load(boookclass.getBook_image()).into(holder.imageView1);
     }
 
     @Override

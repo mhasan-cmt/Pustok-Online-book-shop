@@ -23,20 +23,16 @@ import com.google.firebase.database.ValueEventListener;
 import com.teamphoenix.pustok_onlinebookshop.MODALs.Boookclass;
 import com.teamphoenix.pustok_onlinebookshop.MODALs.CatagModal;
 import com.teamphoenix.pustok_onlinebookshop.R;
-<<<<<<< HEAD:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/FRAGMENTFORTABLAYOUT/HomeTabFragment.java
-import com.teamphoenix.pustok_onlinebookshop.databinding.FragmentContentfragment1Binding;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.firebase.Booklistadapter;
 import com.teamphoenix.pustok_onlinebookshop.firebase.Cateadapter;
 
 import org.jetbrains.annotations.NotNull;
-=======
->>>>>>> main:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/tabs/HomeTabFragment.java
-
 import java.util.ArrayList;
 
 
 public class HomeTabFragment extends Fragment {
-private  ArrayList<Boookclass>boookclassArrayList;
+private  ArrayList<Book>boookclassArrayList;
 RecyclerView recyclerView1;
     FirebaseDatabase database;
     DatabaseReference databaseReference1;
@@ -47,8 +43,7 @@ Booklistadapter booklistadapter;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-<<<<<<< HEAD:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/FRAGMENTFORTABLAYOUT/HomeTabFragment.java
-  View view= inflater.inflate(R.layout.fragment_contentfragment1, container, false);
+  View view= inflater.inflate(R.layout.fragment_home_tab, container, false);
 
         recyclerView1 =view.findViewById(R.id.l2);
         recyclerView1.setLayoutManager(new GridLayoutManager(getContext(),2));
@@ -68,8 +63,8 @@ recyclerView1.setHasFixedSize(true);
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 boookclassArrayList.clear();
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                Boookclass boookclass=dataSnapshot.getValue(Boookclass.class);
-                    boookclassArrayList.add(boookclass);
+                Book book=dataSnapshot.getValue(Book.class);
+                    boookclassArrayList.add(book);
 
                 }
                 booklistadapter.notifyDataSetChanged();
@@ -81,9 +76,7 @@ recyclerView1.setHasFixedSize(true);
             }
         });
         super.onStart();
-=======
-        return inflater.inflate(R.layout.fragment_home_tab, container, false);
->>>>>>> main:app/src/main/java/com/teamphoenix/pustok_onlinebookshop/homeactivity/tabs/HomeTabFragment.java
+     ;
     }
 
     @Override
