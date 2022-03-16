@@ -24,6 +24,7 @@ public class Booklistadapter extends  RecyclerView.Adapter<Booklistadapter.MyVie
  Context context;
 
     public Booklistadapter(ArrayList<Book> blist, Context context) {
+
         this.blist = blist;
         this.context = context;
     }
