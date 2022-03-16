@@ -2,6 +2,7 @@ package com.teamphoenix.pustok_onlinebookshop.loginandsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -82,10 +83,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void logIn() {
+        ProgressDialog  progressDialog= new ProgressDialog(LoginActivity.this);
+        progressDialog.setTitle("Please wait");
+        progressDialog.setMessage("Logging into your Pustok Account!");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
         if (validateUserInput() == 1) {
             authService.login(txusr.getText().toString(), txps.getText().toString(), new onSignInListener() {
                 @Override
                 public void onSignInSuccess(String msg) {
+                    progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     finish();
@@ -93,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onSignInFailed(String error) {
+                    progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this, error, Toast.LENGTH_SHORT).show();
                 }
             });
