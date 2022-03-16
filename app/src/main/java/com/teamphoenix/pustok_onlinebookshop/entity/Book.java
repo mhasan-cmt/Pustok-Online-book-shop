@@ -11,7 +11,9 @@ public class Book {
             page_number,
             category_id,
             publisher_id,
-            book_type;
+            book_type,
+    writer_name
+    ;
 
     public Book(String book_id,
                 String price,
@@ -23,6 +25,7 @@ public class Book {
                 String page_number,
                 String category_id,
                 String publisher_id,
+                String writer_name,
                 String book_type) {
         this.book_id = book_id;
         this.price = price;
@@ -35,6 +38,7 @@ public class Book {
         this.category_id = category_id;
         this.publisher_id = publisher_id;
         this.book_type = book_type;
+        this.writer_name=writer_name;
     }
 
     public Book(String price,
@@ -64,6 +68,10 @@ public class Book {
     }
 
     public Book() {
+    }
+
+    public String getWriter_name() {
+        return writer_name;
     }
 
     public String getBook_id() {
