@@ -11,9 +11,10 @@
     <LinearLayout
         android:id="@+id/lin2"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="130dp"
         android:gravity="center"
         android:orientation="vertical"
+
         >
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/home_slider"
@@ -24,23 +25,22 @@
             app:iss_delay="0"/>
 
     </LinearLayout>
-
-
-    <androidx.cardview.widget.CardView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lin2"
 
-        >
+        android:layout_below="@id/lin2"
+        android:id="@+id/TT"/>
+
+
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/l2"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_height="500dp"
+            android:layout_below="@id/TT"
 
             />
-    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
