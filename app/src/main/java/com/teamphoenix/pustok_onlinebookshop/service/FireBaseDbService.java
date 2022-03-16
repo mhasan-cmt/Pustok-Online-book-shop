@@ -62,22 +62,26 @@ public class FireBaseDbService {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<User> users = new ArrayList<>();
                 if(snapshot.exists()){
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                         User user = dataSnapshot.getValue(User.class);
-                        if(user.get_id()==uid){
-                            onGetUserDataListener.onSuccess(user);
-                            break;
+                        users.add(user);
+                    }
+                    for (User user: users){
+                        if(user.get_id().equals(uid)){
+                         onGetUserDataListener.onSuccess(user);
+                         break;
                         }
                     }
                 }else{
-                    onGetUserDataListener.onError("Data Could not found!");
+                    onGetUserDataListener.onError("Could not find any user");
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                onGetUserDataListener.onError(error.getMessage());
+
             }
         });
     }
