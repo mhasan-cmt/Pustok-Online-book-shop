@@ -62,17 +62,18 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
             Toast.makeText(this, "Enter a Mobile Number!", Toast.LENGTH_SHORT);
             etPhone.requestFocus();
             return 0;
+        } else if (etPhone.getText().toString().length() < 11) {
+            Toast.makeText(this, "Your phone number should be 11 numbers!", Toast.LENGTH_SHORT).show();
+            return 0;
         } else if (etPassword.getText().toString().isEmpty()) {
             Toast.makeText(this, "Enter a password to continue!", Toast.LENGTH_SHORT).show();
             etPassword.requestFocus();
             return 0;
-
-        }else if(etPassword.getText().toString().length()<6){
+        } else if (etPassword.getText().toString().length() < 6) {
             Toast.makeText(this, "Your password should be more than 6 characters!!", Toast.LENGTH_SHORT).show();
             etPassword.requestFocus();
             return 0;
-        }
-        else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
+        } else if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
             Toast.makeText(this, "Password does not match!", Toast.LENGTH_SHORT).show();
             etConfirmPassword.requestFocus();
             return 0;
@@ -107,7 +108,7 @@ public class SignUpActivity extends AppCompatActivity implements onSignupListene
         Toast.makeText(this, "Account Created...!", Toast.LENGTH_SHORT).show();
         fireBaseDbService.saveUserData(user);
         progressDialog.dismiss();
-        startActivity(new Intent(SignUpActivity.this,HomeActivity.class));
+        startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
         finish();
     }
 
