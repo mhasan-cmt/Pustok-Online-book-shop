@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityCartBinding;
+import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 
 import java.util.ArrayList;
@@ -20,9 +21,8 @@ import java.util.List;
 public class CartActivity extends AppCompatActivity {
 private MaterialToolbar materialToolbar;
 ActivityCartBinding cartBinding;
-CartModel cartModel;
 CartRecyclerAdapter cartAdapter;
-ArrayList<CartModel> cartModelList;
+ArrayList<Cart> cartModelList;
     @Override
     public void onBackPressed() {
         finish();
@@ -42,12 +42,8 @@ ArrayList<CartModel> cartModelList;
                 finish();
             }
         });
-        cartModel = new CartModel(R.drawable.book2,"Test Book Name", "Test Writer", "১২০.০০", "3");
         cartModelList = new ArrayList<>();
-        cartModelList.add(cartModel);
-        cartModelList.add(new CartModel(R.drawable.book2,"Test Book Name", "Test Writer", "১২০.০০", "3"));
-        cartModelList.add(new CartModel(R.drawable.book2,"Test Book Name", "Test Writer", "১২০.০০", "3"));
-
+        cartModelList.add(new Cart("test_userid", "23-02-3","jsdkfj", "sdfsdf", "ljsldf","sdfskfdj"));
         cartAdapter = new CartRecyclerAdapter(this, cartModelList);
         cartBinding.cartRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         cartBinding.cartRecyclerView.setAdapter(cartAdapter);
