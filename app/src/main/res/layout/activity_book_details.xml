@@ -90,6 +90,7 @@
                 android:textSize="18dp" />
 
             <Button
+                android:id="@+id/add_to_cart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

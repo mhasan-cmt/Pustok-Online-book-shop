@@ -50,14 +50,17 @@ public class Booklistadapter extends RecyclerView.Adapter<Booklistadapter.MyView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, BookDetailsActivity.class);
+                intent.putExtra("book_id", boookclass.getBook_id());
                 intent.putExtra("book_name",boookclass.getBook_name());
                 intent.putExtra("writer_name", boookclass.getWriter_name());
+                intent.putExtra("writer_id", boookclass.getWriter_id());
                 intent.putExtra("ratings","2");
                 intent.putExtra("price",boookclass.getPrice());
                 intent.putExtra("image",boookclass.getBook_image());
                 intent.putExtra("page_number",boookclass.getPage_number());
                 intent.putExtra("language",boookclass.getLanguage());
                 intent.putExtra("publisher_id",boookclass.getPublisher_id());
+                intent.putExtra("book_type", boookclass.getBook_type());
                 context.startActivity(intent);
             }
         });

@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
@@ -129,6 +130,22 @@ public class FireBaseDbService {
                     Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(context, "Saved data to database!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+    public void saveToCart(Cart cart) {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference reference = firebaseDatabase.getReference("cart");
+        String referenceKey = reference.push().getKey();
+        cart.setCart_id(referenceKey);
+        reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                if (error != null) {
+                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
