@@ -36,8 +36,8 @@ import java.util.ArrayList;
 
 public class HomeTabFragment extends Fragment {
 
-  ArrayList<Book>boookclassArrayList;
-RecyclerView recyclerView1;
+    ArrayList<Book> boookclassArrayList;
+    RecyclerView recyclerView1;
 
     FirebaseDatabase database;
     DatabaseReference databaseReference1;
@@ -50,7 +50,7 @@ RecyclerView recyclerView1;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-  View view= inflater.inflate(R.layout.fragment_home_tab, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_tab, container, false);
 
 
         recyclerView1 = view.findViewById(R.id.l2);
@@ -71,40 +71,34 @@ RecyclerView recyclerView1;
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 boookclassArrayList.clear();
-
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Book book = dataSnapshot.getValue(Book.class);
                     boookclassArrayList.add(book);
-
                 }
                 booklistadapter.notifyDataSetChanged();
-
-
-
             }
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
             }
-            });
-       super.onStart();
+        });
+        super.onStart();
 
     }
 
 
-
-        @Override
-        public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState){
-            super.onViewCreated(view, savedInstanceState);
-            setUpImageSlider();
-            home_slider = getView().findViewById(R.id.home_slider);
-            home_slider.setImageList(imgList);
-        }
-
-        private void setUpImageSlider () {
-            imgList = new ArrayList<>();
-            imgList.add(new SlideModel("https://bit.ly/2YoJ77H", "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP));
-            imgList.add(new SlideModel("https://bit.ly/2BteuF2", "Elephants and tigers may become extinct.", ScaleTypes.CENTER_CROP));
-            imgList.add(new SlideModel("https://bit.ly/3fLJf72", "And people do that.", ScaleTypes.CENTER_CROP));
-        }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setUpImageSlider();
+        home_slider = getView().findViewById(R.id.home_slider);
+        home_slider.setImageList(imgList);
     }
+
+    private void setUpImageSlider() {
+        imgList = new ArrayList<>();
+        imgList.add(new SlideModel("https://bit.ly/2YoJ77H", "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP));
+        imgList.add(new SlideModel("https://bit.ly/2BteuF2", "Elephants and tigers may become extinct.", ScaleTypes.CENTER_CROP));
+        imgList.add(new SlideModel("https://bit.ly/3fLJf72", "And people do that.", ScaleTypes.CENTER_CROP));
+    }
+}
