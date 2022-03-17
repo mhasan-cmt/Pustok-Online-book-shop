@@ -45,6 +45,8 @@ ArrayList<CartModel> cartModelList;
         cartModel = new CartModel(R.drawable.book2,"Test Book Name", "Test Writer", "১২০.০০", "3");
         cartModelList = new ArrayList<>();
         cartModelList.add(cartModel);
+        cartModelList.add(new CartModel(R.drawable.book2,"Test Book Name", "Test Writer", "১২০.০০", "3"));
+        cartModelList.add(new CartModel(R.drawable.book2,"Test Book Name", "Test Writer", "১২০.০০", "3"));
 
         cartAdapter = new CartRecyclerAdapter(this, cartModelList);
         cartBinding.cartRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
