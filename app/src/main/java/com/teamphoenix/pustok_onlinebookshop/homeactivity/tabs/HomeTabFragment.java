@@ -55,6 +55,7 @@ public class HomeTabFragment extends Fragment {
 
         recyclerView1 = view.findViewById(R.id.l2);
         recyclerView1.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
         database = FirebaseDatabase.getInstance();
         databaseReference1 = database.getReference("Booklist");
         recyclerView1.setHasFixedSize(true);

@@ -48,6 +48,7 @@ public class Cateadapter extends RecyclerView.Adapter<Cateadapter.MyViewholder> 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, CategoryActivity.class);
+                intent.putExtra("category_id",dT.getId());
                 intent.putExtra("category_name",dT.getName());
                 intent.putExtra("category_count",dT.getCount());
                 intent.putExtra("category_img", dT.getImage());

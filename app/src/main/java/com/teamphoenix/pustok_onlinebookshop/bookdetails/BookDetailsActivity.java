@@ -4,23 +4,34 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.teamphoenix.pustok_onlinebookshop.Publisher_Profile.Publisher_Profile;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.Writer_Profile.writer_prof;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityBookDetailsBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
+import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetPublisherByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class BookDetailsActivity extends AppCompatActivity {
@@ -32,6 +43,13 @@ public class BookDetailsActivity extends AppCompatActivity {
     int[] bookReviewList = {10, 4, 31, 34, 23, 48};
     int[] bookRatingList = {3, 2, 4, 3, 2, 5};
     Book book;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("writers");
+    DatabaseReference referenceBook = FirebaseDatabase.getInstance().getReference("Booklist");
+
+    ArrayList<Book> bookArrayList;
+
+
+    Writer writer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +58,34 @@ public class BookDetailsActivity extends AppCompatActivity {
         View view = bookDetailsBinding.getRoot();
         setContentView(view);
         fireBaseDbService = new FireBaseDbService(this);
-        getAndSetBookData();
         relatedBookRecycle = findViewById(R.id.relatedBookRecycle);
-        BookDetailAdapter adapter = new BookDetailAdapter(this, bookNameList, bookImgList, bookReviewList, bookRatingList);
-        relatedBookRecycle.setAdapter(adapter);
-        relatedBookRecycle.setLayoutManager(new GridLayoutManager(this, 3));
+        getAndSetBookData();
+
+
+
+        bookDetailsBinding.writerImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToWriterProfile();
+            }
+        });
+        bookDetailsBinding.writerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToWriterProfile();
+            }
+        });
+
+    }
+
+    private void goToWriterProfile() {
+        Intent intent = new Intent(getApplicationContext(), writer_prof.class);
+        intent.putExtra("writer_id", writer.getWriter_id());
+        intent.putExtra("writer_name", writer.getWriter_name());
+        intent.putExtra("writer_description", writer.getDescription());
+        intent.putExtra("writer_img", writer.getProfile_pic());
+        intent.putExtra("writer_follower", writer.getFollowers()+" জন অনুসারী");
+        startActivity(intent);
     }
 
     private void getAndSetBookData() {
@@ -59,12 +100,54 @@ public class BookDetailsActivity extends AppCompatActivity {
                 intent.getStringExtra("language"), "intent",
                 intent.getStringExtra("writer_id"),
                 intent.getStringExtra("page_number"),
-                "", intent.getStringExtra("publisher_id"),
+                intent.getStringExtra("category_id"), intent.getStringExtra("publisher_id"),
                 intent.getStringExtra("book_type"),
                 intent.getStringExtra("writer_name"));
 
+        bookArrayList = new ArrayList<>();
+
+        referenceBook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Book bookWithWriterMatch = dataSnapshot.getValue(Book.class);
+                    if (book.getWriter_id().equals(bookWithWriterMatch.getWriter_id())){
+                        if (bookWithWriterMatch.getBook_id().equals(book.getBook_id())){
+                            continue;
+                        }
+                        bookArrayList.add(bookWithWriterMatch);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        BookDetailAdapter adapter = new BookDetailAdapter(this, bookArrayList);
+        relatedBookRecycle.setAdapter(adapter);
+        relatedBookRecycle.setLayoutManager(new GridLayoutManager(this, 3));
+
+        reference.child(book.getWriter_id()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                writer = snapshot.getValue(Writer.class);
+                Picasso.get().load(writer.getProfile_pic()).into(bookDetailsBinding.writerImage);
+                bookDetailsBinding.bookWriter.setText(writer.getWriter_name());
+                bookDetailsBinding.bookWriterNameBottom.setText(writer.getWriter_name());
+                bookDetailsBinding.getWriterFollowers.setText(writer.getFollowers()+" জন অনুসারী");
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
         bookDetailsBinding.bookTitle.setText(book.getBook_name());
-        bookDetailsBinding.bookWriter.setText(book.getWriter_name());
         Picasso.get().load(book.getBook_image()).into(bookDetailsBinding.bookImage);
         bookDetailsBinding.priceTaka.setText(book.getPrice());
         bookDetailsBinding.pageNumbers.setText(book.getPage_number());
@@ -73,6 +156,18 @@ public class BookDetailsActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Publisher publisher) {
                 bookDetailsBinding.publisher.setText(publisher.getPublisher_name());
+                bookDetailsBinding.publisher.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), Publisher_Profile.class);
+                        intent.putExtra("publisher_id", publisher.getPublisher_id());
+                        intent.putExtra("publisher_name", publisher.getPublisher_name());
+                        intent.putExtra("publisher_profile_pic", publisher.getPublisher_img());
+                        intent.putExtra("publisher_total_book", publisher.getTotal_books());
+                        intent.putExtra("publisher_follower", publisher.getTotal_followers());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
