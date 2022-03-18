@@ -82,7 +82,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         });
         progressDialog.dismiss();
 
-        bookDetailsBinding.addToCart.setOnClickListener(new View.OnClickListener() {
+        bookDetailsBinding.addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addToCart();

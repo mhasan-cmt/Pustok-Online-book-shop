@@ -49,6 +49,7 @@ CartRecyclerAdapter cartAdapter;
 //        cartModelList.add(new Cart("test_userid", "23-02-3","jsdkfj", "sdfsdf", "ljsldf","sdfskfdj"));
 
         FireBaseDbService fireBaseDbService = new FireBaseDbService(this);
+
         fireBaseDbService.getAllCartItems(FirebaseAuth.getInstance().getUid(), new onGetAllCartItemsListener() {
             @Override
             public void onSuccess(ArrayList<Cart> carts) {
