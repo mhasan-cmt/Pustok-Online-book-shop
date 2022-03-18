@@ -31,7 +31,6 @@ public class FreeBooksTabFragment extends Fragment {
 
     RecyclerView bookRecyclerView;
     ArrayList<Book> boookclassArrayList;
-
     Booklistadapter booklistadapter;
     DatabaseReference databaseReference1;
     @Override
