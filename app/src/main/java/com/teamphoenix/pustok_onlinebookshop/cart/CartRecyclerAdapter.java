@@ -17,7 +17,6 @@ import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
 

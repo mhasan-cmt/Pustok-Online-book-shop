@@ -176,7 +176,7 @@ public class FireBaseDbService {
         });
     }
     public void getAllCartItems(onGetAllCartItemsListener onGetAllCartItemsListener) {
-        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("writers");
+        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
         dbReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
