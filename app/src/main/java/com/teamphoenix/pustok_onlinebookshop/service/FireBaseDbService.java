@@ -119,23 +119,6 @@ public class FireBaseDbService {
         });
     }
 
-    public void saveWriter(Writer writer) {
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference("writers");
-        String referenceKey = reference.push().getKey();
-        writer.setWriter_id(referenceKey);
-        reference.child(referenceKey).setValue(writer, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                if (error != null) {
-                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Saved data to database!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
     public void saveToCart(Cart cart) {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference("cart");
@@ -153,6 +136,7 @@ public class FireBaseDbService {
         });
     }
 
+//    Method for getting all writers
     public void getAllWriters(onGetAllWritersListener onGetAllWritersListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("writers");
         dbReference.addValueEventListener(new ValueEventListener() {
@@ -177,6 +161,7 @@ public class FireBaseDbService {
         });
     }
 
+//    Method for getting all the cart items
     public void getAllCartItems(String uid, onGetAllCartItemsListener onGetAllCartItemsListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
         dbReference.addValueEventListener(new ValueEventListener() {
