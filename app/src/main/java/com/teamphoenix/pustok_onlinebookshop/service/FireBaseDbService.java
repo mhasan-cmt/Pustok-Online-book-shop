@@ -175,7 +175,7 @@ public class FireBaseDbService {
             }
         });
     }
-    public void getAllCartItems(onGetAllCartItemsListener onGetAllCartItemsListener) {
+    public void getAllCartItems(String uid, onGetAllCartItemsListener onGetAllCartItemsListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
         dbReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -185,7 +185,9 @@ public class FireBaseDbService {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Cart cart = dataSnapshot.getValue(Cart.class);
-                        carts.add(cart);
+                        if(cart.getUser_id().equals(uid)){
+                            carts.add(cart);
+                        }
                     }
                     onGetAllCartItemsListener.onSuccess(carts);
                 }else{

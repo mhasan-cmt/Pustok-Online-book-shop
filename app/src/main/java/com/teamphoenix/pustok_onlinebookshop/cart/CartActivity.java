@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityCartBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
@@ -48,7 +49,7 @@ CartRecyclerAdapter cartAdapter;
 //        cartModelList.add(new Cart("test_userid", "23-02-3","jsdkfj", "sdfsdf", "ljsldf","sdfskfdj"));
 
         FireBaseDbService fireBaseDbService = new FireBaseDbService(this);
-        fireBaseDbService.getAllCartItems(new onGetAllCartItemsListener() {
+        fireBaseDbService.getAllCartItems(FirebaseAuth.getInstance().getUid(), new onGetAllCartItemsListener() {
             @Override
             public void onSuccess(ArrayList<Cart> carts) {
                 cartAdapter = new CartRecyclerAdapter(CartActivity.this, carts);
