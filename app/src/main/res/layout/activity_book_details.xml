@@ -90,15 +90,15 @@
                 android:textSize="18dp" />
 
             <Button
-                android:id="@+id/add_to_cart_btn"
+                android:id="@+id/add_to_cart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/primary_button"
                 android:text="এখনি কিনুন"
+                android:textSize="18dp"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:background="@drawable/primary_button"/>
         </LinearLayout>
 
         <LinearLayout

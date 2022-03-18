@@ -155,70 +155,19 @@ public class FireBaseDbService {
         DatabaseReference reference = firebaseDatabase.getReference("cart");
         String referenceKey = reference.push().getKey();
         cart.setCart_id(referenceKey);
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    getAllCartItems(cart.getUser_id(), new onGetAllCartItemsListener() {
-                        @Override
-                        public void onSuccess(ArrayList<Cart> carts) {
-                            for (Cart mCart : carts) {
-                                if (mCart.getBook_id().equals(cart.getBook_id())) {
-                                    int quantity = Integer.parseInt(cart.getTotalQuantity());
-                                    quantity++;
-                                    cart.setTotalQuantity(String.valueOf(quantity));
-                                    break;
-                                }
-                            }
-                            reference.child(cart.getCart_id()).setValue(cart, new DatabaseReference.CompletionListener() {
-                                @Override
-                                public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                    if (error != null) {
-                                        Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(context, "Added another book!", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onError(String msg) {
-                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                if (error != null) {
+                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
-                    reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                            if (error != null) {
-                                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                    Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
         });
-//        reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
-//            @Override
-//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-//                if (error != null) {
-//                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
     }
 
-    //    Method for getting all writers
+//    Method for getting all writers
     public void getAllWriters(onGetAllWritersListener onGetAllWritersListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("writers");
         dbReference.addValueEventListener(new ValueEventListener() {
@@ -243,7 +192,7 @@ public class FireBaseDbService {
         });
     }
 
-    //    Method for getting all the cart items
+//    Method for getting all the cart items
     public void getAllCartItems(String uid, onGetAllCartItemsListener onGetAllCartItemsListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
         dbReference.addValueEventListener(new ValueEventListener() {

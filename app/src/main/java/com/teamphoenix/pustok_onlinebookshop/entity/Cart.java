@@ -20,30 +20,6 @@ public class Cart {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public void setCurrentTime(String currentTime) {
-        this.currentTime = currentTime;
-    }
-
-    public void setCurrentDate(String currentDate) {
-        this.currentDate = currentDate;
-    }
-
-    public void setBook_id(String book_id) {
-        this.book_id = book_id;
-    }
-
-    public void setTotalPrice(String totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public void setTotalQuantity(String totalQuantity) {
-        this.totalQuantity = totalQuantity;
-    }
-
     public String getCurrentTime() {
         return currentTime;
     }
