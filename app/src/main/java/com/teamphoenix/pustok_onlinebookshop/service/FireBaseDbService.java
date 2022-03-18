@@ -15,12 +15,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllCartItemsListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllWritersListener;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetBookByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetPublisherByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
 
@@ -115,6 +117,35 @@ public class FireBaseDbService {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 onGetPublisherDataListener.onError(error.getMessage());
+            }
+        });
+    }
+
+    public void getBookById(String id, onGetBookByIdListener onGetBookByIdListener) {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Booklist");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Book> books = new ArrayList<>();
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Book book = dataSnapshot.getValue(Book.class);
+                        books.add(book);
+                    }
+                    for (Book book : books) {
+                        if (book.getBook_id().equals(id)) {
+                            onGetBookByIdListener.onSuccess(book);
+                            break;
+                        }
+                    }
+                } else {
+                    onGetBookByIdListener.onError("Could not find any book");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                onGetBookByIdListener.onError(error.getMessage());
             }
         });
     }
