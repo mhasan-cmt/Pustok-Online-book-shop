@@ -123,6 +123,11 @@
 
 
             </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/related_book_recycler"
+                android:id="@+id/writerMoreBookRecycle"/>
 
 
         </LinearLayout>
