@@ -19,6 +19,7 @@ import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllCartItemsListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllWritersListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetPublisherByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
@@ -171,6 +172,30 @@ public class FireBaseDbService {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 onGetAllWritersListener.onFailed(error.getMessage());
+            }
+        });
+    }
+    public void getAllCartItems(onGetAllCartItemsListener onGetAllCartItemsListener) {
+        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("writers");
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Cart> carts = new ArrayList<>();
+                carts.clear();
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Cart cart = dataSnapshot.getValue(Cart.class);
+                        carts.add(cart);
+                    }
+                    onGetAllCartItemsListener.onSuccess(carts);
+                }else{
+                    onGetAllCartItemsListener.onError("Data could not be found!");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
