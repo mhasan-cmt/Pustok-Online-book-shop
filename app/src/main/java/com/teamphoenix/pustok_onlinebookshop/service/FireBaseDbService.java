@@ -135,6 +135,7 @@ public class FireBaseDbService {
             }
         });
     }
+
     public void saveToCart(Cart cart) {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference("cart");
@@ -175,6 +176,7 @@ public class FireBaseDbService {
             }
         });
     }
+
     public void getAllCartItems(String uid, onGetAllCartItemsListener onGetAllCartItemsListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
         dbReference.addValueEventListener(new ValueEventListener() {
@@ -182,15 +184,19 @@ public class FireBaseDbService {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Cart> carts = new ArrayList<>();
                 carts.clear();
+//                if data exists
                 if (snapshot.exists()) {
+//                    Looping through all cart items
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Cart cart = dataSnapshot.getValue(Cart.class);
-                        if(cart.getUser_id().equals(uid)){
+//                        checking the user and then add it to the cart
+                        if (cart.getUser_id().equals(uid)) {
                             carts.add(cart);
                         }
                     }
+//                    finally sending the cart list to ui
                     onGetAllCartItemsListener.onSuccess(carts);
-                }else{
+                } else {
                     onGetAllCartItemsListener.onError("Data could not be found!");
                 }
             }
