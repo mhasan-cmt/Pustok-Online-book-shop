@@ -35,7 +35,6 @@ public class Booklistadapter extends RecyclerView.Adapter<Booklistadapter.MyView
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("writers");
 
     public Booklistadapter(ArrayList<Book> blist, Context context) {
-
         this.blist = blist;
         this.context = context;
     }
@@ -44,7 +43,6 @@ public class Booklistadapter extends RecyclerView.Adapter<Booklistadapter.MyView
     public MyViewholder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.writerlist, parent, false);
         return new MyViewholder(view);
-
     }
 
     @Override
@@ -71,11 +69,12 @@ public class Booklistadapter extends RecyclerView.Adapter<Booklistadapter.MyView
                 Intent intent = new Intent(context, BookDetailsActivity.class);
                 intent.putExtra("book_id", boookclass.getBook_id());
                 intent.putExtra("book_name",boookclass.getBook_name());
-                intent.putExtra("writer_name", boookclass.getWriter_name());
+                intent.putExtra("writer_name", holder.BOKWR.getText());
                 intent.putExtra("writer_id", boookclass.getWriter_id());
                 intent.putExtra("ratings","2");
                 intent.putExtra("price",boookclass.getPrice());
                 intent.putExtra("image",boookclass.getBook_image());
+                intent.putExtra("category_id",boookclass.getCategory_id());
                 intent.putExtra("page_number",boookclass.getPage_number());
                 intent.putExtra("language",boookclass.getLanguage());
                 intent.putExtra("publisher_id",boookclass.getPublisher_id());

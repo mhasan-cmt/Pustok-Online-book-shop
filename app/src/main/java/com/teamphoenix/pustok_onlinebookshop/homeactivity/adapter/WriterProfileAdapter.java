@@ -20,7 +20,7 @@ import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 
 import java.util.ArrayList;
 
-public class WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAdapter.MyHolder> {
+public class  WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAdapter.MyHolder> {
 
     Context context;
     ArrayList<Writer> writerArrayList;
@@ -47,6 +47,8 @@ public class WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAdap
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, writer_prof.class);
+
+                intent.putExtra("writer_id", writerArrayList.get(holder.getAdapterPosition()).getWriter_id());
                 intent.putExtra("writer_name", writerArrayList.get(holder.getAdapterPosition()).getWriter_name());
                 intent.putExtra("writer_description", writerArrayList.get(holder.getAdapterPosition()).getDescription());
                 intent.putExtra("writer_img", writerArrayList.get(holder.getAdapterPosition()).getProfile_pic());

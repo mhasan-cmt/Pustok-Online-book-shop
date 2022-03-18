@@ -50,6 +50,7 @@ public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, Publisher_Profile.class);
+                intent.putExtra("publisher_id", publisherDataArray.get(holder.getAdapterPosition()).getPublisher_id());
                 intent.putExtra("publisher_name", publisherDataArray.get(holder.getAdapterPosition()).getPublisher_name());
                 intent.putExtra("publisher_profile_pic", publisherDataArray.get(position).getPublisher_img());
                 intent.putExtra("publisher_total_book", publisherDataArray.get(holder.getAdapterPosition()).getTotal_books());
