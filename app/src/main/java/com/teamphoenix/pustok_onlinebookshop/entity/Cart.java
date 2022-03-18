@@ -40,7 +40,23 @@ public class Cart {
         return totalQuantity;
     }
 
+    public Cart() {
+    }
+
     public void setCart_id(String cart_id) {
         this.cart_id = cart_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cart_id='" + cart_id + '\'' +
+                ", user_id='" + user_id + '\'' +
+                ", currentTime='" + currentTime + '\'' +
+                ", currentDate='" + currentDate + '\'' +
+                ", book_id='" + book_id + '\'' +
+                ", totalPrice='" + totalPrice + '\'' +
+                ", totalQuantity='" + totalQuantity + '\'' +
+                '}';
     }
 }

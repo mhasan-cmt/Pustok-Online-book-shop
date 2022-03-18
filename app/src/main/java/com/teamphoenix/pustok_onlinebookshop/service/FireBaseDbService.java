@@ -15,11 +15,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllCartItemsListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllWritersListener;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetBookByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetPublisherByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
 
@@ -118,22 +121,35 @@ public class FireBaseDbService {
         });
     }
 
-    public void saveWriter(Writer writer) {
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference("writers");
-        String referenceKey = reference.push().getKey();
-        writer.setWriter_id(referenceKey);
-        reference.child(referenceKey).setValue(writer, new DatabaseReference.CompletionListener() {
+    public void getBookById(String id, onGetBookByIdListener onGetBookByIdListener) {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Booklist");
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                if (error != null) {
-                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Book> books = new ArrayList<>();
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Book book = dataSnapshot.getValue(Book.class);
+                        books.add(book);
+                    }
+                    for (Book book : books) {
+                        if (book.getBook_id().equals(id)) {
+                            onGetBookByIdListener.onSuccess(book);
+                            break;
+                        }
+                    }
                 } else {
-                    Toast.makeText(context, "Saved data to database!", Toast.LENGTH_SHORT).show();
+                    onGetBookByIdListener.onError("Could not find any book");
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                onGetBookByIdListener.onError(error.getMessage());
             }
         });
     }
+
     public void saveToCart(Cart cart) {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference("cart");
@@ -151,6 +167,7 @@ public class FireBaseDbService {
         });
     }
 
+//    Method for getting all writers
     public void getAllWriters(onGetAllWritersListener onGetAllWritersListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("writers");
         dbReference.addValueEventListener(new ValueEventListener() {
@@ -171,6 +188,38 @@ public class FireBaseDbService {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 onGetAllWritersListener.onFailed(error.getMessage());
+            }
+        });
+    }
+
+//    Method for getting all the cart items
+    public void getAllCartItems(String uid, onGetAllCartItemsListener onGetAllCartItemsListener) {
+        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Cart> carts = new ArrayList<>();
+                carts.clear();
+//                if data exists
+                if (snapshot.exists()) {
+//                    Looping through all cart items
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Cart cart = dataSnapshot.getValue(Cart.class);
+//                        checking the user and then add it to the cart
+                        if (cart.getUser_id().equals(uid)) {
+                            carts.add(cart);
+                        }
+                    }
+//                    finally sending the cart list to ui
+                    onGetAllCartItemsListener.onSuccess(carts);
+                } else {
+                    onGetAllCartItemsListener.onError("Data could not be found!");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
