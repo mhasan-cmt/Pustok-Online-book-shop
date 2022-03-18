@@ -24,36 +24,51 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/cart_linear"
         android:layout_below="@id/checkout_bar"
         android:layout_marginBottom="8dp"
         android:elevation="5dp"
         android:paddingHorizontal="8dp" />
+
     <LinearLayout
         android:id="@+id/cart_linear"
-        android:layout_above="@+id/cart_pay_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/cart_pay_btn"
         android:orientation="horizontal"
-        android:weightSum="4"
         android:paddingHorizontal="10dp"
-        >
+        android:weightSum="4">
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/adarshalipi"
             android:text="মোট:"
-            android:fontFamily="@font/adarshalipi"
-            android:textSize="32sp"/>
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:text="0.00"
+            android:layout_weight="1"
             android:fontFamily="@font/adarshalipi"
-            android:textSize="32sp"
+            android:text="0.00"
+            android:textColor="@color/black"
             android:textAlignment="textEnd"
-            />
+            android:textStyle="bold"
+            android:textSize="28sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Taka"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <Button
