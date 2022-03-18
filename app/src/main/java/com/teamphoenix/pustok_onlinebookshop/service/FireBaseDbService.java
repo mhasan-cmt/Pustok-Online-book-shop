@@ -15,9 +15,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
+import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
+import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllCartItemsListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllWritersListener;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetBookByIdListener;
+import com.teamphoenix.pustok_onlinebookshop.listeners.onGetPublisherByIdListener;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
 
 import org.json.JSONException;
@@ -59,36 +65,109 @@ public class FireBaseDbService {
 
     public void getUserById(String uid, onGetUserDataListener onGetUserDataListener) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-        database.child(uid).addValueEventListener(new ValueEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                onGetUserDataListener.onSuccess(snapshot.getValue(User.class));
+                ArrayList<User> users = new ArrayList<>();
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        User user = dataSnapshot.getValue(User.class);
+                        users.add(user);
+                    }
+                    for (User user : users) {
+                        if (user.get_id().equals(uid)) {
+                            onGetUserDataListener.onSuccess(user);
+                            break;
+                        }
+                    }
+                } else {
+                    onGetUserDataListener.onError("Could not find any user");
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                onGetUserDataListener.onError(error.getMessage());
+
             }
         });
     }
 
-    public void saveWriter(Writer writer) {
+    public void getPublisherById(String id, onGetPublisherByIdListener onGetPublisherDataListener) {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Publisher");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Publisher> publishers = new ArrayList<>();
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Publisher publisher = dataSnapshot.getValue(Publisher.class);
+                        publishers.add(publisher);
+                    }
+                    for (Publisher publisher : publishers) {
+                        if (publisher.getPublisher_id().equals(id)) {
+                            onGetPublisherDataListener.onSuccess(publisher);
+                            break;
+                        }
+                    }
+                } else {
+                    onGetPublisherDataListener.onError("Could not find any publisher");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                onGetPublisherDataListener.onError(error.getMessage());
+            }
+        });
+    }
+
+    public void getBookById(String id, onGetBookByIdListener onGetBookByIdListener) {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Booklist");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Book> books = new ArrayList<>();
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Book book = dataSnapshot.getValue(Book.class);
+                        books.add(book);
+                    }
+                    for (Book book : books) {
+                        if (book.getBook_id().equals(id)) {
+                            onGetBookByIdListener.onSuccess(book);
+                            break;
+                        }
+                    }
+                } else {
+                    onGetBookByIdListener.onError("Could not find any book");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                onGetBookByIdListener.onError(error.getMessage());
+            }
+        });
+    }
+
+    public void saveToCart(Cart cart) {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference("writers");
+        DatabaseReference reference = firebaseDatabase.getReference("cart");
         String referenceKey = reference.push().getKey();
-        writer.setWriter_id(referenceKey);
-        reference.child(referenceKey).setValue(writer, new DatabaseReference.CompletionListener() {
+        cart.setCart_id(referenceKey);
+        reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                 if (error != null) {
                     Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Saved data to database!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
+//    Method for getting all writers
     public void getAllWriters(onGetAllWritersListener onGetAllWritersListener) {
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("writers");
         dbReference.addValueEventListener(new ValueEventListener() {
@@ -109,6 +188,38 @@ public class FireBaseDbService {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 onGetAllWritersListener.onFailed(error.getMessage());
+            }
+        });
+    }
+
+//    Method for getting all the cart items
+    public void getAllCartItems(String uid, onGetAllCartItemsListener onGetAllCartItemsListener) {
+        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("cart");
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Cart> carts = new ArrayList<>();
+                carts.clear();
+//                if data exists
+                if (snapshot.exists()) {
+//                    Looping through all cart items
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Cart cart = dataSnapshot.getValue(Cart.class);
+//                        checking the user and then add it to the cart
+                        if (cart.getUser_id().equals(uid)) {
+                            carts.add(cart);
+                        }
+                    }
+//                    finally sending the cart list to ui
+                    onGetAllCartItemsListener.onSuccess(carts);
+                } else {
+                    onGetAllCartItemsListener.onError("Data could not be found!");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

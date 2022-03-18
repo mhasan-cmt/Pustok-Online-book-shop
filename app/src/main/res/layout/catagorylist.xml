@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:elevation="8dp"
     android:orientation="vertical"
     app:cardCornerRadius="15dp"
-    android:elevation="8dp"
-    android:layout_margin="10dp"
-    >
-
-
-
+    android:id="@+id/category_container">
 
 
     <LinearLayout
@@ -18,61 +15,57 @@
         android:layout_height="80dp"
         android:layout_margin="2dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cateimge"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:id="@+id/cateimge"
-            android:layout_marginLeft="6dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="6dp"
 
-            android:src="@drawable/writer"/>
+            android:src="@drawable/writer" />
 
         <TextView
+            android:id="@+id/catgename"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:layout_marginLeft="16dp"
-            android:textStyle="bold"
             android:hint="Catagory Name"
-            android:id="@+id/catgename"
             android:textColor="@color/black"
-            />
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_gravity="end"
-        android:gravity="center_vertical"
         android:layout_margin="2dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
 
-
-
         <TextView
+            android:id="@+id/ctaecnt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ctaecnt"
-            android:hint="0000"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:padding="2sp"
-            android:textColor="@color/black"
-            android:textAlignment="textEnd"
             android:layout_marginStart="30dp"
-            />
+            android:hint="0000"
+            android:padding="2sp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="30dp"
+            android:layout_width="13dp"
+            android:layout_height="28dp"
             android:layout_marginLeft="20dp"
 
-          android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-            />
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

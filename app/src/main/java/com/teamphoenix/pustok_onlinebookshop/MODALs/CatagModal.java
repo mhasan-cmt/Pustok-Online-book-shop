@@ -1,21 +1,25 @@
 package com.teamphoenix.pustok_onlinebookshop.MODALs;
 
 public class CatagModal {
-    String  name,count,image;
+    String id, name, count, image;
 
     public CatagModal() {
     }
 
 
-
-
-    public CatagModal(String name, String count,String image) {
+    public CatagModal(String name, String count, String image) {
         this.name = name;
         this.count = count;
-        this.image= image;
+        this.image = image;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

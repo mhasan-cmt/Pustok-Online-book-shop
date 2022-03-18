@@ -1,86 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    android:layout_margin="5dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6"
         android:orientation="horizontal"
-        >
+        android:weightSum="6">
+
         <ImageView
             android:id="@+id/cart_img"
             android:layout_width="0dp"
             android:layout_height="150dp"
+            android:layout_marginVertical="2dp"
             android:layout_weight="2"
             android:src="@drawable/book2"
-            android:layout_marginVertical="2dp"
-            />
+            android:layout_gravity="center_vertical"/>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
             android:layout_weight="4"
-            android:orientation="vertical"
-            android:layout_marginVertical="8dp">
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/cart_book_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Book Title"
-                android:textSize="28sp"
-                android:textAlignment="center"
                 android:fontFamily="@font/mukti"
-                android:textColor="@color/black"/>
+                android:text="Book Title"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
             <TextView
                 android:id="@+id/cart_book_writer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Book Writer"
-                android:textSize="22sp"
                 android:layout_marginVertical="5dp"
-                android:textAlignment="center"
                 android:fontFamily="@font/mukti"
-                android:textColor="@color/black"/>
+                android:text="Book Writer"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
             <RatingBar
                 android:id="@+id/cart_ratings"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
                 android:numStars="5"
                 android:rating="3"
                 android:stepSize="1"
                 android:textAlignment="center"
-                android:theme="@style/RatingBar"
-                android:layout_marginBottom="10dp"/>
+                android:theme="@style/RatingBar" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <ImageButton
+                    android:id="@+id/cart_remove_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_remove" />
+
+                <TextView
+                    android:id="@+id/cart_quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/cart_add_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_add" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="6"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/cart_book_price"
                     android:layout_width="0dp"
-                    android:layout_weight="5"
                     android:layout_height="wrap_content"
-                    android:text="১০০.০০"
-                    android:textSize="32sp"
                     android:layout_marginVertical="5dp"
-                    android:textAlignment="center"
+                    android:layout_weight="5"
                     android:fontFamily="@font/mayukh"
-                    android:textColor="@color/black"/>
+                    android:text="১০০.০০"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="28sp" />
+
                 <ImageButton
                     android:id="@+id/cart_delete_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_delete"
-                    android:layout_margin="8dp"
-                    android:elevation="8dp"
                     android:layout_gravity="end|center_vertical"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    />
+                    android:elevation="8dp"
+                    android:src="@drawable/ic_delete" />
             </LinearLayout>
 
         </LinearLayout>

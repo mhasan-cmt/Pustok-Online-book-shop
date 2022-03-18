@@ -64,8 +64,8 @@
                     android:layout_gravity="center"
                     android:background="@drawable/f"
                     android:backgroundTint="#EDEDE9"
-                    android:hint="User-name"
-                    android:inputType="text"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:maxLength="20"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -81,9 +81,6 @@
                 style="@style/Theme.PustokOnlineBookShop"
 
                 >
-
-                app:passwordToggleEnabled="true"
-                app:startIconDrawable="@drawable/ic_baseline_lock">
 
 
                 <com.google.android.material.textfield.TextInputEditText

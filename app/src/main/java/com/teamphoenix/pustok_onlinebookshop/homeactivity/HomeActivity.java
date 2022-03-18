@@ -29,7 +29,7 @@ import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity implements onGetUserDataListener{
+public class HomeActivity extends AppCompatActivity implements onGetUserDataListener {
 
     private NavHostController navHostController;
     ActivityHomeBinding homeBinding;
@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
         homeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = homeBinding.getRoot();
         setContentView(view);
-       homeSharePreferences = getPreferences(MODE_PRIVATE);
+        homeSharePreferences = getPreferences(MODE_PRIVATE);
         fireBaseDbService = new FireBaseDbService(HomeActivity.this);
         settingUpRefreshLayout();
         setNavController();
@@ -63,7 +63,7 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
     }
 
     private void getAndShowUserData() {
-        fireBaseDbService.getUserById(FirebaseAuth.getInstance().getUid(),this);
+        fireBaseDbService.getUserById(FirebaseAuth.getInstance().getUid(), this);
     }
 
     private void setNavController() {
@@ -113,7 +113,7 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
         Gson gson = new Gson();
         Editor editor = homeSharePreferences.edit();
         String userJson = gson.toJson(user);
-        editor.putString("UserData",userJson );
+        editor.putString("UserData", userJson);
         editor.commit();
     }
 
