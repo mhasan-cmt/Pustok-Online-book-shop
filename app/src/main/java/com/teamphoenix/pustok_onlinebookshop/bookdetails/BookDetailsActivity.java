@@ -63,6 +63,10 @@ public class BookDetailsActivity extends AppCompatActivity {
 
 
 
+
+
+
+
         bookDetailsBinding.writerImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +109,26 @@ public class BookDetailsActivity extends AppCompatActivity {
                 intent.getStringExtra("writer_name"));
 
         bookArrayList = new ArrayList<>();
+
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("cart");
+        reference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Cart cart1 = dataSnapshot.getValue(Cart.class);
+                    bookDetailsBinding.addToCart.setText("এখনি কিনুন");
+                    if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals(cart1.getUser_id()) && intent.getStringExtra("book_id").equals(cart1.getBook_id())){
+                        bookDetailsBinding.addToCart.setText("পরে কিনুন");
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
 
         referenceBook.addValueEventListener(new ValueEventListener() {
             @Override
@@ -206,6 +230,25 @@ public class BookDetailsActivity extends AppCompatActivity {
                 currentDate,
                 book.getPrice(),
                 "1");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Cart cart1 = dataSnapshot.getValue(Cart.class);
+                    if(cart.getUser_id().equals(cart1.getUser_id()) && cart.getBook_id().equals(cart1.getBook_id())){
+                        bookDetailsBinding.addToCart.setText("পরে কিনুন");
+                    }else{
+                        bookDetailsBinding.addToCart.setText("এখনি কিনুন");
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         fireBaseDbService.saveToCart(cart);
         progressDialog.dismiss();
     }

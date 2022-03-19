@@ -1,5 +1,6 @@
 package com.teamphoenix.pustok_onlinebookshop.service;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.widget.Toast;
 
@@ -155,16 +156,51 @@ public class FireBaseDbService {
         DatabaseReference reference = firebaseDatabase.getReference("cart");
         String referenceKey = reference.push().getKey();
         cart.setCart_id(referenceKey);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int count = 0;
+                ArrayList<String> arrayList = new ArrayList<>();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Cart cart1 = dataSnapshot.getValue(Cart.class);
+                    if(cart.getUser_id().equals(cart1.getUser_id()) && cart.getBook_id().equals(cart1.getBook_id())){
+                        count++;
+                        arrayList.add(cart1.getCart_id());
+                        if (count>1){
+                            for (int i =0; i<arrayList.size(); i++){
+                                reference.child(arrayList.get(i)).removeValue();
+                            }
+//                            Toast.makeText(context, "Book Remove from cart!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+//                reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
+//                    @Override
+//                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+//                        if (error != null) {
+//                            Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+            }
+        });
         reference.child(referenceKey).setValue(cart, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                 if (error != null) {
                     Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Book added to cart!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
 //    Method for getting all writers
