@@ -31,7 +31,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CartViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cart,parent, false));
+        return new CartViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false));
     }
 
     @Override
@@ -52,16 +52,16 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
             public void onClick(View view) {
                 int quantity = Integer.parseInt(holder.cart_quantity.getText().toString());
                 quantity++;
-                holder.cart_quantity.setText(""+quantity);
+                holder.cart_quantity.setText("" + quantity);
             }
         });
         holder.cart_remove_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int quantity = Integer.parseInt(holder.cart_quantity.getText().toString());
-                if(quantity>1){
+                if (quantity > 1) {
                     quantity--;
-                    holder.cart_quantity.setText(""+quantity);
+                    holder.cart_quantity.setText("" + quantity);
                 }
             }
         });
@@ -72,10 +72,11 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
         return cartModelList.size();
     }
 }
-class CartViewHolder extends RecyclerView.ViewHolder{
+
+class CartViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView cart_img;
-    public TextView cart_book_name,cart_book_writer,cart_book_price, cart_quantity;
+    public TextView cart_book_name, cart_book_writer, cart_book_price, cart_quantity;
     public RatingBar cart_ratings;
     public ImageButton cart_delete_btn;
     public ImageButton cart_remove_btn, cart_add_btn;
