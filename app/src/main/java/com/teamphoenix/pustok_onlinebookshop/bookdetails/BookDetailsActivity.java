@@ -45,7 +45,6 @@ public class BookDetailsActivity extends AppCompatActivity {
     Book book;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("writers");
     DatabaseReference referenceBook = FirebaseDatabase.getInstance().getReference("Booklist");
-
     ArrayList<Book> bookArrayList;
 
 
@@ -109,7 +108,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Cart cart1 = dataSnapshot.getValue(Cart.class);
-                    bookDetailsBinding.addToCart.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_shopping_cart));
+                    bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_add_shopping_cart);
                     if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(cart1.getUser_id()) && intent.getStringExtra("book_id").equals(cart1.getBook_id())) {
                         bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_remove_shopping);
                         break;
@@ -232,7 +231,7 @@ public class BookDetailsActivity extends AppCompatActivity {
                     if (cart.getUser_id().equals(cart1.getUser_id()) && cart.getBook_id().equals(cart1.getBook_id())) {
                         bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_remove_shopping);
                     } else {
-                        bookDetailsBinding.addToCart.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_shopping_cart));
+                        bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_add_shopping_cart);
                     }
 
                 }
