@@ -249,7 +249,7 @@ public class FireBaseDbService {
 //                    finally sending the cart list to ui
                     onGetAllCartItemsListener.onSuccess(carts);
                 } else {
-                    onGetAllCartItemsListener.onError("Data could not be found!");
+
                 }
             }
 
