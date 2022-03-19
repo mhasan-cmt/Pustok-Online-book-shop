@@ -3,7 +3,6 @@ package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,18 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -38,11 +33,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
 
     private RecyclerView recyclerViewFirst, recyclerViewSecond;
@@ -58,13 +48,6 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
         return fragment;
@@ -93,21 +76,29 @@ public class ProfileFragment extends Fragment {
         settingBtn = getView().findViewById(R.id.settingBtn);
         profile_user_name = getView().findViewById(R.id.profile_user_name);
         profile_user_mobile = getView().findViewById(R.id.profile_user_mobile);
-
         profileSharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        settingProfileData(getUserData());
 
-        settingupListenerTosettingsButton();
+        settingProfileData(getUserData());
+        settingUpListenerToSettingsButton();
         settingUpRecyclerViews();
         settingUpChart();
-//        settingProfileData(getUserData());
     }
 
+    /**
+     * THis Method is for setting user data to views
+     *
+     * @param user
+     */
     private void settingProfileData(User user) {
         profile_user_name.setText(user.getUserName());
         profile_user_mobile.setText(user.getPhoneNumber());
     }
 
+    /**
+     * This Method is for getting the data from intent
+     *
+     * @return a User
+     */
     private User getUserData() {
         Gson gson = new Gson();
         String userData = profileSharedPreferences.getString("UserData", "");
@@ -115,7 +106,10 @@ public class ProfileFragment extends Fragment {
         return this.user;
     }
 
-    private void settingupListenerTosettingsButton() {
+    /**
+     * This Method is for setting listener to the setting button
+     */
+    private void settingUpListenerToSettingsButton() {
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,6 +119,9 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method is for setting profile options data to the recyclerview
+     */
     private void settingUpRecyclerViews() {
         texts = new ArrayList<>();
         texts2 = new ArrayList<>();
@@ -160,6 +157,11 @@ public class ProfileFragment extends Fragment {
         recyclerViewSecond.setAdapter(profileRecyclerViewAdapter2);
     }
 
+    /**
+     * This method is for setting up bar chart data
+     *
+     * @return BAR ENTRY
+     */
     private ArrayList<BarEntry> barDataValues() {
         ArrayList<BarEntry> dataValues = new ArrayList<>();
         dataValues.add(new BarEntry(0, 3));
@@ -172,6 +174,9 @@ public class ProfileFragment extends Fragment {
         return dataValues;
     }
 
+    /**
+     * This Method is for setting up the chart in profile
+     */
     void settingUpChart() {
         final ArrayList<String> xAxisLabel = new ArrayList<>();
         xAxisLabel.add("Tue");

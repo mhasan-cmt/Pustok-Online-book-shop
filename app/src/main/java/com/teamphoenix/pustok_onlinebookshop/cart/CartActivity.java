@@ -23,9 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
-private MaterialToolbar materialToolbar;
-ActivityCartBinding cartBinding;
-CartRecyclerAdapter cartAdapter;
+    private MaterialToolbar materialToolbar;
+    ActivityCartBinding cartBinding;
+    CartRecyclerAdapter cartAdapter;
+
     @Override
     public void onBackPressed() {
         finish();
@@ -45,9 +46,6 @@ CartRecyclerAdapter cartAdapter;
                 finish();
             }
         });
-//        cartModelList = new ArrayList<>();
-//        cartModelList.add(new Cart("test_userid", "23-02-3","jsdkfj", "sdfsdf", "ljsldf","sdfskfdj"));
-
         FireBaseDbService fireBaseDbService = new FireBaseDbService(this);
         fireBaseDbService.getAllCartItems(FirebaseAuth.getInstance().getUid(), new onGetAllCartItemsListener() {
             @Override
@@ -57,11 +55,10 @@ CartRecyclerAdapter cartAdapter;
                 cartBinding.cartRecyclerView.setLayoutManager(new LinearLayoutManager(CartActivity.this, RecyclerView.VERTICAL, false));
                 cartBinding.cartRecyclerView.setAdapter(cartAdapter);
 //                Getting total price
-                for (Cart cart: carts){
-                    bookPrice=bookPrice+Float.parseFloat((String)cart.getTotalPrice());
+                for (Cart cart : carts) {
+                    bookPrice = bookPrice + Float.parseFloat((String) cart.getTotalPrice());
                 }
-                cartBinding.totalBookPrice.setText(""+bookPrice);
-
+                cartBinding.totalBookPrice.setText("" + bookPrice);
             }
 
             @Override
@@ -69,6 +66,5 @@ CartRecyclerAdapter cartAdapter;
                 Toast.makeText(CartActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

@@ -93,7 +93,9 @@ public class HomeTabFragment extends Fragment {
         });
     }
 
-
+    /**
+     * This Method is for setting the image slider
+     */
     private void setUpImageSlider() {
         imgList = new ArrayList<>();
         imgList.add(new SlideModel("https://bit.ly/2YoJ77H", "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP));
@@ -101,11 +103,17 @@ public class HomeTabFragment extends Fragment {
         imgList.add(new SlideModel("https://bit.ly/3fLJf72", "And people do that.", ScaleTypes.CENTER_CROP));
     }
 
+    /**
+     * This Method is for start the shimmer in home tab
+     */
     private void startShimmer() {
         shimmerFrameLayout = getView().findViewById(R.id.shimmer_view_container);
         shimmerFrameLayout.startShimmer();
     }
 
+    /**
+     * This Method is for stop the shimmer in home tab and showing the actual recyclerview with data
+     */
     private void stopShimmer() {
         shimmerFrameLayout.stopShimmer();
         shimmerFrameLayout.hideShimmer();
