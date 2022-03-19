@@ -41,8 +41,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:fontFamily="@font/sagar_normal"
+                android:gravity="center"
                 android:text="নতুন একাউন্ট যুক্ত করুন "
                 android:textAlignment="center"
                 android:textColor="@color/primary"
@@ -54,19 +54,23 @@
                 style="@style/Theme.PustokOnlineBookShop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/f"
+                android:backgroundTint="#EDEDE9"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:endIconMode="clear_text"
                 app:startIconDrawable="@drawable/ic_baseline_account">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/puser"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
                     android:hint="User-name"
                     android:inputType="text"
-                    android:maxLength="20"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -76,19 +80,19 @@
                 style="@style/Theme.PustokOnlineBookShop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/f"
+                android:backgroundTint="#EDEDE9"
                 app:startIconDrawable="@drawable/ic_baseline_email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Bmail"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="4dp"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
                     android:hint="E-mail"
                     android:inputType="textEmailAddress"
-                    android:maxLength="20"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -97,17 +101,20 @@
                 style="@style/Theme.PustokOnlineBookShop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_call_">
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/f"
+                android:backgroundTint="#EDEDE9"
+                app:startIconDrawable="@drawable/ic_call_"
+                app:endIconMode="clear_text">
 
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/BphoneNumber"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
                     android:hint="Mobile"
                     android:inputType="numberDecimal"
                     android:maxLength="20"
@@ -118,19 +125,20 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/f"
+                android:backgroundTint="#EDEDE9"
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pass"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
                     android:hint="password"
                     android:inputType="textPassword"
                     android:textSize="16sp"
@@ -141,16 +149,18 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="0dp"
-                app:startIconDrawable="@drawable/ic_baseline_lock"
-                >
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/f"
+                android:backgroundTint="#EDEDE9"
+                app:startIconDrawable="@drawable/ic_baseline_lock">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/conpass"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
                     android:hint="Confirm-Password"
                     android:inputType="textPassword"
                     android:textSize="16sp"
