@@ -47,55 +47,57 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                style="@style/Theme.PustokOnlineBookShop"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:startIconDrawable="@drawable/ic_baseline_account"
+                android:layout_marginHorizontal="15dp"
+                android:orientation="vertical">
 
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/puser"
-                    android:layout_width="350dp"
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Theme.PustokOnlineBookShop"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="20"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="20dp"
+                    app:startIconDrawable="@drawable/ic_baseline_account"
 
+                    >
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/puser"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/f"
+                        android:backgroundTint="#EDEDE9"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="20"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                app:startIconDrawable="@drawable/ic_baseline_lock"
-                style="@style/Theme.PustokOnlineBookShop"
-
-                >
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Bpass"
-                    android:layout_width="350dp"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Theme.PustokOnlineBookShop"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/f"
-                    android:backgroundTint="#EDEDE9"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:maxLength="6"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="4dp"
+                    app:startIconDrawable="@drawable/ic_baseline_lock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Bpass"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/f"
+                        android:backgroundTint="#EDEDE9"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:maxLength="6"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
 
             <LinearLayout

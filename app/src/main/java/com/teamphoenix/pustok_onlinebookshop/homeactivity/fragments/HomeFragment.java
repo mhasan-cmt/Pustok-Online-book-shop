@@ -47,7 +47,6 @@ public class HomeFragment extends Fragment {
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
-
         return fragment;
     }
 
@@ -93,7 +92,6 @@ public class HomeFragment extends Fragment {
         homeTabAdapter.addfrg(new WriterTabFragment(), "লেখক");
         homeTabAdapter.addfrg(new PublisherTabFragment(), "প্রকাশক");
         viewPager.setAdapter(homeTabAdapter);
-
     }
 
 

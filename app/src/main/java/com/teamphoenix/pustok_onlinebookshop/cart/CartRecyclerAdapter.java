@@ -1,5 +1,6 @@
 package com.teamphoenix.pustok_onlinebookshop.cart;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart");
     DatabaseReference bookReference = FirebaseDatabase.getInstance().getReference("Booklist");
     DatabaseReference writerReference = FirebaseDatabase.getInstance().getReference("writers");
+
     public CartRecyclerAdapter(Context context, ArrayList<Cart> cartModelList) {
         this.context = context;
         this.cartModelList = cartModelList;
@@ -43,29 +45,28 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CartViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cart,parent, false));
+        return new CartViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-
-
-
+    public void onBindViewHolder(@NonNull CartViewHolder holder, @SuppressLint("RecyclerView") int position) {
 //        holder.cart_img.setImageResource(cartModelList.get(position).getImage());
         bookReference.addValueEventListener(new ValueEventListener() {
+            int pos = position;
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Book book = dataSnapshot.getValue(Book.class);
-                    if (book.getBook_id().equals(cartModelList.get(position).getBook_id())){
+                    if (book.getBook_id().equals(cartModelList.get(pos).getBook_id())) {
                         Glide.with(context).asBitmap().load(book.getBook_image()).into(holder.cart_img);
                         holder.cart_book_name.setText(book.getBook_name());
                         writerReference.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for (DataSnapshot dataSnapshot1: snapshot.getChildren()){
+                                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                                     Writer writer = dataSnapshot1.getValue(Writer.class);
-                                    if (book.getWriter_id().equals(writer.getWriter_id())){
+                                    if (book.getWriter_id().equals(writer.getWriter_id())) {
                                         holder.cart_book_writer.setText(writer.getWriter_name());
                                     }
                                 }
@@ -85,15 +86,13 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
             }
         });
-
-
         holder.cart_book_price.setText(cartModelList.get(position).getTotalPrice());
 //        holder.cart_ratings.setRating(Float.parseFloat(cartModelList.get(position).getRatings()));
         holder.cart_delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Deleted...!", Toast.LENGTH_SHORT).show();
-                reference.child(cartModelList.get(position).getCart_id()).removeValue();
+                reference.child(cartModelList.get(holder.getAdapterPosition()).getCart_id()).removeValue();
             }
         });
         holder.cart_add_btn.setOnClickListener(new View.OnClickListener() {
@@ -101,18 +100,18 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
             public void onClick(View view) {
                 int quantity = Integer.parseInt(holder.cart_quantity.getText().toString());
                 quantity++;
-                holder.cart_book_price.setText(Integer.toString(Integer.parseInt((String) cartModelList.get(position).getTotalPrice()) * quantity));
-                holder.cart_quantity.setText(""+quantity);
+                holder.cart_book_price.setText(Float.toString(Float.parseFloat((String) cartModelList.get(position).getTotalPrice()) * quantity));
+                holder.cart_quantity.setText("" + quantity);
             }
         });
         holder.cart_remove_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int quantity = Integer.parseInt(holder.cart_quantity.getText().toString());
-                if(quantity>1){
+                if (quantity > 1) {
                     quantity--;
-                    holder.cart_book_price.setText(Integer.toString(Integer.parseInt((String) cartModelList.get(position).getTotalPrice()) * quantity));
-                    holder.cart_quantity.setText(""+quantity);
+                    holder.cart_book_price.setText(Float.toString(Float.parseFloat((String) cartModelList.get(position).getTotalPrice()) * quantity));
+                    holder.cart_quantity.setText("" + quantity);
                 }
             }
         });
@@ -123,10 +122,11 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
         return cartModelList.size();
     }
 }
-class CartViewHolder extends RecyclerView.ViewHolder{
+
+class CartViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView cart_img;
-    public TextView cart_book_name,cart_book_writer,cart_book_price, cart_quantity;
+    public TextView cart_book_name, cart_book_writer, cart_book_price, cart_quantity;
     public RatingBar cart_ratings;
     public ImageButton cart_delete_btn;
     public ImageButton cart_remove_btn, cart_add_btn;
