@@ -62,12 +62,6 @@ public class HomeTabFragment extends Fragment {
         boookclassArrayList = new ArrayList<>();
         booklistadapter = new Booklistadapter(boookclassArrayList, getContext());
         recyclerView1.setAdapter(booklistadapter);
-        return view;
-    }
-
-    @Override
-    public void onStart() {
-
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -83,6 +77,13 @@ public class HomeTabFragment extends Fragment {
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
             }
         });
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+
+
         super.onStart();
 
     }

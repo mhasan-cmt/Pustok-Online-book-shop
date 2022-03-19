@@ -60,13 +60,6 @@ public class BookDetailsActivity extends AppCompatActivity {
         fireBaseDbService = new FireBaseDbService(this);
         relatedBookRecycle = findViewById(R.id.relatedBookRecycle);
         getAndSetBookData();
-
-
-
-
-
-
-
         bookDetailsBinding.writerImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +81,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         intent.putExtra("writer_name", writer.getWriter_name());
         intent.putExtra("writer_description", writer.getDescription());
         intent.putExtra("writer_img", writer.getProfile_pic());
-        intent.putExtra("writer_follower", writer.getFollowers()+" জন অনুসারী");
+        intent.putExtra("writer_follower", writer.getFollowers() + " জন অনুসারী");
         startActivity(intent);
     }
 
@@ -114,11 +107,11 @@ public class BookDetailsActivity extends AppCompatActivity {
         reference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Cart cart1 = dataSnapshot.getValue(Cart.class);
-                    bookDetailsBinding.addToCart.setText("এখনি কিনুন");
-                    if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals(cart1.getUser_id()) && intent.getStringExtra("book_id").equals(cart1.getBook_id())){
-                        bookDetailsBinding.addToCart.setText("পরে কিনুন");
+                    bookDetailsBinding.addToCart.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_shopping_cart));
+                    if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(cart1.getUser_id()) && intent.getStringExtra("book_id").equals(cart1.getBook_id())) {
+                        bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_remove_shopping);
                         break;
                     }
                 }
@@ -133,10 +126,10 @@ public class BookDetailsActivity extends AppCompatActivity {
         referenceBook.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Book bookWithWriterMatch = dataSnapshot.getValue(Book.class);
-                    if (book.getWriter_id().equals(bookWithWriterMatch.getWriter_id())){
-                        if (bookWithWriterMatch.getBook_id().equals(book.getBook_id())){
+                    if (book.getWriter_id().equals(bookWithWriterMatch.getWriter_id())) {
+                        if (bookWithWriterMatch.getBook_id().equals(book.getBook_id())) {
                             continue;
                         }
                         bookArrayList.add(bookWithWriterMatch);
@@ -160,15 +153,15 @@ public class BookDetailsActivity extends AppCompatActivity {
                 Picasso.get().load(writer.getProfile_pic()).into(bookDetailsBinding.writerImage);
                 bookDetailsBinding.bookWriter.setText(writer.getWriter_name());
                 bookDetailsBinding.bookWriterNameBottom.setText(writer.getWriter_name());
-                bookDetailsBinding.getWriterFollowers.setText(writer.getFollowers()+" জন অনুসারী");
+                bookDetailsBinding.getWriterFollowers.setText(writer.getFollowers() + " জন অনুসারী");
 
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
 
 
         bookDetailsBinding.bookTitle.setText(book.getBook_name());
@@ -234,12 +227,12 @@ public class BookDetailsActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Cart cart1 = dataSnapshot.getValue(Cart.class);
-                    if(cart.getUser_id().equals(cart1.getUser_id()) && cart.getBook_id().equals(cart1.getBook_id())){
-                        bookDetailsBinding.addToCart.setText("পরে কিনুন");
-                    }else{
-                        bookDetailsBinding.addToCart.setText("এখনি কিনুন");
+                    if (cart.getUser_id().equals(cart1.getUser_id()) && cart.getBook_id().equals(cart1.getBook_id())) {
+                        bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_remove_shopping);
+                    } else {
+                        bookDetailsBinding.addToCart.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_shopping_cart));
                     }
 
                 }
