@@ -208,7 +208,6 @@ public class BookDetailsActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         String currentTime, currentDate;
         Calendar calendar = Calendar.getInstance();
-
         SimpleDateFormat currentDateFormat = new SimpleDateFormat("MM dd, yyyy");
         currentDate = currentDateFormat.format(calendar.getTime());
 
