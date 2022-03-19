@@ -52,9 +52,16 @@ CartRecyclerAdapter cartAdapter;
         fireBaseDbService.getAllCartItems(FirebaseAuth.getInstance().getUid(), new onGetAllCartItemsListener() {
             @Override
             public void onSuccess(ArrayList<Cart> carts) {
+                float bookPrice = 0.00f;
                 cartAdapter = new CartRecyclerAdapter(CartActivity.this, carts);
                 cartBinding.cartRecyclerView.setLayoutManager(new LinearLayoutManager(CartActivity.this, RecyclerView.VERTICAL, false));
                 cartBinding.cartRecyclerView.setAdapter(cartAdapter);
+//                Getting total price
+                for (Cart cart: carts){
+                    bookPrice=bookPrice+Float.parseFloat((String)cart.getTotalPrice());
+                }
+                cartBinding.totalBookPrice.setText(""+bookPrice);
+
             }
 
             @Override

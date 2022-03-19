@@ -86,7 +86,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
             }
         });
-        holder.cart_book_price.setText(cartModelList.get(position).getTotalPrice());
+        holder.cart_book_price.setText(Float.toString(Float.parseFloat(cartModelList.get(position).getTotalPrice())));
 //        holder.cart_ratings.setRating(Float.parseFloat(cartModelList.get(position).getRatings()));
         holder.cart_delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
