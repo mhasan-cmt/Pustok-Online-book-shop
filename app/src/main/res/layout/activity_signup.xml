@@ -22,32 +22,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_account_circle_24" />
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/lohit"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Welcome!"
+                android:text="স্বাগতম"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textDirection="locale"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Create New Account "
+                android:fontFamily="@font/sagar_normal"
+                android:text="নতুন একাউন্ট যুক্ত করুন "
                 android:textAlignment="center"
-                android:textColor="#6B705C"
+                android:textColor="@color/primary"
                 android:textDirection="locale"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
-
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Theme.PustokOnlineBookShop"
@@ -132,7 +133,6 @@
                     android:backgroundTint="#EDEDE9"
                     android:hint="password"
                     android:inputType="textPassword"
-                    android:maxLength="20"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -153,7 +153,6 @@
                     android:backgroundTint="#EDEDE9"
                     android:hint="Confirm-Password"
                     android:inputType="textPassword"
-                    android:maxLength="6"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -183,7 +182,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="........................OR SIGN UP WITH........................"
+                    android:text="OR SIGN UP WITH"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -244,7 +243,7 @@
                         android:layout_weight="2"
                         android:text="Log In now"
                         android:textColor="@color/black"
-                        android:textSize="22sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
