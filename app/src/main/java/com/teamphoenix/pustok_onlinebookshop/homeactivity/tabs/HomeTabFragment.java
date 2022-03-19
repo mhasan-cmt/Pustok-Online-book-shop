@@ -39,7 +39,7 @@ public class HomeTabFragment extends Fragment {
 
     ArrayList<Book> boookclassArrayList;
     RecyclerView recyclerView1;
-private ShimmerFrameLayout shimmerFrameLayout;
+    private ShimmerFrameLayout shimmerFrameLayout;
     FirebaseDatabase database;
     DatabaseReference databaseReference1;
     Booklistadapter booklistadapter;
@@ -93,17 +93,20 @@ private ShimmerFrameLayout shimmerFrameLayout;
         });
     }
 
+
     private void setUpImageSlider() {
         imgList = new ArrayList<>();
         imgList.add(new SlideModel("https://bit.ly/2YoJ77H", "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP));
         imgList.add(new SlideModel("https://bit.ly/2BteuF2", "Elephants and tigers may become extinct.", ScaleTypes.CENTER_CROP));
         imgList.add(new SlideModel("https://bit.ly/3fLJf72", "And people do that.", ScaleTypes.CENTER_CROP));
     }
-    private void startShimmer(){
+
+    private void startShimmer() {
         shimmerFrameLayout = getView().findViewById(R.id.shimmer_view_container);
         shimmerFrameLayout.startShimmer();
     }
-    private void stopShimmer(){
+
+    private void stopShimmer() {
         shimmerFrameLayout.stopShimmer();
         shimmerFrameLayout.hideShimmer();
         shimmerFrameLayout.setVisibility(View.GONE);

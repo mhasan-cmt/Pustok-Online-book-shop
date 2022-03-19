@@ -2,6 +2,8 @@ package com.teamphoenix.pustok_onlinebookshop.homeactivity.tabs;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +29,18 @@ public class WriterTabFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_writer_tab, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         writer_recyclerView = getView().findViewById(R.id.writer_recyclerView);
         fireBaseDbService.getAllWriters(new onGetAllWritersListener() {
             @Override
@@ -41,13 +55,5 @@ public class WriterTabFragment extends Fragment {
                 Toast.makeText(getActivity(), errMsg, Toast.LENGTH_SHORT).show();
             }
         });
-
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_writer_tab, container, false);
     }
 }
