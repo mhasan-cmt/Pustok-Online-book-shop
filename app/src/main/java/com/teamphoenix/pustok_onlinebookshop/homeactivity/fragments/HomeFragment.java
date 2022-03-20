@@ -3,6 +3,8 @@ package com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,10 +37,6 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
 
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private MaterialToolbar topActionBar;
 
     public HomeFragment() {
@@ -56,12 +54,23 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Inflate the layout for this fragment
+        return view;
+    }
+
+    /**
+     * This Method is for Setup Home Action Bar
+     *
+     * @param view
+     */
+    private void setUpActionBar(View view) {
+        //        Top Action Bar Setup
         topActionBar = view.findViewById(R.id.home_toolbar);
         topActionBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -74,14 +83,12 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         });
-        // Inflate the layout for this fragment
-        return view;
     }
 
-
-    @Override
-    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    /**
+     * This Method is for setting the tab layout and viewpager
+     */
+    private void setupTabLayoutWithViewPager() {
         tabLayout = getView().findViewById(R.id.tblay);
         viewPager = getView().findViewById(R.id.vp);
         tabLayout.setupWithViewPager(viewPager);
@@ -92,6 +99,15 @@ public class HomeFragment extends Fragment {
         homeTabAdapter.addfrg(new WriterTabFragment(), "লেখক");
         homeTabAdapter.addfrg(new PublisherTabFragment(), "প্রকাশক");
         viewPager.setAdapter(homeTabAdapter);
+        homeTabAdapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setUpActionBar(view);
+        setupTabLayoutWithViewPager();
     }
 
 
