@@ -16,9 +16,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.teamphoenix.pustok_onlinebookshop.MODALs.CatagModal;
+import com.teamphoenix.pustok_onlinebookshop.entity.CatagModal;
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.firebase.Cateadapter;
+import com.teamphoenix.pustok_onlinebookshop.category.Cateadapter;
 
 import org.jetbrains.annotations.NotNull;
 

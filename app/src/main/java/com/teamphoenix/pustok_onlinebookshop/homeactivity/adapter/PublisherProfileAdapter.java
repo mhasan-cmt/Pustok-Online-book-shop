@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.teamphoenix.pustok_onlinebookshop.Publisher_Profile.Publisher_Profile;
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.Writer_Profile.writer_prof;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 
 import java.util.ArrayList;

@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -21,14 +20,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.teamphoenix.pustok_onlinebookshop.MODALs.Boookclass;
-import com.teamphoenix.pustok_onlinebookshop.MODALs.CatagModal;
 import com.teamphoenix.pustok_onlinebookshop.R;
 
 import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 
 
-import com.teamphoenix.pustok_onlinebookshop.firebase.Booklistadapter;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.Booklistadapter;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -1,4 +1,4 @@
-package com.teamphoenix.pustok_onlinebookshop.Writer_Profile;
+package com.teamphoenix.pustok_onlinebookshop.writer_profile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,6 @@ import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.bookdetails.BookDetailAdapter;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityWriterProfBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Book;
-import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 
 import java.util.ArrayList;
 

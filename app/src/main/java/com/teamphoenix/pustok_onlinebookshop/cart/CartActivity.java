@@ -7,21 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityCartBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
-import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllCartItemsListener;
-import com.teamphoenix.pustok_onlinebookshop.payement.PaymentActivity;
+import com.teamphoenix.pustok_onlinebookshop.payment.PaymentActivity;
 import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
     private MaterialToolbar materialToolbar;

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.Writer_Profile.writer_prof;
+import com.teamphoenix.pustok_onlinebookshop.writer_profile.writer_prof;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 
 import java.util.ArrayList;

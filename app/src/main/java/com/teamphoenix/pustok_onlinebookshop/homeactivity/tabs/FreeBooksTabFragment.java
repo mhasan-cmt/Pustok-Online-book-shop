@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.entity.Book;
-import com.teamphoenix.pustok_onlinebookshop.firebase.Booklistadapter;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.Booklistadapter;
 
 import org.jetbrains.annotations.NotNull;
 
