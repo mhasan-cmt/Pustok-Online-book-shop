@@ -1,9 +1,8 @@
-package com.teamphoenix.pustok_onlinebookshop.payement;
+package com.teamphoenix.pustok_onlinebookshop.payment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;

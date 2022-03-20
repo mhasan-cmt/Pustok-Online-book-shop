@@ -1,4 +1,4 @@
-package com.teamphoenix.pustok_onlinebookshop.MODALs;
+package com.teamphoenix.pustok_onlinebookshop.entity;
 
 public class CatagModal {
     String id, name, count, image;

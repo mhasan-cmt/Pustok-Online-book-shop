@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PustokOnlineBookShop">
         <activity
-            android:name=".payement.PaymentActivity"
+            android:name=".payment.PaymentActivity"
             android:exported="false" />
         <activity
             android:name=".profile.Profile_Layout"
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Writer_Profile.writer_prof"
+            android:name=".writer_profile.writer_prof"
             android:exported="true" />
         <activity
             android:name=".noInternetPage.noInternetPage"

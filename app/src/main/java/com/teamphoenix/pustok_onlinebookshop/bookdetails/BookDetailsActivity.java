@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.Publisher_Profile.Publisher_Profile;
 import com.teamphoenix.pustok_onlinebookshop.R;
-import com.teamphoenix.pustok_onlinebookshop.Writer_Profile.writer_prof;
+import com.teamphoenix.pustok_onlinebookshop.writer_profile.writer_prof;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityBookDetailsBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;

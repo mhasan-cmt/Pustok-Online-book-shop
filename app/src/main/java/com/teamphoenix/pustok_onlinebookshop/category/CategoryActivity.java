@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityCategoryBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Book;
-import com.teamphoenix.pustok_onlinebookshop.firebase.Booklistadapter;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.adapter.Booklistadapter;
 
 import org.jetbrains.annotations.NotNull;
 
