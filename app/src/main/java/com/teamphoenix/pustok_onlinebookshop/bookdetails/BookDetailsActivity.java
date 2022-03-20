@@ -107,6 +107,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                     Cart cart1 = dataSnapshot.getValue(Cart.class);
                     bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_add_shopping_cart);
                     if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(cart1.getUser_id()) && intent.getStringExtra("book_id").equals(cart1.getBook_id())) {
