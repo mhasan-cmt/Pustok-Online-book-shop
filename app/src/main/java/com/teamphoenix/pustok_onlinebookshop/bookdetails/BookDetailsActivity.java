@@ -224,15 +224,17 @@ public class BookDetailsActivity extends AppCompatActivity {
                 book.getPrice(),
                 "1");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart");
+        fireBaseDbService.saveToCart(cart);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Cart cart1 = dataSnapshot.getValue(Cart.class);
+                    bookDetailsBinding.addToCart.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_shopping_cart));
                     if (cart.getUser_id().equals(cart1.getUser_id()) && cart.getBook_id().equals(cart1.getBook_id())) {
                         bookDetailsBinding.addToCart.setImageResource(R.drawable.ic_remove_shopping);
-                    } else {
-                        bookDetailsBinding.addToCart.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_shopping_cart));
+                        recreate();
+                        break;
                     }
 
                 }
@@ -242,7 +244,6 @@ public class BookDetailsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        fireBaseDbService.saveToCart(cart);
         progressDialog.dismiss();
     }
 
