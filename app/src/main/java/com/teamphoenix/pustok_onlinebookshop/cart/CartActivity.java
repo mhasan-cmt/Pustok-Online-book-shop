@@ -17,6 +17,7 @@ import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityCartBinding;
 import com.teamphoenix.pustok_onlinebookshop.entity.Cart;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetAllCartItemsListener;
+import com.teamphoenix.pustok_onlinebookshop.payement.PaymentActivity;
 import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
 
 import java.util.ArrayList;
@@ -39,6 +40,17 @@ public class CartActivity extends AppCompatActivity {
 
         setContentView(cartBinding.getRoot());
         materialToolbar = cartBinding.checkoutToolbar;
+
+
+        cartBinding.cartPayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
+                intent.putExtra("price_from_cart", cartBinding.totalBookPrice.getText().toString());
+                startActivity(intent);
+            }
+        });
+
 
         materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
