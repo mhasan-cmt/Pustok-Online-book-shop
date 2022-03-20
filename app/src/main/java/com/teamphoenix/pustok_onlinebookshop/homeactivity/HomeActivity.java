@@ -77,6 +77,7 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
             @Override
             public void onRefresh() {
                 Toast.makeText(HomeActivity.this, "Refreshed..!", Toast.LENGTH_SHORT).show();
+                recreate();
                 homeBinding.getRoot().setRefreshing(false);
             }
         });
