@@ -1,17 +1,15 @@
 package com.teamphoenix.pustok_onlinebookshop.settings;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivitySettingsBinding;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
 import com.teamphoenix.pustok_onlinebookshop.loginandsignup.LoginActivity;
-import com.teamphoenix.pustok_onlinebookshop.profile.Profile_Layout;
 
 public class SettingsActivity extends AppCompatActivity {
     ActivitySettingsBinding settingsBinding;
@@ -40,7 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
         settingsBinding.secondCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SettingsActivity.this, Profile_Layout.class));
+
             }
         });
     }
