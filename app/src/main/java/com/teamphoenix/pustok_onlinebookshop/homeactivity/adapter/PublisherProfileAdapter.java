@@ -13,8 +13,14 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.teamphoenix.pustok_onlinebookshop.Publisher_Profile.Publisher_Profile;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.entity.Publisher;
 
 import java.util.ArrayList;
@@ -41,10 +47,30 @@ public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfi
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
 //        holder.publisher_profile_pic.setImageResource(images.get(position));
+        Publisher publisher = publisherDataArray.get(position);
         Glide.with(context).asBitmap().load(publisherDataArray.get(position).getPublisher_img())
                 .into(holder.publisher_profile_pic);
         holder.publisher_name.setText(publisherDataArray.get(position).getPublisher_name());
         holder.publisher_total_book.setText(publisherDataArray.get(position).getTotal_books());
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Booklist");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Book book = dataSnapshot.getValue(Book.class);
+                    if (book.getPublisher_id().equals(publisher.getPublisher_id())){
+                        i++;
+                    }
+                }
+                holder.publisher_total_book.setText(Integer.toString(i)+" টি বই");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         holder.writer_profile_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +78,7 @@ public class PublisherProfileAdapter extends RecyclerView.Adapter<PublisherProfi
                 intent.putExtra("publisher_id", publisherDataArray.get(holder.getAdapterPosition()).getPublisher_id());
                 intent.putExtra("publisher_name", publisherDataArray.get(holder.getAdapterPosition()).getPublisher_name());
                 intent.putExtra("publisher_profile_pic", publisherDataArray.get(position).getPublisher_img());
-                intent.putExtra("publisher_total_book", publisherDataArray.get(holder.getAdapterPosition()).getTotal_books());
+                intent.putExtra("publisher_total_book", holder.publisher_total_book.getText());
                 intent.putExtra("publisher_follower", publisherDataArray.get(holder.getAdapterPosition()).getTotal_followers());
                 context.startActivity(intent);
             }

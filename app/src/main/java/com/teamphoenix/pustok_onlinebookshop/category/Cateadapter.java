@@ -7,12 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.entity.CatagModal;
 import com.teamphoenix.pustok_onlinebookshop.R;
 
@@ -43,6 +50,25 @@ public class Cateadapter extends RecyclerView.Adapter<Cateadapter.MyViewholder> 
         holder.txt1.setText(dT.getName());
         holder.txt2.setText(dT.getCount());
         Picasso.get().load(dT.getImage()).fit().into(holder.imageView);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Booklist");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Book book = dataSnapshot.getValue(Book.class);
+                    if (book.getCategory_id().equals(dT.getId())){
+                        i++;
+                    }
+                }
+                holder.txt2.setText(Integer.toString(i)+" টি বই");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         holder.category_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

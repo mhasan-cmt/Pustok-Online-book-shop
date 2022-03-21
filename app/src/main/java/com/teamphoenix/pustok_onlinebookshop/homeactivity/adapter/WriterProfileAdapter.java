@@ -12,8 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.teamphoenix.pustok_onlinebookshop.R;
+import com.teamphoenix.pustok_onlinebookshop.entity.Book;
 import com.teamphoenix.pustok_onlinebookshop.writer_profile.writer_prof;
 import com.teamphoenix.pustok_onlinebookshop.entity.Writer;
 
@@ -40,7 +46,27 @@ public class  WriterProfileAdapter extends RecyclerView.Adapter<WriterProfileAda
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         holder.publisher_name.setText(writerArrayList.get(position).getWriter_name());
-        holder.publisher_total_book.setText(writerArrayList.get(position).getFollowers());
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Booklist");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Book book = dataSnapshot.getValue(Book.class);
+                    if (book.getWriter_id().equals(writerArrayList.get(position).getWriter_id())){
+                        i++;
+                    }
+                }
+                holder.publisher_total_book.setText(Integer.toString(i)+" টি বই");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+//        holder.publisher_total_book.setText(writerArrayList.get(position).getFollowers());
         Picasso.get().load(writerArrayList.get(position).getProfile_pic()).into(holder.publisher_profile_pic);
         holder.writer_profile_container.setOnClickListener(new View.OnClickListener() {
             @Override

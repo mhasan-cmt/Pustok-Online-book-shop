@@ -46,6 +46,26 @@ public class writer_prof extends AppCompatActivity {
         activityWriterProfBinding.writerFollowers.setText(intent.getStringExtra("writer_follower"));
         Picasso.get().load(intent.getStringExtra("writer_img")).into(activityWriterProfBinding.writerImg);
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Booklist");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Book book = dataSnapshot.getValue(Book.class);
+                    if (book.getWriter_id().equals(intent.getStringExtra("writer_id"))){
+                        i++;
+                    }
+                }
+                activityWriterProfBinding.totalBook.setText(Integer.toString(i)+" টি বই");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
         BookDetailAdapter adapter = new BookDetailAdapter(this, bookArrayList);
