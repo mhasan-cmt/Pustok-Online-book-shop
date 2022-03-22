@@ -61,7 +61,8 @@ public class Cateadapter extends RecyclerView.Adapter<Cateadapter.MyViewholder> 
                         i++;
                     }
                 }
-                holder.txt2.setText(Integer.toString(i)+" টি বই");
+                dT.setCount(String.valueOf(i));
+                holder.txt2.setText(dT.getCount()+" টি বই");
             }
 
             @Override
