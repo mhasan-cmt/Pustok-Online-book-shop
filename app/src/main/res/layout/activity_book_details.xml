@@ -78,26 +78,30 @@
                 android:orientation="horizontal"
                 android:weightSum="2"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="10dp">
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="15dp"
+                >
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/transparent_btn"
+                    android:backgroundTint="#FFD600"
                     android:text="একটু পড়ুন"
+                    android:fontFamily="@font/sagar_normal"
                     android:textColor="@color/black"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"/>
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:text="এখনি কিনুন"
+                    android:text="In Stock"
                     android:textSize="18dp"
                     android:textColor="@color/white"
-                    android:background="@drawable/primary_button"/>
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/primary"/>
             </LinearLayout>
 
             <LinearLayout
