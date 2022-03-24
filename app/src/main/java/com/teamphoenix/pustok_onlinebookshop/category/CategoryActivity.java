@@ -51,7 +51,7 @@ public class CategoryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         categoryBinding.categoryName.setText(intent.getStringExtra("category_id"));
         categoryBinding.categoryName.setText(intent.getStringExtra("category_name"));
-        categoryBinding.categoryTotalBooks.setText(intent.getStringExtra("category_count"));
+        categoryBinding.categoryTotalBooks.setText(intent.getStringExtra("category_count")+" টি বই");
         Picasso.get().load(intent.getStringExtra("category_img")).into(categoryBinding.categoryIcon);
         progressDialog.dismiss();
 

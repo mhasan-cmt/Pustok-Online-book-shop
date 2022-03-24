@@ -49,6 +49,25 @@ public class Publisher_Profile extends AppCompatActivity {
         publisher_name.setText(intent.getStringExtra("publisher_name"));
         publisher_follower.setText(intent.getStringExtra("publisher_follower"));
         publisher_total_book.setText(intent.getStringExtra("publisher_total_book"));
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Booklist");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Book book = dataSnapshot.getValue(Book.class);
+                    if (book.getPublisher_id().equals(intent.getStringExtra("publisher_id"))){
+                        i++;
+                    }
+                }
+                publisher_total_book.setText(Integer.toString(i)+" টি বই");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         Glide.with(getApplicationContext()).asBitmap().load(intent.getStringExtra("publisher_profile_pic"))
                 .into(publisher_profile_pic);
 //        Picasso.get().load(intent.getStringExtra("publisher_profile_pic")).into(publisher_profile_pic);

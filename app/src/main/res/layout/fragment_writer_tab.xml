@@ -30,21 +30,14 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/writer_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:layout_below="@id/lin1"
-        android:elevation="8dp"
-        app:cardCornerRadius="10dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/writer_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="600dp"
-            android:layout_gravity="center_horizontal"
-
-            />
-    </androidx.cardview.widget.CardView>
-
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
+        />
 
 </RelativeLayout>

@@ -50,6 +50,14 @@ public class PaymentActivity extends AppCompatActivity {
         paymentActivityBinding.paymentPayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!paymentActivityBinding.inputNumber.getText().toString().equals("") && paymentActivityBinding.inputNumber.getText().length()==11){
+                    showSuccessToast();
+                    Intent toCartAgain = new Intent(PaymentActivity.this, CartActivity.class);
+                    startActivity(toCartAgain);
+                    finish();
+                }else{
+                    Toast.makeText(PaymentActivity.this, "Input Valid Number", Toast.LENGTH_SHORT).show();
+                }
                 showSuccessToast();
                 Intent toCartAgain = new Intent(PaymentActivity.this, CartActivity.class);
                 displayNotification();

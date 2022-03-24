@@ -67,6 +67,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp"
+                        android:layout_marginRight="10dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -76,7 +77,8 @@
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:id="@+id/totalBook"/>
 
                 </LinearLayout>
 

@@ -33,4 +33,8 @@ public class CatagModal {
     public String getImage() {
         return image;
     }
+
+    public void setCount(String count) {
+        this.count = count;
+    }
 }
