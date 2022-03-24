@@ -47,6 +47,7 @@ public class WriterTabFragment extends Fragment {
             public void onSuccess(ArrayList<Writer> writers) {
                 writerProfileAdapter = new WriterProfileAdapter(getContext(), writers);
                 writer_recyclerView.setAdapter(writerProfileAdapter);
+
                 writer_recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
                 writerProfileAdapter.notifyDataSetChanged();
             }

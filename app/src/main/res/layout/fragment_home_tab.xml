@@ -10,14 +10,15 @@
     <LinearLayout
         android:id="@+id/lin2"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="200dp"
         android:gravity="center"
+        android:layout_margin="3dp"
         android:orientation="vertical">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/home_slider"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:iss_auto_cycle="true"
             app:iss_delay="0"
             app:iss_period="1000" />
@@ -28,6 +29,7 @@
         android:id="@+id/TT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_below="@id/lin2" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -39,7 +41,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -131,8 +133,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/l2"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/TT"
-        android:visibility="gone" />
+        android:visibility="gone"
+
+    />
 
 </RelativeLayout>
