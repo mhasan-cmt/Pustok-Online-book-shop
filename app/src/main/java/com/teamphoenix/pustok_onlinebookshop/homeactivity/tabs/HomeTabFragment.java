@@ -52,8 +52,8 @@ public class HomeTabFragment extends Fragment {
         recyclerView1.setLayoutManager(new GridLayoutManager(getContext(), 2));
         database = FirebaseDatabase.getInstance();
         databaseReference1 = database.getReference("Booklist");
-        recyclerView1.setHasFixedSize(true);
         boookclassArrayList = new ArrayList<>();
+        recyclerView1.setHasFixedSize(true);
         booklistadapter = new Booklistadapter(boookclassArrayList, getContext());
         recyclerView1.setAdapter(booklistadapter);
         return view;
@@ -95,9 +95,9 @@ public class HomeTabFragment extends Fragment {
      */
     private void setUpImageSlider() {
         imgList = new ArrayList<>();
-        imgList.add(new SlideModel("https://bit.ly/2YoJ77H", "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP));
-        imgList.add(new SlideModel("https://bit.ly/2BteuF2", "Elephants and tigers may become extinct.", ScaleTypes.CENTER_CROP));
-        imgList.add(new SlideModel("https://bit.ly/3fLJf72", "And people do that.", ScaleTypes.CENTER_CROP));
+        imgList.add(new SlideModel("https://static.boitoi.com.bd/static/assets/images/share_new2.jpg",  ScaleTypes.CENTER_CROP));
+        imgList.add(new SlideModel("https://lh3.googleusercontent.com/ZjzIvf4Zl8x6DaM6nKOHiWneGvx1vOL2K3OLNqGUKbVM3AnZRlHEIweDKtoNsjnDA-E=w1024-h500",  ScaleTypes.CENTER_CROP));
+        imgList.add(new SlideModel("https://play-lh.googleusercontent.com/qaic_0M2QOgElKPQkQPNE_jJSlceAKOiUKB5UfVYITRjtBBzijR1z1LzikZC7jqgoQ",  ScaleTypes.CENTER_CROP));
     }
 
     /**
