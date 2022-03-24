@@ -28,10 +28,10 @@
 
             app:defaultNavHost="true"
 
-            android:layout_height="match_parent"
+
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            app:defaultNavHost="true"
+
             android:layout_marginBottom="60dp"
 
             app:navGraph="@navigation/home_nav" />
