@@ -1,7 +1,7 @@
 # An online book shop android app.
 
 <p>
-<img src="Pustok-Online-book-shop.png" alt="Pustok Social Preview"/>
+<img src="https://socialify.git.ci/mhasan-cmt/Pustok-Online-book-shop/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&logo=https%3A%2F%2Fshafinsufo.000webhostapp.com%2Fimages%2Fic_launcher.png&name=1&owner=1&pulls=1&stargazers=1&theme=Dark" alt="Pustok Social Preview"/>
 </p>
 
 ## Key Features
