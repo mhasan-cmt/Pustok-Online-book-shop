@@ -8,7 +8,8 @@
 1. Attractive User Interface.
 2. Loads Fast.
 3. Easy to navigate.
-4. User can add a book to cart and buy it (MOCK Payment).
+4. Users can add a book to cart and buy it (MOCK Payment).
+5. Has a separate admin app for admin -> 1. Admin can add books, category, writer, publisher.
 
 ## Library Used for Ui
 1. Picasso
@@ -30,4 +31,4 @@
 ### Note: Used View Binding, Android Navigation. Tried our best to organize the codes as we are newbies.
 ### This Project was for our Industrial training program of Diploma in engineering.
 <p></p>
-#### Feel free to fork and contribute.
+### Feel free to fork and contribute.
