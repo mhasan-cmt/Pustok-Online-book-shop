@@ -27,6 +27,7 @@
 4. Firebase Storage
 5. Gson
 
-### Note: View Binding, Android Navigation. Tried our best to organize the codes as we are newbies.
+### Note: Used View Binding, Android Navigation. Tried our best to organize the codes as we are newbies.
 ### This Project was for our Industrial training program of Diploma in engineering.
+<p></p>
 #### Feel free to fork and contribute.
