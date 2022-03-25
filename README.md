@@ -6,7 +6,7 @@
 
 ## Key Features
 1. Attractive User Interface.
-2. Loads Fast.
+2. Loads Faster.
 3. Easy to navigate.
 4. Users can add a book to cart and buy it (MOCK Payment).
 5. Has a separate admin app for admin -> 1. Admin can add books, category, writer, publisher.
