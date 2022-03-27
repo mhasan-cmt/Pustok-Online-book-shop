@@ -1,14 +1,18 @@
 package com.teamphoenix.pustok_onlinebookshop.homeactivity;
 
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHostController;
@@ -18,7 +22,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityHomeBinding;
@@ -26,6 +33,8 @@ import com.teamphoenix.pustok_onlinebookshop.entity.User;
 import com.teamphoenix.pustok_onlinebookshop.homeactivity.fragments.ProfileFragment;
 import com.teamphoenix.pustok_onlinebookshop.listeners.onGetUserDataListener;
 import com.teamphoenix.pustok_onlinebookshop.service.FireBaseDbService;
+import com.teamphoenix.pustok_onlinebookshop.util.FirebaseTokenHelper;
+import com.teamphoenix.pustok_onlinebookshop.util.NotificationHelper;
 
 import java.util.ArrayList;
 
@@ -39,6 +48,7 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
     ProfileFragment profileFragment;
     User user;
     public SharedPreferences homeSharePreferences;
+    private FirebaseTokenHelper tokenHelper;
 
 
     @Override
@@ -53,6 +63,27 @@ public class HomeActivity extends AppCompatActivity implements onGetUserDataList
         setNavController();
         showExitDialog();
         getAndShowUserData();
+
+        tokenHelper = new FirebaseTokenHelper(this);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()) {
+                    String token = task.getResult();
+                    tokenHelper.saveToken(token);
+                } else {
+                    Toast.makeText(HomeActivity.this, "Failed to get the token!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+//        Create Notification Channel
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(NotificationHelper.CHANNEL_ID, NotificationHelper.CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription(NotificationHelper.CHANNEL_DESCRIPTION);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
 //        exitButtonOnclick
         exit_btn_no.setOnClickListener(new View.OnClickListener() {
             @Override
