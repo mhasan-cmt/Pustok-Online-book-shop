@@ -17,16 +17,14 @@ import androidx.core.app.NotificationManagerCompat;
 import com.teamphoenix.pustok_onlinebookshop.R;
 import com.teamphoenix.pustok_onlinebookshop.cart.CartActivity;
 import com.teamphoenix.pustok_onlinebookshop.databinding.ActivityPaymentBinding;
+import com.teamphoenix.pustok_onlinebookshop.homeactivity.HomeActivity;
+import com.teamphoenix.pustok_onlinebookshop.util.NotificationHelper;
 
 public class PaymentActivity extends AppCompatActivity {
     private final String[] paymentMethods = {"Bkash", "Nogod", "Rocket", "DBBL",  "IBBL"};
     ActivityPaymentBinding paymentActivityBinding;
     ArrayAdapter arrayAdapter;
 
-//    Notification
-    private final String CHANNEL_ID = "PustokPaymentSuccess";
-    private final String CHANNEL_NAME = "pustokpaymentsuccess";
-    private final String CHANNEL_DESCRIPTION = "PaymentNotification";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +33,6 @@ public class PaymentActivity extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, paymentMethods);
         arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         paymentActivityBinding.paymentSpinner.setAdapter(arrayAdapter);
-
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
-            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription(CHANNEL_DESCRIPTION);
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(notificationChannel);
-        }
 
 
         Intent intent = getIntent();
@@ -60,7 +50,7 @@ public class PaymentActivity extends AppCompatActivity {
                 }
                 showSuccessToast();
                 Intent toCartAgain = new Intent(PaymentActivity.this, CartActivity.class);
-                displayNotification();
+                NotificationHelper.displayNotification(PaymentActivity.this, "Payment Succeed", "You can now read your book");
                 startActivity(toCartAgain);
                 finish();
             }
@@ -77,15 +67,5 @@ public class PaymentActivity extends AppCompatActivity {
         successToast.setView(toastLayout);
         successToast.show();
     }
-    private void displayNotification(){
-        NotificationCompat.Builder  notificationBuilder = new NotificationCompat.Builder(PaymentActivity.this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_baseline_account_circle_24)
-                .setContentTitle("Payment Success!")
-                .setContentText("Successfully paid, you can now read your book.")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(PaymentActivity.this);
-        notificationManagerCompat.notify(1, notificationBuilder.build());
-    }
 }
